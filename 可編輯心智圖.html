@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳仲豪行銷課程大綱 - 可編輯心智圖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-lib/dist/browser/index.iife.js"></script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+        .markmap-node { cursor: pointer; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 h-screen flex flex-col font-sans overflow-hidden">
+    <header class="bg-slate-800 border-b border-slate-700 px-6 py-3 flex items-center justify-between shadow-lg shrink-0">
+        <div class="flex items-center space-x-3">
+            <div class="bg-gradient-to-tr from-indigo-500 to-purple-500 p-2.5 rounded-xl shadow-md">
+                <i class="fa-solid fa-sitemap text-xl text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-wide text-white flex items-center gap-2">
+                    AWAKEN THE HEALING POWER <span class="text-xs bg-indigo-500/30 text-indigo-300 border border-indigo-500/50 px-2 py-0.5 rounded-full font-normal">陳仲豪身心健康行銷變現</span>
+                </h1>
+                <p class="text-xs text-slate-400">可即時編輯、縮放與匯出的動態心智圖系統</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <div class="bg-slate-900/80 p-1 rounded-lg border border-slate-700 flex items-center space-x-1">
+                <button id="btn-view-split" onclick="switchView('split')" title="分割模式" class="px-3 py-1.5 rounded-md text-xs font-medium transition-all bg-indigo-600 text-white shadow-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-columns"></i><span>雙欄</span>
+                </button>
+                <button id="btn-view-edit" onclick="switchView('edit')" title="純編輯模式" class="px-3 py-1.5 rounded-md text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-1">
+                    <i class="fa-solid fa-file-pen"></i><span>編輯</span>
+                </button>
+                <button id="btn-view-map" onclick="switchView('map')" title="純心智圖模式" class="px-3 py-1.5 rounded-md text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-1">
+                    <i class="fa-solid fa-expand"></i><span>心智圖</span>
+                </button>
+            </div>
+            <div class="h-6 w-px bg-slate-700"></div>
+            <button onclick="zoomFit()" title="置中縮放" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center space-x-1.5 shadow-sm">
+                <i class="fa-solid fa-compress"></i><span>重設縮放</span>
+            </button>
+            <button onclick="exportMarkdown()" title="下載 Markdown" class="bg-slate-800 hover:bg-slate-700 border border-slate-6E00 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center space-x-1.5 shadow-sm">
+                <i class="fa-solid fa-file-code"></i><span>匯出 .md</span>
+            </button>
+            <button onclick="exportSVG()" title="下載 SVG" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-download"></i><span>下載 SVG 圖片</span>
+            </button>
+        </div>
+    </header>
+    <main class="flex-1 flex overflow-hidden">
+        <section id="editor-container" class="w-1/2 flex flex-col border-r border-slate-700 bg-slate-950 shadow-inner transition-all duration-300">
+            <div class="bg-slate-900 border-b border-slate-800 px-4 py-2 flex items-center justify-between text-xs font-semibold text-slate-300 shrink-0">
+                <span class="flex items-center gap-1.5 text-indigo-400"><i class="fa-solid fa-pen-nib"></i> 結構文字編輯區 (Markdown 語法)</span>
+                <span class="text-slate-500 font-normal">直接編輯文字即可即時更新右側心智圖</span>
+            </div>
+            <textarea id="editor" class="flex-1 w-full bg-slate-950 text-slate-200 p-5 font-mono text-sm leading-relaxed resize-none focus:outline-none focus:ring-0 selection:bg-indigo-600 selection:text-white">
+# 身心健康產業行銷與變現課程
+## 一、課程引言
+### 1-1 課程定位
+- AWAKEN THE HEALING POWER
+- 核心理念：用最真實能量連結靈魂
+- 21年實戰沈澱，萃取療癒者變現架構
+### 1-2 整理包價值
+- 課程學費投資：300萬
+- 社會大學實戰代價：1000萬+
+- 目標：避開坑洞，直達結果
+### 1-3 課程三大特色
+- 整合流派優勢：理出最高效獲利地圖
+- 零拍片變現法：免露臉建立強大信任
+- 內部傳承秘籍：首度解密團隊變現法
+### 1-4 個人化與科學化
+- 找出專屬行銷模式
+- 科學數據化提升效率
+- 確保事業穩定自然成長
+- WHY(願景)→HOW(信任)→WHAT(產品)
+### 1-5 課程方案承諾
+- 今日濃縮包：1HR/免費/10%架構
+- 完整實戰班：30HR/＄3,000/達標退費＄0
+- 高階陪跑班：100HR/＄30,000/含行銷顧問
+
+## 二、講師背景（陳仲豪）
+### 2-1 核心資歷
+- 學習身心健康30年/產業21年
+- 身心靈花費逾400萬
+- 台灣六萬名經銷商推薦第一名
+- 獲3家產業第一名、逾20個銷售冠軍
+- 經營14家身心健康實體店
+- 培訓學員超過10,000人
+### 2-2 個人故事：為何投身身心健康
+- 母親2年花費上千萬尋求各種療法
+- 核心理念：助己助人身心健康快樂
+- 18歲三大目標
+  - 身心靈健康整合平台（亞健康）
+  - 身心靈療癒中心（重症）
+  - 身心靈學校＆養生村（根本解）
+### 2-3 人生歷程
+- 21歲276元起家→26歲五子登科
+- 超過20個銷售冠軍，六萬名經銷商推薦第一
+- 開過14家健康實體店
+- 曾經歷事業谷底，遇無形障礙
+- 2024谷底→2025靈魂調整後突破
+### 2-4 學習的老師群（花費逾400萬）
+- 健康管理：江守山/Louis Ignarro(諾貝爾)/David Heber
+- 運動：SGT全球第一教練/簡凡翔/NORIK瑜珈
+- 成功學：金克拉/吉米隆/安東尼羅賓/博恩崔西/史蒂芬柯維
+- 經絡：黃法華/葉凱文/蔡婉如
+- 心理：奧修/薩提爾/阿德勒/麥可羅區格西/朗達拜恩/修藍博士
+- 銷售：張秀滿/洪傳隆/黃佳興/喬吉拉德/杜云安
+- 行銷：洪幼龍/小船/達陣/老包/林偉賢/LEON/PETRE/Maria特勞特
+- 管理：曾仕強/陳宗賢(亞洲彼得杜拉克)
+- 靈性：陳老師(黃仁勳＆郭台銘顧問)/淨空法師
+### 2-5 靈性導師「陳老師」
+- 靈界身分：萬王之王
+- 企業主開價3,000萬當顧問
+- 能力：因果業力/姻緣處理/靈魂定位/事業增運/財運補運/命名
+- 超過100個個案求證
+### 2-6 精簡資歷
+#### 行銷學習
+- 行銷培訓1,000HR：達陣FB/洪幼龍/老包/小船/DFP/280小時認證
+- 業務心理2,000HR：生命藍圖/賀寶芙/陳宗賢/直銷培訓/銷售七步驟
+#### 主要經歷
+- 賀寶芙台灣區第一推薦高手（富豪組）
+- 全球華人在家創業系統線上培訓總監
+- VIIVA藍鑽領導人
+- 身心樂運動教室創辦人
+- 多家企業行銷顧問
+- V公司3個月業績近6,000萬
+#### 專長
+- 身心健康產業行銷
+- 網路行銷、店面行銷、組織行銷
+- 系統建設、面對面銷售
+
+## 三、實戰案例
+### 3-1 成效總覽
+- 經絡產業 10倍
+- 運動產業 10倍
+- 火鍋業 3倍
+- 美容業 5倍
+- 公益課程賣出500份
+- 身心靈課程逾600人
+- 美商公司3個月6,000萬
+### 3-2 火鍋店行銷（2019）
+- 結合行銷與市調，1個月來客增3倍
+- 單篇貼文：20萬觸及/2,221留言/1,627分享（零廣告費）
+- 週一到店成長：66→68→52→156→192人
+### 3-3 健身房行銷（2020）
+- FB/IG貼文觸及與互動爆量
+### 3-4 線上行銷課程（2020）
+- 課程報名與銷售成效顯著
+### 3-5 運動教室爆量（2021）
+- 社群貼文大量留言、預約爆滿
+
+## 四、行銷基礎觀念
+### 4-1 行銷定義（AMA 2017）
+- 創造、溝通、傳遞與交換價值
+- 使顧客、夥伴與社會受益
+### 4-2 業力法則
+- 善因善果循環，先給予後獲得
+### 4-3 各層次角色架構
+- 大師→多界指導
+- 指導老師→協助提升
+- 靈性老師→靈性提升
+- 領袖(道)→正確決策
+- 領導者(法)→領導+謀略
+- 經營者(術)→經營管理+系統
+- 銷售者(器)→解決問題
+- 消費者→找問題/抱怨者
+### 4-4 名店產生要素
+- 產品服務好（獨特性/解決問題/高CP值）
+- 口碑推薦
+- 排隊從眾效應
+- 行銷目標：壓縮成功所需時間
+### 4-5 高頻溝通力
+- 核心技巧：認同→讚美→反問
+- 框架：WHY→WHO→WHAT→HOW
+
+## 五、精準定位方法
+### 5-1 定位工具組合
+- 大數據+個人觀感+他人觀感+儀器測量+老師建議
+- 一般測驗：MBTI/人類圖/星座/DISC
+- 儀器量測：個性/天賦/職業/靈魂使命
+- 諮詢：此生功課/累世天賦
+- 自傳+興趣+專長
+- 人設九宮格→彙整導入AI
+### 5-2 精準定位公式
+- 綜合評估→意義→SWOT與PEST分析
+### 5-3 「道」的層次分類框架
+- 天道：純真/身份（阿彌陀佛/觀世音）
+- 天功：大功大德/血脈（修行33重天）
+- 地道：公義道理/規矩（王陽明/諸葛孔明）
+- 地德：做出榜樣/雙方有所得（與神同行）
+- 人道：本分/傳承（法律/錢/價值交換）
+- 商道：誠信/信用/抓準趨勢（黃仁勳/AI）
+- 妖道：成仙/吸靈氣（聊齋誌異）
+- 魔道：成神/抓交替（路西法/聖經）
+
+## 六、網路行銷三大要素
+### 6-1 產品
+#### 產品三力
+- 產品力：產品本身賣點
+- 品牌力：客戶認知的賣點
+- 行銷力：透過包裝讓產品更好賣
+#### 提升產品力
+- 向內找：差異化賣點（品質/形狀）
+- 向外找：時事梗（疫情/寵物/節日/AI）
+- 水平找：認同感
+#### 品牌力
+- 接觸即成交，累積信任
+- 小成交→大成交
+- 重點：先賣出產品
+#### 受眾設定
+- 年齡/居住地/痛點/滿足方式
+### 6-2 流量
+#### 流量來源
+- IG/FB/YouTube/店面/Threads
+#### FB演算法關鍵
+- 時間近→分數高→連結高
+#### PO文禁忌（降觸及）
+- 分享別人貼文
+- 外部連結（LINE/YouTube等）
+- 誘使留言
+- 大量回覆私訊
+- 大量分享與PO文
+- 涉及違法內容
+- 大量社團PO文被擋
+#### 增加觸及率
+- PO文分數高→下一篇提升
+- 善用影片
+- 前三行要有重點
+#### 六大免費引流
+- 客戶推薦文：客戶說的話大家聽
+- 社團店家文：無限推文
+- 客戶推薦標註個人版：背書效果強
+- 個人版貼文：可自主掌握
+- 粉絲頁留言增觸及：官方帳號感
+- 限時動態：首頁曝光/3秒吸睛
+### 6-3 系統
+- 顧客體驗流程必須「簡單快速」
+
+## 七、行銷策略分析框架
+### 7-1 SWOT分析
+- S優勢(Strengths)：內部有利
+- W劣勢(Weaknesses)：內部不利
+- O機會(Opportunities)：外部有利
+- T威脅(Threats)：外部不利
+### 7-2 PEST分析
+- P政治(Political)：稅法/勞工法/政府政策
+- E經濟(Economic)：利率/匯率/經濟成長/消費水平
+- S社會(Social)：教育/人口/風俗/生活趨勢
+- T科技(Technological)：技術趨勢/科技投資/產業發展
+### 7-3 STP理論
+- S Segmenting市場細分：分成不同群體
+- T Targeting目標市場：選擇服務群體
+- P Positioning市場定位：建立獨特位置
+### 7-4 差異化策略
+#### 七種差異化
+- 形象差異化
+- 人員差異化
+- 通路差異化
+- 產品差異化
+- 服務差異化
+- 價格差異化
+- 收費模式差異化
+#### 差異化核心原則
+- 人無我有→市場創新第一
+- 人有我優→品質超越競爭者
+- 人優我廉→以價格取勝
+#### 彼得杜拉克創新七來源
+- 意外事件：掌握意外（西南航空/IKEA）
+- 現象不一致：填平落差（貨櫃）
+- 流程所需：解決問題（Apple音樂）
+- 產業與市場改變：違背規則（Uber/Airbnb）
+- 人口結構改變：對焦被忽略客群
+- 觀念改變：不同角度（有機/健康主義）
+- 新知識：獨特本領（IKEA AR實境）
+### 7-5 4P行銷組合
+- 產品Product：有形/無形，產品週期與獨特賣點
+- 價格Price：感知價值非客觀成本
+- 促銷Promotion：廣告/折扣/公關
+- 地點Place：店面/網路/大賣場
+### 7-6 4C顧客導向
+- Customer顧客：先了解需求提供價值
+- Cost成本：生產+顧客取得成本
+- Convenience便利性：購買方便
+- Communication溝通：雙向非單向促銷
+### 7-7 AISAS傳播模型
+- A注意(Attention)：抓眼球標題/促銷活動
+- I興趣(Interest)：改善利益/功效承諾
+- S搜尋(Search)：主動搜尋產品資訊
+- A行動(Action)：購買或試用
+- S分享(Share)：口碑擴散
+
+## 八、平台願景與商業規劃
+### 8-1 平台創立動機
+- 自己得到好處，讓更多人得到
+- 消費者：幫助身心靈健康快樂
+- 從業者：幫助安身立命
+- 老師建議：立刻寫企劃
+### 8-2 平台定位
+- 身心靈界嚴選蝦皮＆全聯
+- 一站式服務（諮詢/課程/產品）——定心定靈
+### 8-3 商業流程
+#### 流量
+- 天：網站/自媒體/新聞/SEO
+- 地：店面
+- 人：代理商
+#### 變現
+- 諮詢/一對一（靈氣/諮詢）
+- 課程（身心靈課程）
+- 產品（健康食品/儀器）
+#### 倍增
+- 代理商
+- 加盟店
+### 8-4 一站式培訓系統
+- 整合一致性：宣傳/流量/行銷與業務培訓
+- AI身心靈檢測：量測可數據化
+- 諮詢/課程：獨特技術/老師培訓（可複製）
+- 產品：建議顧客所需/產品培訓/獨特產品
+### 8-5 循環流程
+- 量測→分類→預約老師→課程/宣傳→量測→課程/產品
+- 產品線：儀器/課程/諮詢/健康食品/美容/保養/能量/代餐/日用
+### 8-6 公司獨特競爭優勢
+- 公司：整合諮詢/課程/產品平台
+- 產品：量子能量結合/專利產品
+- 制度：解決直銷問題/不受標籤影響
+- 系統：免費引流/完整系統/老師+業務培訓
+- 行銷模式：多通路/分享APP即有收入
+- 品牌：最多老師推薦
+- 團隊：專業團隊
+- 技術：靈性技術免費教
+### 8-7 產業痛點
+- 無法數據化
+- 無法快速取得信任
+- 無法複製（靠個人魅力）
+- 心靈太過無形
+- 顧客感覺不到差別
+- 引流困難
+### 8-8 儀器選擇9大標準
+- 高性價比/減少經營壓力
+- 專業人士認同（如醫師）
+- 第一或唯一性
+- 效果快速（30分鐘內）
+- 肉眼可見效果
+- 要有認證
+- 推出時間要長
+- 老公司/新市場
+- 有流量與名單來源
+### 8-9 人才需求
+- 身心靈老師或想學習的人
+- 特助（細心）
+- 財稅專業（會計師）
+- 醫療專業（醫師/護理師/營養師/藥師/心理師）
+- 行銷專業（小編/拍攝/剪片/經紀人）
+- 法律專業
+### 8-10 組織架構
+- CEO
+  - 培訓總監：業務培訓/產品培訓
+  - 行銷總監：網路/自媒體/官網媒體店
+  - 業務
+  - 行政總監：財務/客服/技術
+### 8-11 成長路線圖（2024-2030）
+- 1.靈性老師/個人顧問(2024.7)
+- 2.專業個體戶(2025.1)
+- 3.微型工作室(2025.9)
+- 4.小團隊中心(2025.11)
+- 5.公司化經營(2026.3)
+- 6.小型品牌(2026.12)
+- 7.連鎖/擴張中心(2027.10)
+- 8.全國品牌(2028)
+- 9.平台型企業(2029)
+- 10.生態系統企業(2030)
+
+## 九、今日實戰功課
+- 撰寫推薦文與社群互相留言
+- 分析AI量子儀器SWOT與PEST
+- 實踐5C思維：以客為尊，越簡單越好</textarea>
+        </section>
+        <section id="map-container" class="w-1/2 relative bg-slate-900 flex flex-col h-full transition-all duration-300 overflow-hidden">
+            <svg id="markmap" class="w-full flex-1 cursor-move" style="height: 100%; width: 100%; min-height: 500px;"></svg>
+            <div class="absolute bottom-6 right-6 flex space-x-2 bg-slate-800/90 border border-slate-700 p-1.5 rounded-xl shadow-xl backdrop-blur-md z-10">
+                <button onclick="zoomIn()" title="放大" class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-slate-600 text-white transition shadow"><i class="fa-solid fa-plus text-sm"></i></button>
+                <button onclick="zoomOut()" title="縮小" class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-slate-600 text-white transition shadow"><i class="fa-solid fa-minus text-sm"></i></button>
+                <button onclick="zoomFit()" title="適合螢幕" class="w-9 h-9 flex items-center justify-center rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition shadow"><i class="fa-solid fa-expand text-sm"></i></button>
+            </div>
+            <div class="absolute top-4 left-4 bg-slate-800/80 border border-slate-700/80 px-3 py-1.5 rounded-lg text-xs text-slate-400 backdrop-blur-sm pointer-events-none shadow-sm z-10">
+                <i class="fa-solid fa-circle-info text-indigo-400 mr-1"></i> 滑鼠拖曳畫布移動，滾輪縮放，點擊節點展開/收合
+            </div>
+        </section>
+    </main>
+    <script>
+        var transformer, mm;
+
+        // Simple markdown to tree parser (fallback if Transformer unavailable)
+        function parseMarkdown(md) {
+            const lines = md.split('\n');
+            const root = { content: '', children: [], depth: 0 };
+            const stack = [root];
+
+            for (const line of lines) {
+                const trimmed = line.trim();
+                if (!trimmed) continue;
+
+                let depth, content;
+                const headingMatch = trimmed.match(/^(#{1,6})\s+(.*)/);
+                const bulletMatch = trimmed.match(/^[-*]\s+(.*)/);
+                const indentedBulletMatch = line.match(/^(\s+)[-*]\s+(.*)/);
+
+                if (headingMatch) {
+                    depth = headingMatch[1].length;
+                    content = headingMatch[2];
+                } else if (indentedBulletMatch) {
+                    const indent = indentedBulletMatch[1].length;
+                    depth = 7 + Math.floor(indent / 2);
+                    content = indentedBulletMatch[2];
+                } else if (bulletMatch) {
+                    depth = 7;
+                    content = bulletMatch[1];
+                } else {
+                    continue;
+                }
+
+                const node = { content, children: [], depth };
+
+                while (stack.length > 1 && stack[stack.length - 1].depth >= depth) {
+                    stack.pop();
+                }
+                stack[stack.length - 1].children.push(node);
+                stack.push(node);
+            }
+
+            return root.children.length === 1 ? root.children[0] : root;
+        }
+
+        function buildMarkmapData(node) {
+            return {
+                content: node.content,
+                children: (node.children || []).map(buildMarkmapData)
+            };
+        }
+
+        function initMarkmap() {
+            const { Markmap } = window.markmap;
+            const svgEl = document.querySelector('#markmap');
+
+            mm = Markmap.create(svgEl, {
+                zoom: true,
+                pan: true,
+                initialExpandLevel: 2,
+                color: (node) => {
+                    const colors = ['#6366f1', '#a855f7', '#14b8a6', '#f59e0b', '#ec4899', '#3b82f6', '#ef4444', '#84cc16', '#06b6d4'];
+                    return colors[node.depth % colors.length];
+                },
+                style: (id) => `
+                    .${id} g { fill: #f1f5f9; font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif; }
+                    .${id} line { stroke: #64748b !important; }
+                    .${id} circle { stroke: #6366f1; fill: #1e293b; }
+                `
+            });
+
+            // Try to get Transformer from markmap-lib
+            if (window.markmap && window.markmap.Transformer) {
+                transformer = new window.markmap.Transformer();
+                console.log('Using markmap Transformer');
+            } else {
+                console.log('Transformer not available, using built-in parser');
+            }
+
+            setTimeout(() => { updateMarkmap(); }, 100);
+        }
+
+        function updateMarkmap() {
+            if (!mm) return;
+            const markdown = document.querySelector('#editor').value;
+
+            let root;
+            if (transformer) {
+                const result = transformer.transform(markdown);
+                root = result.root;
+            } else {
+                root = buildMarkmapData(parseMarkdown(markdown));
+            }
+
+            mm.setData(root);
+            mm.fit();
+        }
+
+        let timeout;
+        document.querySelector('#editor').addEventListener('input', () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(updateMarkmap, 300);
+        });
+
+        function switchView(mode) {
+            const editorCol = document.querySelector('#editor-container');
+            const mapCol = document.querySelector('#map-container');
+            const btns = {
+                split: document.querySelector('#btn-view-split'),
+                edit: document.querySelector('#btn-view-edit'),
+                map: document.querySelector('#btn-view-map')
+            };
+            Object.values(btns).forEach(btn => {
+                btn.className = "px-3 py-1.5 rounded-md text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-1";
+            });
+            if (mode === 'split') {
+                btns.split.className = "px-3 py-1.5 rounded-md text-xs font-medium transition-all bg-indigo-600 text-white shadow-sm flex items-center space-x-1";
+                editorCol.style.display = "flex";
+                editorCol.style.width = "50%";
+                mapCol.style.display = "flex";
+                mapCol.style.width = "50%";
+            } else if (mode === 'edit') {
+                btns.edit.className = "px-3 py-1.5 rounded-md text-xs font-medium transition-all bg-indigo-600 text-white shadow-sm flex items-center space-x-1";
+                editorCol.style.display = "flex";
+                editorCol.style.width = "100%";
+                mapCol.style.display = "none";
+            } else if (mode === 'map') {
+                btns.map.className = "px-3 py-1.5 rounded-md text-xs font-medium transition-all bg-indigo-600 text-white shadow-sm flex items-center space-x-1";
+                editorCol.style.display = "none";
+                mapCol.style.display = "flex";
+                mapCol.style.width = "100%";
+            }
+            setTimeout(() => { if (mm && mode !== 'edit') { mm.fit(); } }, 300);
+        }
+
+        window.addEventListener('resize', () => {
+            if (mm && document.querySelector('#map-container').style.display !== 'none') { mm.fit(); }
+        });
+
+        function zoomIn() { mm.rescale(1.25); }
+        function zoomOut() { mm.rescale(0.8); }
+        function zoomFit() { mm.fit(); }
+
+        function exportMarkdown() {
+            const text = document.querySelector('#editor').value;
+            const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '陳仲豪行銷課程大綱.md';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function exportSVG() {
+            const svgEl = document.querySelector('#markmap');
+            const clone = svgEl.cloneNode(true);
+            const g = svgEl.querySelector('g');
+            const bbox = g.getBBox();
+            clone.setAttribute('viewBox', `${bbox.x - 50} ${bbox.y - 50} ${bbox.width + 100} ${bbox.height + 100}`);
+            clone.setAttribute('width', bbox.width + 100);
+            clone.setAttribute('height', bbox.height + 100);
+            clone.style.backgroundColor = '#0f172a';
+            const serializer = new XMLSerializer();
+            let source = serializer.serializeToString(clone);
+            if(!source.match(/^<\?xml/)){
+                source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+            }
+            const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '陳仲豪行銷課程大綱_心智圖.svg';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        window.onload = initMarkmap;
+    </script>
+</body>
+</html>
