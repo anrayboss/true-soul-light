@@ -28,6 +28,7 @@ def main():
     parser.add_argument("--language", default=None, help="語言 (預設: None 自動偵測，亦可手動指定如 zh, en)")
     parser.add_argument("--beam-size", type=int, default=1, help="Beam size (預設: 1，速度較快且穩定；較大數值如 5 可提高部分精準度但較慢且可能在短片中被過濾)")
     parser.add_argument("--temperature", type=float, default=0.0, help="Temperature (預設: 0.0，使用貪婪解碼以保證結果一致且穩定；若設為大於 0 的值，在低品質音訊中可能會隨機回傳空內容)")
+    parser.add_argument("--formats", nargs="+", default=["txt", "srt", "time"], choices=["txt", "srt", "time"], help="產出的檔案格式，可選：txt (純文字), srt (字幕), time (附時間軸) (預設: txt srt time)")
     
     args = parser.parse_args()
     
@@ -41,6 +42,7 @@ def main():
     language = args.language
     beam_size = args.beam_size
     temperature = args.temperature
+    formats = args.formats
     
     # CPU 預設使用 int8 加速，GPU 預設使用 float16
     compute_type = "int8" if device == "cpu" else "float16"
@@ -56,7 +58,7 @@ def main():
         sys.exit(1)
         
     print(f"開始轉寫檔案: {os.path.basename(file_path)}")
-    print(f"參數偵測: file_path={file_path!r}, beam_size={beam_size!r}, language={language!r}, temperature={temperature!r}, device={device!r}, compute_type={compute_type!r}")
+    print(f"參數偵測: file_path={file_path!r}, beam_size={beam_size!r}, language={language!r}, temperature={temperature!r}, device={device!r}, compute_type={compute_type!r}, formats={formats!r}")
     print("這可能需要幾分鐘，請稍候...")
     
     try:
@@ -86,31 +88,36 @@ def main():
             pbar.update(segment.end - last_pos)
             last_pos = segment.end
             
+    print("\n正在寫入檔案...")
+    
     # 寫入檔案
     # 1. 寫入純文字逐字稿 (TXT)
-    with open(txt_path, "w", encoding="utf-8") as f_txt:
-        for segment in segments_list:
-            f_txt.write(f"{segment.text}\n")
+    if "txt" in formats:
+        with open(txt_path, "w", encoding="utf-8") as f_txt:
+            for segment in segments_list:
+                f_txt.write(f"{segment.text}\n")
+        print(f" - 純文字逐字稿：{os.path.basename(txt_path)}")
             
     # 2. 寫入時間軸逐字稿 (TXT)
-    with open(time_txt_path, "w", encoding="utf-8") as f_time:
-        for segment in segments_list:
-            time_str = format_timestamp_text(segment.start)
-            f_time.write(f"{time_str} {segment.text}\n")
+    if "time" in formats:
+        with open(time_txt_path, "w", encoding="utf-8") as f_time:
+            for segment in segments_list:
+                time_str = format_timestamp_text(segment.start)
+                f_time.write(f"{time_str} {segment.text}\n")
+        print(f" - 時間軸逐字稿：{os.path.basename(time_txt_path)}")
             
     # 3. 寫入字幕檔 (SRT)
-    with open(srt_path, "w", encoding="utf-8") as f_srt:
-        for i, segment in enumerate(segments_list, start=1):
-            start_str = format_time(segment.start)
-            end_str = format_time(segment.end)
-            f_srt.write(f"{i}\n")
-            f_srt.write(f"{start_str} --> {end_str}\n")
-            f_srt.write(f"{segment.text.strip()}\n\n")
+    if "srt" in formats:
+        with open(srt_path, "w", encoding="utf-8") as f_srt:
+            for i, segment in enumerate(segments_list, start=1):
+                start_str = format_time(segment.start)
+                end_str = format_time(segment.end)
+                f_srt.write(f"{i}\n")
+                f_srt.write(f"{start_str} --> {end_str}\n")
+                f_srt.write(f"{segment.text.strip()}\n\n")
+        print(f" - SRT 字幕檔：{os.path.basename(srt_path)}")
             
-    print("\n轉寫完成！已成功產出以下檔案：")
-    print(f"1. 純文字逐字稿：{os.path.basename(txt_path)}")
-    print(f"2. 時間軸逐字稿：{os.path.basename(time_txt_path)}")
-    print(f"3. SRT 字幕檔：{os.path.basename(srt_path)}")
+    print("\n轉寫與檔案輸出完成！")
 
 if __name__ == "__main__":
     main()
