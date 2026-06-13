@@ -23,7 +23,7 @@ def format_timestamp_text(seconds):
 def main():
     parser = argparse.ArgumentParser(description="音影片本地用語音轉文字工具 (faster-whisper)")
     parser.add_argument("file_path", help="要轉寫的音訊或影片檔案路徑")
-    parser.add_argument("--model", default="base", choices=["tiny", "base", "small", "medium", "large-v3"], help="Whisper 模型大小 (預設: base)")
+    parser.add_argument("--model", default="small", choices=["tiny", "base", "small", "medium", "large-v3"], help="Whisper 模型大小 (預設: small)")
     parser.add_argument("--device", default="cpu", choices=["cpu", "cuda", "auto"], help="運行硬體 (預設: cpu)")
     parser.add_argument("--language", default=None, help="語言 (預設: None 自動偵測，亦可手動指定如 zh, en)")
     parser.add_argument("--beam-size", type=int, default=1, help="Beam size (預設: 1，速度較快且穩定；較大數值如 5 可提高部分精準度但較慢且可能在短片中被過濾)")
