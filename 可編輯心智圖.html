@@ -390,12 +390,34 @@
                 <button onclick="zoomFit()" title="適合螢幕" class="w-9 h-9 flex items-center justify-center rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition shadow"><i class="fa-solid fa-expand text-sm"></i></button>
             </div>
             <div class="absolute top-4 left-4 bg-slate-800/80 border border-slate-700/80 px-3 py-1.5 rounded-lg text-xs text-slate-400 backdrop-blur-sm pointer-events-none shadow-sm z-10">
-                <i class="fa-solid fa-circle-info text-indigo-400 mr-1"></i> 滑鼠拖曳畫布移動，滾輪縮放，點擊節點展開/收合
+                <i class="fa-solid fa-circle-info text-indigo-400 mr-1"></i> 滑鼠拖曳畫布移動，滾輪縮放，點擊節點展開/收合，雙擊編輯節點，右鍵選單管理
+            </div>
+            <!-- 浮動右鍵選單 -->
+            <div id="context-menu" class="hidden absolute bg-slate-800/95 border border-slate-700 text-slate-100 rounded-xl shadow-2xl py-1.5 w-44 backdrop-blur-md z-50 text-xs font-medium">
+                <button onclick="menuEditNode()" class="w-full text-left px-4 py-2 hover:bg-indigo-600 hover:text-white flex items-center gap-2 transition duration-150">
+                    <i class="fa-solid fa-pen text-slate-400"></i> 編輯節點文字
+                </button>
+                <button onclick="menuAddChild()" class="w-full text-left px-4 py-2 hover:bg-indigo-600 hover:text-white flex items-center gap-2 transition duration-150">
+                    <i class="fa-solid fa-plus text-slate-400"></i> 新增子節點
+                </button>
+                <button onclick="menuAddSibling()" class="w-full text-left px-4 py-2 hover:bg-indigo-600 hover:text-white flex items-center gap-2 transition duration-150">
+                    <i class="fa-solid fa-square-plus text-slate-400"></i> 新增兄弟節點
+                </button>
+                <div class="h-px bg-slate-700 my-1"></div>
+                <button onclick="menuDeleteNode()" class="w-full text-left px-4 py-2 hover:bg-rose-600 hover:text-white flex items-center gap-2 text-rose-400 hover:text-white transition duration-150">
+                    <i class="fa-solid fa-trash"></i> 刪除此節點
+                </button>
+            </div>
+            <!-- 行內編輯器 -->
+            <div id="inline-editor-container" class="hidden absolute z-50">
+                <input type="text" id="inline-editor" class="bg-slate-850 border-2 border-indigo-500 text-slate-100 px-3 py-1.5 rounded-lg shadow-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-xs font-semibold min-w-[150px]">
             </div>
         </section>
     </main>
     <script>
         var transformer, mm;
+        let activeNodeData = null;
+        let activeNodeEl = null;
 
         // Simple markdown to tree parser (fallback if Transformer unavailable)
         function parseMarkdown(md) {
@@ -445,6 +467,48 @@
             };
         }
 
+        function alignNodesWithLines(root, markdown) {
+            const lines = markdown.split('\n');
+            const nodeLines = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const trimmed = line.trim();
+                if (!trimmed) continue;
+                
+                const isHeading = trimmed.match(/^(#{1,6})\s+/);
+                const isBullet = trimmed.match(/^[-*]\s+/);
+                const isIndentedBullet = line.match(/^(\s+)[-*]\s+/);
+                
+                if (isHeading || isBullet || isIndentedBullet) {
+                    nodeLines.push({
+                        lineIndex: i,
+                        lineContent: line
+                    });
+                }
+            }
+            
+            const treeNodes = [];
+            function traverse(node) {
+                if (!node) return;
+                if (node.depth === 0 && !node.content && node.children && node.children.length > 0) {
+                    // Virtual root
+                } else {
+                    treeNodes.push(node);
+                }
+                if (node.children) {
+                    node.children.forEach(traverse);
+                }
+            }
+            
+            traverse(root);
+            
+            const limit = Math.min(treeNodes.length, nodeLines.length);
+            for (let i = 0; i < limit; i++) {
+                treeNodes[i].lineIndex = nodeLines[i].lineIndex;
+            }
+        }
+
         function initMarkmap() {
             const { Markmap } = window.markmap;
             const svgEl = document.querySelector('#markmap');
@@ -473,6 +537,7 @@
             }
 
             setTimeout(() => { updateMarkmap(); }, 100);
+            setupEditEvents();
         }
 
         function updateMarkmap() {
@@ -487,8 +552,240 @@
                 root = buildMarkmapData(parseMarkdown(markdown));
             }
 
+            alignNodesWithLines(root, markdown);
             mm.setData(root);
             mm.fit();
+        }
+
+        function setupEditEvents() {
+            const svgEl = document.querySelector('#markmap');
+            const contextMenu = document.querySelector('#context-menu');
+            const inlineEditorContainer = document.querySelector('#inline-editor-container');
+            const inlineEditor = document.querySelector('#inline-editor');
+
+            svgEl.addEventListener('contextmenu', (e) => {
+                const nodeEl = e.target.closest('.markmap-node');
+                if (!nodeEl) return;
+                e.preventDefault();
+                e.stopPropagation();
+
+                activeNodeEl = nodeEl;
+                activeNodeData = nodeEl.__data__;
+
+                if (!activeNodeData || activeNodeData.lineIndex === undefined) return;
+
+                const containerRect = document.querySelector('#map-container').getBoundingClientRect();
+                contextMenu.style.left = `${e.clientX - containerRect.left}px`;
+                contextMenu.style.top = `${e.clientY - containerRect.top}px`;
+                contextMenu.classList.remove('hidden');
+                inlineEditorContainer.classList.add('hidden');
+            });
+
+            svgEl.addEventListener('dblclick', (e) => {
+                const nodeEl = e.target.closest('.markmap-node');
+                if (!nodeEl) return;
+                e.preventDefault();
+                e.stopPropagation();
+
+                activeNodeEl = nodeEl;
+                activeNodeData = nodeEl.__data__;
+
+                if (!activeNodeData || activeNodeData.lineIndex === undefined) return;
+
+                showInlineEditor();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!contextMenu.contains(e.target)) {
+                    contextMenu.classList.add('hidden');
+                }
+                if (!inlineEditorContainer.contains(e.target) && !e.target.closest('.markmap-node')) {
+                    commitInlineEdit();
+                }
+            });
+
+            inlineEditor.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    commitInlineEdit();
+                } else if (e.key === 'Escape') {
+                    inlineEditorContainer.classList.add('hidden');
+                }
+            });
+        }
+
+        function showInlineEditor() {
+            const inlineEditorContainer = document.querySelector('#inline-editor-container');
+            const inlineEditor = document.querySelector('#inline-editor');
+            const containerRect = document.querySelector('#map-container').getBoundingClientRect();
+            const nodeRect = activeNodeEl.getBoundingClientRect();
+
+            inlineEditor.value = activeNodeData.content;
+            inlineEditorContainer.style.left = `${nodeRect.left - containerRect.left}px`;
+            inlineEditorContainer.style.top = `${nodeRect.top - containerRect.top - 5}px`;
+            inlineEditorContainer.style.width = `${Math.max(nodeRect.width + 10, 160)}px`;
+            inlineEditorContainer.classList.remove('hidden');
+            inlineEditor.focus();
+            inlineEditor.select();
+            
+            document.querySelector('#context-menu').classList.add('hidden');
+        }
+
+        function commitInlineEdit() {
+            const inlineEditorContainer = document.querySelector('#inline-editor-container');
+            if (inlineEditorContainer.classList.contains('hidden') || !activeNodeData) return;
+
+            const newValue = document.querySelector('#inline-editor').value.trim();
+            if (newValue && newValue !== activeNodeData.content) {
+                updateMarkdownLine(activeNodeData.lineIndex, newValue);
+            }
+            inlineEditorContainer.classList.add('hidden');
+        }
+
+        function getLineDepth(line) {
+            const trimmed = line.trim();
+            const headingMatch = trimmed.match(/^(#{1,6})\s+/);
+            const indentedBulletMatch = line.match(/^(\s+)[-*]\s+/);
+            const bulletMatch = trimmed.match(/^[-*]\s+/);
+            
+            if (headingMatch) {
+                return headingMatch[1].length;
+            } else if (indentedBulletMatch) {
+                const indent = indentedBulletMatch[1].length;
+                return 7 + Math.floor(indent / 2);
+            } else if (bulletMatch) {
+                return 7;
+            }
+            return 999;
+        }
+
+        function findDescendantEndIndex(lines, startIndex, baseDepth) {
+            let i = startIndex + 1;
+            while (i < lines.length) {
+                const line = lines[i];
+                if (!line.trim()) {
+                    i++;
+                    continue;
+                }
+                const depth = getLineDepth(line);
+                if (depth <= baseDepth) {
+                    break;
+                }
+                i++;
+            }
+            return i;
+        }
+
+        function updateMarkdownLine(lineIndex, newText) {
+            const editor = document.querySelector('#editor');
+            const lines = editor.value.split('\n');
+            const originalLine = lines[lineIndex];
+            const match = originalLine.match(/^(\s*(?:#{1,6}|[-*])\s+)/);
+            const prefix = match ? match[1] : '';
+            
+            lines[lineIndex] = prefix + newText;
+            editor.value = lines.join('\n');
+            updateMarkmap();
+        }
+
+        function menuEditNode() {
+            document.querySelector('#context-menu').classList.add('hidden');
+            showInlineEditor();
+        }
+
+        function menuAddChild() {
+            document.querySelector('#context-menu').classList.add('hidden');
+            if (!activeNodeData) return;
+
+            const editor = document.querySelector('#editor');
+            const lines = editor.value.split('\n');
+            const lineIndex = activeNodeData.lineIndex;
+            const parentLine = lines[lineIndex];
+
+            const headingMatch = parentLine.match(/^(\s*)(#{1,6})\s+/);
+            const bulletMatch = parentLine.match(/^(\s*)([-*])\s+/);
+            let childPrefix = '';
+
+            if (headingMatch) {
+                const indent = headingMatch[1];
+                const hashes = headingMatch[2];
+                if (hashes.length < 6) {
+                    childPrefix = indent + hashes + '# ';
+                } else {
+                    childPrefix = indent + '- ';
+                }
+            } else if (bulletMatch) {
+                const indent = bulletMatch[1];
+                childPrefix = indent + '  - ';
+            } else {
+                childPrefix = '- ';
+            }
+
+            lines.splice(lineIndex + 1, 0, childPrefix + '新子節點');
+            editor.value = lines.join('\n');
+            updateMarkmap();
+
+            setTimeout(() => {
+                const svgEl = document.querySelector('#markmap');
+                const nodeEls = svgEl.querySelectorAll('.markmap-node');
+                for (const el of nodeEls) {
+                    if (el.__data__ && el.__data__.lineIndex === lineIndex + 1) {
+                        activeNodeEl = el;
+                        activeNodeData = el.__data__;
+                        showInlineEditor();
+                        break;
+                    }
+                }
+            }, 400);
+        }
+
+        function menuAddSibling() {
+            document.querySelector('#context-menu').classList.add('hidden');
+            if (!activeNodeData) return;
+
+            const editor = document.querySelector('#editor');
+            const lines = editor.value.split('\n');
+            const lineIndex = activeNodeData.lineIndex;
+            const currentLine = lines[lineIndex];
+            const baseDepth = getLineDepth(currentLine);
+
+            const match = currentLine.match(/^(\s*(?:#{1,6}|[-*])\s+)/);
+            const prefix = match ? match[1] : '- ';
+
+            const insertIndex = findDescendantEndIndex(lines, lineIndex, baseDepth);
+
+            lines.splice(insertIndex, 0, prefix + '新節點');
+            editor.value = lines.join('\n');
+            updateMarkmap();
+
+            setTimeout(() => {
+                const svgEl = document.querySelector('#markmap');
+                const nodeEls = svgEl.querySelectorAll('.markmap-node');
+                for (const el of nodeEls) {
+                    if (el.__data__ && el.__data__.lineIndex === insertIndex) {
+                        activeNodeEl = el;
+                        activeNodeData = el.__data__;
+                        showInlineEditor();
+                        break;
+                    }
+                }
+            }, 400);
+        }
+
+        function menuDeleteNode() {
+            document.querySelector('#context-menu').classList.add('hidden');
+            if (!activeNodeData) return;
+
+            const editor = document.querySelector('#editor');
+            const lines = editor.value.split('\n');
+            const lineIndex = activeNodeData.lineIndex;
+            const currentLine = lines[lineIndex];
+            const baseDepth = getLineDepth(currentLine);
+
+            const endIndex = findDescendantEndIndex(lines, lineIndex, baseDepth);
+            lines.splice(lineIndex, endIndex - lineIndex);
+
+            editor.value = lines.join('\n');
+            updateMarkmap();
         }
 
         let timeout;
