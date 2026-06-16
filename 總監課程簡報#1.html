@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳仲豪總監說明會與課程規劃 - 可編輯簡報系統</title>
+    <!-- Tailwind CSS for Layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap"
+        rel="stylesheet">
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <style>
+        /* Base scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            background-color: #0b0f19;
+        }
+
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Slide presentation container (keeps 16:9 ratio dynamically) */
+        .slide-viewport {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .slide-viewport.ratio-4-3 {
+            aspect-ratio: 4 / 3;
+        }
+
+        /* Slide Themes styling */
+
+        /* 1. Cyber Neon Theme (Dark Purple / Indigo) */
+        .theme-cyber {
+            background: linear-gradient(135deg, #090d16 0%, #111827 50%, #200c30 100%);
+            color: #f1f5f9;
+        }
+
+        .theme-cyber h1,
+        .theme-cyber h2 {
+            background: linear-gradient(to right, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .theme-cyber h3 {
+            color: #818cf8;
+            font-weight: 700;
+        }
+
+        .theme-cyber strong {
+            color: #f472b6;
+        }
+
+        .theme-cyber a {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        .theme-cyber .bullet-icon {
+            color: #a855f7;
+        }
+
+        .theme-cyber .slide-border {
+            border: 1px solid rgba(129, 140, 248, 0.15);
+        }
+
+        /* 2. Emerald Health Theme (Dark Teal / Forest) */
+        .theme-emerald {
+            background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022c22 100%);
+            color: #f1f5f9;
+        }
+
+        .theme-emerald h1,
+        .theme-emerald h2 {
+            background: linear-gradient(to right, #34d399, #059669);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .theme-emerald h3 {
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        .theme-emerald strong {
+            color: #fbbf24;
+        }
+
+        .theme-emerald a {
+            color: #2dd4bf;
+            text-decoration: underline;
+        }
+
+        .theme-emerald .bullet-icon {
+            color: #34d399;
+        }
+
+        .theme-emerald .slide-border {
+            border: 1px solid rgba(52, 211, 153, 0.15);
+        }
+
+        /* 3. Imperial Gold Theme (Luxury Navy / Dark Gold) */
+        .theme-gold {
+            background: linear-gradient(135deg, #090e1a 0%, #151a2d 50%, #292113 100%);
+            color: #eae6df;
+        }
+
+        .theme-gold h1,
+        .theme-gold h2 {
+            background: linear-gradient(to right, #f3e5ab, #d4af37, #aa7c11);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: 'Playfair Display', 'Noto Sans TC', serif;
+            font-weight: 800;
+        }
+
+        .theme-gold h3 {
+            color: #d4af37;
+            font-family: 'Playfair Display', 'Noto Sans TC', serif;
+            font-weight: 700;
+        }
+
+        .theme-gold strong {
+            color: #f7d070;
+            border-bottom: 1px dashed #d4af37;
+        }
+
+        .theme-gold a {
+            color: #ebdcb9;
+            text-decoration: underline;
+        }
+
+        .theme-gold .bullet-icon {
+            color: #d4af37;
+        }
+
+        .theme-gold .slide-border {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* 4. Minimal Stark Theme (Light) */
+        .theme-light {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            color: #0f172a;
+        }
+
+        .theme-light h1,
+        .theme-light h2 {
+            color: #1e1b4b;
+            font-weight: 800;
+        }
+
+        .theme-light h3 {
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        .theme-light strong {
+            color: #b91c1c;
+            background: rgba(185, 28, 28, 0.05);
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        .theme-light a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .theme-light .bullet-icon {
+            color: #4f46e5;
+        }
+
+        .theme-light .slide-border {
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        /* Slide content sizing & rendering */
+        .slides-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 6% 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        /* Slide layout styles based on header classes */
+        .slide-cover {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-cover h1 {
+            font-size: 2.8vw;
+            line-height: 1.3;
+            margin-bottom: 2vh;
+        }
+
+        .slide-cover h2 {
+            font-size: 1.6vw;
+            font-weight: 500;
+            opacity: 0.85;
+            margin-bottom: 3vh;
+        }
+
+        .slide-content h2 {
+            font-size: 1.9vw;
+            margin-bottom: 2vh;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1vh;
+            width: 100%;
+        }
+
+        .slide-content h3 {
+            font-size: 1.5vw;
+            margin-bottom: 1.8vh;
+            width: 100%;
+        }
+
+        .slide-body {
+            font-size: 1.1vw;
+            line-height: 1.55;
+            width: 100%;
+            max-height: 82%;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .slide-body ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .slide-body li {
+            position: relative;
+            padding-left: 2.5vw;
+            margin-bottom: 1.8vh;
+            animation: slideInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .slide-body li::before {
+            content: "✦";
+            position: absolute;
+            left: 0.5vw;
+            top: 0;
+            font-weight: bold;
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        /* Nested lists */
+        .slide-body li ul {
+            margin-top: 1vh;
+        }
+
+        .slide-body li li {
+            font-size: 0.9em;
+            margin-bottom: 1vh;
+            opacity: 0.85;
+        }
+
+        .slide-body li li::before {
+            content: "•";
+        }
+
+        /* Math formula centering */
+        .katex-display {
+            margin: 2vh 0 !important;
+            font-size: 1.4vw !important;
+        }
+
+        /* Laser pointer element */
+        .laser-pointer {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px #ef4444, 0 0 5px 1px #ffffff;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            display: none;
+        }
+
+        /* Force hide system cursor for everything in the viewport when laser is active */
+        .laser-cursor,
+        .laser-cursor * {
+            cursor: none !important;
+        }
+
+        /* Transition Animations */
+
+        /* 1. Slide Horizontal */
+        .transition-slide-h .slide {
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+            transform: translateX(100%);
+        }
+
+        .transition-slide-h .slide.active {
+            transform: translateX(0);
+        }
+
+        .transition-slide-h .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        /* 2. Slide Vertical */
+        .transition-slide-v .slide {
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+            transform: translateY(100%);
+        }
+
+        .transition-slide-v .slide.active {
+            transform: translateY(0);
+        }
+
+        .transition-slide-v .slide.prev {
+            transform: translateY(-100%);
+        }
+
+        /* 3. Fade */
+        .transition-fade .slide {
+            transition: opacity 0.4s ease-in-out, visibility 0.4s;
+            transform: none;
+        }
+
+        .transition-fade .slide.active {
+            opacity: 1;
+        }
+
+        /* 4. Zoom */
+        .transition-zoom .slide {
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+            transform: scale(0.8);
+        }
+
+        .transition-zoom .slide.active {
+            transform: scale(1);
+        }
+
+        .transition-zoom .slide.prev {
+            transform: scale(1.2);
+        }
+
+        /* Keyframes for text build animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Delay bullets sequence */
+        .slide.active li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .slide.active li:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .slide.active li:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .slide.active li:nth-child(4) {
+            animation-delay: 0.55s;
+        }
+
+        .slide.active li:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+
+        .slide.active li:nth-child(6) {
+            animation-delay: 0.85s;
+        }
+
+        /* Fullscreen modifications */
+        .slide-viewport:fullscreen {
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            border-radius: 0px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-viewport:fullscreen .slide-body {
+            font-size: 1.7vw;
+        }
+
+        .slide-viewport:fullscreen .slide-cover h1 {
+            font-size: 4.0vw;
+        }
+
+        .slide-viewport:fullscreen .slide-cover h2 {
+            font-size: 2.4vw;
+        }
+
+        .slide-viewport:fullscreen .slide-content h2 {
+            font-size: 2.8vw;
+        }
+
+        .slide-viewport:fullscreen .slide-content h3 {
+            font-size: 2.2vw;
+        }
+
+        .slide-viewport:fullscreen .slide-body li {
+            padding-left: 3.5vw;
+            margin-bottom: 1.8vh;
+        }
+
+        /* Floating particles behind slides */
+        .bg-glow-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.2) translate(30px, 30px);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-100 min-h-screen flex flex-col overflow-hidden">
+    <!-- Header -->
+    <header
+        class="glass-panel border-b border-slate-800 px-6 py-3 flex items-center justify-between shadow-xl shrink-0 z-20">
+        <div class="flex items-center space-x-3">
+            <div
+                class="bg-gradient-to-tr from-purple-600 to-indigo-600 p-2.5 rounded-xl shadow-lg shadow-indigo-950/40">
+                <i class="fa-solid fa-person-chalkboard text-xl text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-base font-bold tracking-wide text-white flex items-center gap-2">
+                    TRUE SOUL LIGHT <span
+                        class="text-xs bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-2 py-0.5 rounded-full font-normal">動態簡報製作系統</span>
+                </h1>
+                <p class="text-xs text-slate-400">大綱 Markdown 即時渲染與簡報放映工具</p>
+            </div>
+        </div>
+
+        <!-- Center Actions: View switch -->
+        <div class="flex items-center space-x-1.5 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
+            <button id="view-dual" onclick="switchViewMode('dual')"
+                class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 bg-indigo-600 text-white shadow">
+                <i class="fa-solid fa-columns-look"></i><i class="fa-solid fa-grip-lines-vertical"></i><span>對照模式</span>
+            </button>
+            <button id="view-present" onclick="switchViewMode('present')"
+                class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-play"></i><span>放映模式</span>
+            </button>
+            <button id="view-outline" onclick="switchViewMode('outline')"
+                class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-list-ul"></i><span>大綱模式</span>
+            </button>
+        </div>
+
+        <!-- Right Buttons -->
+        <div class="flex items-center space-x-3">
+            <!-- Theme dropdown -->
+            <div class="relative group">
+                <button
+                    class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center space-x-1.5 shadow-sm">
+                    <i class="fa-solid fa-palette text-indigo-400"></i><span id="current-theme-label">星空幻境</span><i
+                        class="fa-solid fa-chevron-down text-[10px]"></i>
+                </button>
+                <div
+                    class="absolute right-0 mt-1.5 w-40 glass-panel border border-slate-800 rounded-xl shadow-2xl py-1 hidden group-hover:block hover:block z-30">
+                    <button onclick="setTheme('cyber', '星空幻境')"
+                        class="w-full text-left px-3.5 py-2 hover:bg-indigo-600/30 text-xs flex items-center space-x-2 text-slate-200">
+                        <span
+                            class="w-3 h-3 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500"></span><span>星空幻境</span>
+                    </button>
+                    <button onclick="setTheme('emerald', '翡翠舒活')"
+                        class="w-full text-left px-3.5 py-2 hover:bg-indigo-600/30 text-xs flex items-center space-x-2 text-slate-200">
+                        <span
+                            class="w-3 h-3 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500"></span><span>翡翠舒活</span>
+                    </button>
+                    <button onclick="setTheme('gold', '帝王金殿')"
+                        class="w-full text-left px-3.5 py-2 hover:bg-indigo-600/30 text-xs flex items-center space-x-2 text-slate-200">
+                        <span
+                            class="w-3 h-3 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-600"></span><span>帝王金殿</span>
+                    </button>
+                    <button onclick="setTheme('light', '極簡極白')"
+                        class="w-full text-left px-3.5 py-2 hover:bg-indigo-600/30 text-xs flex items-center space-x-2 text-slate-200">
+                        <span class="w-3 h-3 rounded-full bg-slate-300 border border-slate-400"></span><span>極簡極白</span>
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="exportMarkdown()"
+                class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-download"></i><span>下載簡報 .md</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 flex overflow-hidden relative">
+
+        <!-- Left Panel: Markdown Editor -->
+        <section id="editor-container"
+            class="w-5/12 flex flex-col border-r border-slate-800/80 bg-slate-950/60 shadow-inner transition-all duration-300">
+            <div
+                class="bg-slate-950 border-b border-slate-800/60 px-4 py-2.5 flex items-center justify-between text-xs font-semibold text-slate-400 shrink-0">
+                <span class="flex items-center gap-1.5 text-indigo-400"><i class="fa-solid fa-code"></i> Markdown
+                    簡報編輯器</span>
+                <span class="text-slate-500 font-normal">使用 <code>---</code> 作為分頁符號</span>
+            </div>
+
+            <!-- Quick Toolbar -->
+            <div class="bg-slate-900/40 border-b border-slate-900 px-4 py-1.5 flex gap-2 shrink-0">
+                <button onclick="insertSlideBreak()" title="插入新分頁"
+                    class="text-slate-400 hover:text-white bg-slate-800/60 border border-slate-700/60 px-2 py-1 rounded text-xs transition flex items-center space-x-1">
+                    <i class="fa-solid fa-scissors"></i><span>新頁 (---)</span>
+                </button>
+                <button onclick="insertMath()" title="插入數學公式"
+                    class="text-slate-400 hover:text-white bg-slate-800/60 border border-slate-700/60 px-2 py-1 rounded text-xs transition flex items-center space-x-1">
+                    <i class="fa-solid fa-calculator"></i><span>公式 ($)</span>
+                </button>
+                <button onclick="insertNote()" title="插入講者備忘"
+                    class="text-slate-400 hover:text-white bg-slate-800/60 border border-slate-700/60 px-2 py-1 rounded text-xs transition flex items-center space-x-1">
+                    <i class="fa-solid fa-comment-dots"></i><span>講者筆記</span>
+                </button>
+                <div class="flex-1"></div>
+                <input type="file" id="file-import" class="hidden" accept=".md,.txt" onchange="importFile(event)">
+                <button onclick="document.getElementById('file-import').click()" title="導入外部檔案"
+                    class="text-slate-400 hover:text-white hover:bg-slate-800 px-2 py-1 rounded text-xs transition flex items-center space-x-1">
+                    <i class="fa-solid fa-file-import"></i><span>導入檔案</span>
+                </button>
+            </div>
+
+            <!-- Text Area -->
+            <textarea id="editor"
+                class="flex-1 w-full bg-slate-950 text-slate-300 p-5 font-sans text-sm leading-relaxed resize-none focus:outline-none focus:ring-0 selection:bg-indigo-600/60 selection:text-white"
+                style="font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;"
+                placeholder="在此編輯你的 Markdown 簡報內容..."># 陳仲豪總監說明會與課程規劃
+## 商業行銷與變現系統指南
+
+---
+
+## 內容核心摘要
+
+本簡報結合「陳仲豪總監說明會」與「十堂行銷課程規劃」，旨在為生心靈工作者及創業者提供一套從個人定位到流量變現的系統化商業指南。
+
+- **核心觀點**：行銷的本質是**利他**，即幫助他人**離苦得樂**。
+- **12字精髓**：**定位：獨特優勢** $ightarrow$ **流量：創造互動** $ightarrow$ **存量：簡單系統**。
+- **定位科學**：結合自傳覺察、他人回饋與 **Ikigai（生命意義）** 科學化定位。
+- **終極變現**：以 **「真靈光」** 作為生心靈一站式服務入口，將流量導入實體與個案諮詢。
+
+---
+
+## 重點大綱
+
+- **一、 說明會開場與針對性簡報策略**
+- **二、 網路行銷三要素與底層邏輯**
+- **三、 科學化個人定位探索方法**
+- **四、 十堂行銷與變現課程架構**
+- **五、 頂級布局：生心靈一站式服務平台**
+- **六、 流量與社群爆款心法**
+
+---
+
+# 一、 說明會開場與針對性簡報策略
+
+- 針對「陳老師」個性的開場設計
+- 說明會前 5 分鐘的關鍵重點
+- 講故事比講學術理論更重要
+- 行銷的「身心靈」翻譯
+
+---
+
+### 針對陳老師的開場設計
+
+*   **陳老師的個性特質**：只聽重點。前 5 分鐘如果沒有吸引到他，後面他就聽不下去了。
+*   **開場三要素**：
+    1.  **獨特優勢**：我們有什麼不同？
+    2.  **解決問題**：解決什麼生心靈產業的痛點？
+    3.  **適合人群**：什麼人適合這堂課？
+*   **案例秀實力**：介紹背景、生心靈、形象與企業三大案例。
+
+&lt;!-- Note: 說明會必須在開場的黃金 5 分鐘內直擊痛點並展現獨特價值與案例。 --&gt;
+
+---
+
+### 講故事與行銷翻譯
+
+*   **故事勝於理論**：避免一開始講生硬的學術名詞（如 SWOT、PEST），用故事與人性來包裝。
+*   **行銷的「身心靈」翻譯**：
+    *   **傳統定義**：創造、溝通、傳遞與交換有價值的服務。
+    *   **身心靈語言**：行銷的本質就是 **「利他」**，幫助他人 **「離苦得樂」**（解決痛苦、解決問題、創造價值）。
+
+&lt;!-- Note: 把生硬的行銷學轉化為溫暖的身心靈語言，更能讓學員產生靈魂共鳴。 --&gt;
+
+---
+
+# 二、 網路行銷三要素與底層邏輯
+
+- 網路行銷最簡單的三大支柱
+- 12 字行銷精髓
+- 企業行銷顧問的五大核心流程
+
+---
+
+### 網路行銷三要素
+
+*   **產品力**：尋找產品的差異化賣點與品牌力，創造如 Apple 新機發表般的認同感與期待感。
+*   **流量力**：流量的底層邏輯是 **「互動」**，透過創造大量留言數來獲取演算法推薦。
+*   **系統力**：自動化與工具跟進，實現變現轉換。
+
+&lt;!-- Note: 這三要素是網路行銷的黃金鐵三角，缺一不可。 --&gt;
+
+---
+
+### 12 字行銷精髓
+
+*   只要記住 **12 個字**，你就能學會行銷與變現的底層邏輯：
+    1.  **定位：獨特優勢**（內外在優勢、個人與企業的定位點）
+    2.  **流量：創造互動**（底層邏輯，免除被演算法綁架）
+    3.  **存量：簡單系統**（自動化跟進與變現系統）
+
+&lt;!-- Note: 這12個字是總監行銷實戰的心法精髓，越簡單越有力量。 --&gt;
+
+---
+
+### 企業行銷顧問五大核心流程
+
+1.  **界定公司策略與規劃**：確立公司的使命、願景與價值觀。
+2.  **界定個人定位**：確立個人定位、夢想與人設。
+3.  **分析內外部環境**：使用 SWOT（優劣勢）與 PEST（政治、經濟、社會、科技）分析。
+4.  **區隔與定位**：在市場中尋找獨特且可以切入的打點（STP與差異化）。
+5.  **商業模式與修正**：進入流量、諮詢、課程、產品與工具的對接及修正。
+
+&lt;!-- Note: 這是正統企業行銷顧問的底層流程，讓學員學會「以不變應萬變」的功夫。 --&gt;
+
+---
+
+# 三、 科學化個人定位探索方法
+
+- 找不到定位的解決方案
+- 流水帳自傳與 AI 分析
+- 原生家庭的覺察與療癒
+- Ikigai 生命意義科學定位
+
+---
+
+### 流水帳自傳與 AI 客觀分析
+
+*   **自傳寫法**：以工程師/AI 能看懂的方式，撰寫從小到大的故事與痛苦經歷，客觀記錄事實，不帶情緒與感情。
+*   **AI 客觀分析**：將事實自傳輸入給 AI，由客觀角度分析個人天賦與才華。
+*   **他人建議角度**：收集身邊同學/他人眼中的優點，多維度校準自我特質。
+
+&lt;!-- Note: 結合 AI 客觀視角與他人回饋，比主觀的盲目探索更有效率。 --&gt;
+
+---
+
+### 原生家庭的覺察與療癒
+
+*   **痛苦的翻轉**：引導學員在痛苦經歷中進行「覺察」與「重新定義」，將過去的痛苦轉化為獨特優勢。
+*   **關係整理**：整理與父母的關係（父母過去的對待方式，學員長大後如何以新視角重新解讀），透過分享與同學間的回饋，實現深度療癒與定位校準。
+
+&lt;!-- Note: 痛苦的覺察與原生家庭的翻轉，是身心靈工作者定位的關鍵突破口。 --&gt;
+
+---
+
+### Ikigai 生命意義定位
+
+*   **Ikigai 科學定位**：將四個維度做多重交集，導出專屬的黃金定位：
+    1.  你熱愛的事物
+    2.  你擅長的事物
+    3.  世界需要的事物
+    4.  能讓你獲得報酬的事物
+
+&lt;!-- Note: Ikigai 的交集點，就是你個人品牌變現與熱情持續的甜蜜點。 --&gt;
+
+---
+
+# 四、 十堂行銷與變現課程架構
+
+- 課程前段：定位、使命與覺察
+- 課程中段：社群流量與文案公式
+- 課程後段：商業格局與變現系統
+
+---
+
+### 十堂課程架構規劃 (1/2)
+
+*   **第一堂課：行銷基礎理論**：說明會內容複習、行銷基本定義（利他觀點）、現況分析。
+*   **第二堂課：客觀定位檢測**：使用 MBTI、DISC、生命靈數、人類圖等檢測。發布社群「暖身型貼文」。
+*   **第三、四堂課：自傳撰寫與原生家庭覺察**：撰寫自傳，在痛苦中進行覺察與重新定義（翻轉為優勢）。整理原生家庭關係。
+
+&lt;!-- Note: 前四堂課專注在打底、定位探索與心靈療癒，這是後續變現的根基。 --&gt;
+
+---
+
+### 十堂課程架構規劃 (2/2)
+
+*   **第五、六堂課：社群流量與文案格式**：Facebook、Line 與 Threads。結合 Threads 課程精華，傳授銷售文案公式、影片 77 種編法、Threads 100 種文章套用公式。
+*   **第七、八堂課：商業模式、格局與變現層次**：講授商業格局與富豪的系統思維，從底層打工思維提升至生態鏈格局。
+*   **第九、十堂課：信任銷售與畢業典禮**：建立信任與簡單銷售邏輯。數據成果展示、企劃呈現與畢業發錢。
+
+&lt;!-- Note: 後六堂課專注於實戰工具、社群文案、商業格局與最後的成果驗收。 --&gt;
+
+---
+
+# 五、 頂級布局：生心靈一站式服務平台
+
+- 借鏡艾莫老師的認知入口模式
+- 平台的變現路徑設計
+- 「讓老師們有錢賺」的核心訴求
+- 成為代理商與合作夥伴
+
+---
+
+### 認知入口與平台設計
+
+*   **自建入口**：不要將平台寄託在 YouTube 等會破碎化注意力的平台，而是自建網站/APP，牢牢控制「認知入口」。
+*   **視覺風格**：採用紅白金配色（非 Apple 黃色調）。
+*   **避開敏感詞**：定名為 **「生心靈一站式服務入口」**、**「生心靈認知入口」** 或 **「生心靈教育」**，避免「療癒」等字眼以符合規範。
+
+&lt;!-- Note: 控制了認知入口就控制了流量與財富，這是平台化運作的核心。 --&gt;
+
+---
+
+### 變現路徑設計
+
+1.  **教育與認知引導**：提供正派、系統化且正確的生心靈觀念，吸引並留住流量。
+2.  **線上簡易諮詢**：使用者上傳影片或資料，由後台服務人員提供分析報告（收費 **1,000 元 NTD** / 約 **30 元 USD**）。
+3.  **實體與產品變現**：將需求引導至實體診所或產品銷售。
+    *   **生**：透過排汗、排毒引導至葉醫師的產品。
+    *   **心**：引導至合作的諮商師服務。
+    *   **靈**：引導至靈性服務。
+
+&lt;!-- Note: 一站式服務將線上認知轉化為線下實體消費與產品銷售，實現完美變現閉環。 --&gt;
+
+---
+
+### 讓老師們有錢賺與代理商鋪陳
+
+*   **幫老師介紹個案**：學員在課程中探索「靈魂定位」或進行「諮詢」時，順勢導向「真靈光」平台。透過平台流量幫老師介紹個案，實現變現（老師有錢賺，是陳老師最看重的核心點）。
+*   **合作夥伴轉化**：最終目的是引導這群學員成為總監的代理商、股東或長期合作伙伴。
+
+&lt;!-- Note: 互利共贏是這個商業模式能夠長久運作的底層動力。 --&gt;
+
+---
+
+# 六、 流量與社群爆款心法
+
+- 內容與人性大於演算法
+- 時事梗與 Threads 演算法
+- 爆款貼文的四大要素
+- 如何研究最新的流量趨勢
+
+---
+
+### 內容與人性大於演算法
+
+*   **專注於人性**：演算法規則每個月都在變，與其被演算法綁架，不如專注於不變的人性。
+*   **內容品質**：專注於做好內容，模仿並改編高流量的優質文章。
+*   **時事梗的威力**：Threads 演算法極重互動。搭上時事梗，在最快時間內用兩三句話寫成短貼文，最容易引爆互動。
+
+&lt;!-- Note: 專注於內容與人性，你就不需要天天追逐演算法的變化。 --&gt;
+
+---
+
+### 爆款貼文四大要素
+
+1.  **產品獨特賣點**：有明確的痛點解決方案。
+2.  **時事梗**：速度要快，兩三句搞定。
+3.  **大眾認同感**：引發強烈共鳴、感同身受。
+4.  **實用乾貨**：對讀者有高度實用價值的内容。
+*   **流量研究技巧**：用一個全新無追蹤的帳號滑社群，因為新帳號沒有喜好定義，推播的都是最新的熱門「爆款文」，適合拆解與借鏡。
+
+&lt;!-- Note: 掌握這四大要素，就能系統化地產出高互動的熱門貼文。 --&gt;</textarea>
+        </section>
+
+        <!-- Right Panel: Presentation Player -->
+        <section id="preview-container"
+            class="flex-1 flex flex-col bg-slate-900 p-6 overflow-y-auto relative transition-all duration-300">
+            <!-- Glow effect elements -->
+            <div class="bg-glow-orb top-10 left-10"></div>
+            <div class="bg-glow-orb bottom-10 right-10"
+                style="background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, rgba(0, 0, 0, 0) 70%);"></div>
+
+            <!-- Player Settings & Toolbars -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4 z-10">
+                <!-- Transition/Ratio Selectors -->
+                <div
+                    class="flex items-center space-x-2.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800 text-xs text-slate-400">
+                    <!-- Transitions -->
+                    <div class="flex items-center px-2">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-indigo-400"></i>
+                        <select id="select-transition" onchange="changeTransition(this.value)"
+                            class="bg-transparent text-slate-200 outline-none border-none cursor-pointer focus:ring-0">
+                            <option value="slide-h" class="bg-slate-900">左右滑動</option>
+                            <option value="slide-v" class="bg-slate-900">上下滑動</option>
+                            <option value="fade" class="bg-slate-900">漸變淡出</option>
+                            <option value="zoom" class="bg-slate-900">縮放彈入</option>
+                        </select>
+                    </div>
+                    <div class="w-px h-4 bg-slate-800"></div>
+                    <!-- Ratio -->
+                    <div class="flex items-center px-2">
+                        <i class="fa-solid fa-maximize mr-1.5 text-indigo-400"></i>
+                        <select id="select-ratio" onchange="changeRatio(this.value)"
+                            class="bg-transparent text-slate-200 outline-none border-none cursor-pointer focus:ring-0">
+                            <option value="16-9" class="bg-slate-900">比例 16:9</option>
+                            <option value="4-3" class="bg-slate-900">比例 4:3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Slide Jump Dropdown & Navigation Info -->
+                <div class="flex items-center space-x-3 text-xs">
+                    <div class="flex items-center bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-list-numeric text-indigo-400 mr-2"></i>
+                        <select id="select-slide" onchange="jumpToSlide(parseInt(this.value))"
+                            class="bg-transparent text-slate-200 outline-none border-none cursor-pointer focus:ring-0 font-medium">
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                    <span class="text-slate-500 font-medium hidden sm:inline"><i
+                            class="fa-regular fa-keyboard mr-1"></i> 可使用鍵盤 ◀ / ▶ 鍵切換</span>
+                </div>
+            </div>
+
+            <!-- Slide Viewport (Slide Canvas) -->
+            <div id="slide-wrapper" class="w-full flex justify-center items-center flex-1 z-10 my-auto">
+                <div id="slide-viewport" class="slide-viewport theme-cyber transition-slide-h">
+                    <!-- Laser pointer -->
+                    <div id="laser-pointer" class="laser-pointer"></div>
+
+                    <!-- Rendered slides wrapper -->
+                    <div id="slides-container" class="slides-container">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Slide Navigation Overlays (Hover shown) -->
+                    <button onclick="prevSlide()"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-slate-950/60 hover:bg-slate-950 border border-slate-800/80 text-white opacity-0 hover:opacity-100 focus:opacity-100 transition duration-300 z-10 shadow-lg">
+                        <i class="fa-solid fa-chevron-left text-lg"></i>
+                    </button>
+                    <button onclick="nextSlide()"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-slate-950/60 hover:bg-slate-950 border border-slate-800/80 text-white opacity-0 hover:opacity-100 focus:opacity-100 transition duration-300 z-10 shadow-lg">
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </button>
+
+                    <!-- Presenter pointer overlay trigger area -->
+                    <div id="pointer-capture" class="absolute inset-0 z-0"></div>
+
+                    <!-- Bottom HUD Bar of the slide itself -->
+                    <div
+                        class="absolute bottom-4 left-6 right-6 flex items-center justify-between text-[11px] font-semibold text-slate-400 opacity-60 hover:opacity-100 transition z-10">
+                        <span id="slide-footer-title">認知經濟學與創業者變現指南</span>
+                        <div class="flex items-center space-x-1.5">
+                            <span id="slide-counter-val">1 / 1</span>
+                        </div>
+                    </div>
+
+                    <!-- Inner Slide Progress Bar -->
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-slate-900/60 z-10">
+                        <div id="slide-progress-line"
+                            class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
+                            style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presenter Playback Tools (Bottom) -->
+            <div
+                class="flex flex-wrap items-center justify-between gap-4 mt-6 bg-slate-950/50 p-3 rounded-2xl border border-slate-800/60 z-10">
+                <div class="flex items-center space-x-2">
+                    <!-- Play button -->
+                    <button id="btn-play" onclick="togglePlay()"
+                        class="w-10 h-10 flex items-center justify-center rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition shadow shadow-indigo-950/50"
+                        title="自動播放">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                    <div
+                        class="flex items-center space-x-1.5 px-2.5 py-1.5 bg-slate-900 rounded-lg border border-slate-800 text-xs">
+                        <span class="text-slate-500">每頁</span>
+                        <input id="play-interval" type="number" value="6" min="2" max="60"
+                            class="w-10 bg-transparent text-center text-slate-200 focus:outline-none border-b border-slate-700 font-bold"
+                            onchange="updateInterval()">
+                        <span class="text-slate-500">秒</span>
+                    </div>
+                    <!-- Autoplay Countdown Line -->
+                    <div class="w-16 h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                        <div id="autoplay-progress" class="h-full bg-indigo-500 transition-all duration-100 ease-linear"
+                            style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-2.5">
+                    <!-- Laser Pointer Button -->
+                    <button id="btn-laser" onclick="toggleLaserPointer()"
+                        class="h-10 px-3.5 flex items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 hover:text-white transition space-x-1.5"
+                        title="簡報紅點指引">
+                        <i class="fa-solid fa-circle-dot text-rose-500 text-sm"></i>
+                        <span>雷射筆</span>
+                    </button>
+
+                    <!-- Presenter Notes Drawer Trigger -->
+                    <button id="btn-notes-toggle" onclick="toggleNotesDrawer()"
+                        class="h-10 px-3.5 flex items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 hover:text-white transition space-x-1.5"
+                        title="顯示備忘錄">
+                        <i class="fa-solid fa-receipt text-amber-500"></i>
+                        <span>備忘筆記</span>
+                    </button>
+
+                    <div class="w-px h-6 bg-slate-800"></div>
+
+                    <!-- Fullscreen -->
+                    <button onclick="requestFullscreen()"
+                        class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition"
+                        title="全螢幕播放">
+                        <i class="fa-solid fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Speaker Notes Panel -->
+            <div id="notes-drawer"
+                class="hidden mt-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl p-4 transition-all duration-300 z-10">
+                <div
+                    class="flex items-center justify-between mb-2 pb-1.5 border-b border-amber-500/10 text-xs font-semibold text-amber-500">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-receipt"></i> 講者備忘錄 (Speaker
+                        Notes)</span>
+                    <button onclick="toggleNotesDrawer()" class="text-slate-400 hover:text-amber-500"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="notes-content" class="text-sm leading-relaxed text-amber-200/90 font-medium">
+                    <!-- Updated dynamically by JS -->
+                    無備忘紀錄
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Page Outline Mode (Hidden by default) -->
+        <section id="outline-container" class="hidden absolute inset-0 bg-slate-950 p-8 overflow-y-auto z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="border-b border-slate-800 pb-4 mb-6">
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-ul text-indigo-400"></i> 大綱閱讀與預覽模式
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">此模式可整頁清晰閱讀所有投影片內容與講者備忘</p>
+                </div>
+                <div id="outline-list" class="space-y-6">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Presenter Floating HUD overlay (Only in Fullscreen) -->
+    <div id="fullscreen-hud"
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 glass-panel border border-slate-700/60 rounded-full px-5 py-2.5 flex items-center space-x-4 shadow-2xl z-50 transition-all opacity-0 hover:opacity-100 pointer-events-none">
+        <button onclick="prevSlide()" class="text-slate-300 hover:text-white pointer-events-auto"><i
+                class="fa-solid fa-chevron-left text-base"></i></button>
+        <span id="fs-slide-counter" class="text-xs font-bold text-slate-300 select-none">1 / 1</span>
+        <button onclick="nextSlide()" class="text-slate-300 hover:text-white pointer-events-auto"><i
+                class="fa-solid fa-chevron-right text-base"></i></button>
+        <div class="w-px h-4 bg-slate-700"></div>
+        <button id="btn-fs-laser" onclick="toggleLaserPointer()"
+            class="text-slate-400 hover:text-white pointer-events-auto"><i
+                class="fa-solid fa-circle-dot text-rose-500"></i></button>
+        <button onclick="exitFullscreen()" class="text-slate-300 hover:text-white pointer-events-auto"><i
+                class="fa-solid fa-compress"></i></button>
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        let slides = [];
+        let currentSlideIdx = 0;
+        let isPlaying = false;
+        let playTimer = null;
+        let playIntervalSec = 6;
+        let autoplayProgressTimer = null;
+        let autoplayProgressPercent = 0;
+        let laserEnabled = false;
+
+        // Custom parser to split Markdown into slide objects with line number tracking
+        function parseSlidesFromMarkdown(md) {
+            const lines = md.split('\n');
+            const list = [];
+            let currentSlideLines = [];
+            let startLineIdx = 0;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                if (line.trim() === '---') {
+                    list.push({
+                        rawLines: [...currentSlideLines],
+                        startLineIdx: startLineIdx,
+                        lineCount: currentSlideLines.length,
+                        notes: '',
+                        isCover: false
+                    });
+                    currentSlideLines = [];
+                    startLineIdx = i + 1;
+                } else {
+                    currentSlideLines.push(line);
+                }
+            }
+
+            // Push the last slide
+            list.push({
+                rawLines: [...currentSlideLines],
+                startLineIdx: startLineIdx,
+                lineCount: currentSlideLines.length,
+                notes: '',
+                isCover: false
+            });
+
+            // Post-process slides (extract notes and determine covers)
+            list.forEach(slide => {
+                let note = '';
+                let displayLines = [];
+                let inNoteBlock = false;
+
+                // Pre-compile Regexes with concatenated strings to prevent editor HTML parsing/highlighting bugs
+                const noteRegexHTML = new RegExp('<' + '!--\\s*Note:\\s*([\\s\\S]*?)\\s*-' + '->', 'i');
+                const noteRegexStart = new RegExp('<' + '!--\\s*Note:', 'i');
+                const notePrefixReplace = new RegExp('<' + '!--\\s*Note:\\s*', 'i');
+                const noteSuffixReplace = new RegExp('\\s*-' + '->$', 'i');
+                const noteEndMarker = '-' + '->';
+
+                for (let i = 0; i < slide.rawLines.length; i++) {
+                    const line = slide.rawLines[i];
+                    const trimmed = line.trim();
+
+                    // Detect Note
+                    const matchHTML = trimmed.match(noteRegexHTML);
+                    const matchStart = trimmed.match(noteRegexStart);
+
+                    if (matchHTML) {
+                        note += trimmed.replace(notePrefixReplace, '').replace(noteSuffixReplace, '') + '\n';
+                    } else if (matchStart) {
+                        inNoteBlock = true;
+                        note += trimmed.replace(notePrefixReplace, '') + '\n';
+                    } else if (inNoteBlock) {
+                        if (trimmed.includes(noteEndMarker)) {
+                            inNoteBlock = false;
+                            note += trimmed.replace(noteSuffixReplace, '') + '\n';
+                        } else {
+                            note += line + '\n';
+                        }
+                    } else if (trimmed.match(/^Note:\s*(.*)/i)) {
+                        note += trimmed.replace(/^Note:\s*/i, '') + '\n';
+                    } else {
+                        // Display line
+                        displayLines.push({
+                            text: line,
+                            relativeIdx: i
+                        });
+                    }
+                }
+
+                slide.notes = note.trim();
+                slide.displayLines = displayLines;
+                slide.displayContent = displayLines.map(dl => dl.text).join('\n');
+
+                // Check cover slide
+                const firstDisplayLine = displayLines.length > 0 ? displayLines[0].text.trim() : '';
+                slide.isCover = firstDisplayLine.startsWith('# ');
+            });
+
+            return list;
+        }
+
+        // Initialize marked options
+        marked.use({
+            gfm: true,
+            breaks: true
+        });
+
+        // Map slide DOM elements back to Markdown line indices for direct editing
+        let activeEditingEl = null;
+
+        function findLineIdxByDOMElement(domEl, slideIdx) {
+            const slide = slides[slideIdx];
+            const targetText = domEl.innerText.trim();
+            if (!targetText) return -1;
+
+            const cleanText = (str) => {
+                // Remove Markdown special chars, formatting tags, math characters, punctuation, and all whitespace
+                return str.replace(/[#\-\*\_\`\$\+\\\{\}\[\]\(\)\d\.\s\:\：\，\、\。]/g, '');
+            };
+
+            const targetClean = cleanText(targetText);
+            if (!targetClean) return -1;
+
+            const lines = document.getElementById('editor').value.split('\n');
+            let bestMatchIdx = -1;
+            let bestMatchScore = 0;
+
+            for (let i = 0; i < slide.lineCount; i++) {
+                const absoluteIdx = slide.startLineIdx + i;
+                const lineText = lines[absoluteIdx];
+                if (!lineText) continue;
+
+                // Skip note lines
+                if (lineText.trim().startsWith('<!--') || lineText.trim().startsWith('Note:')) {
+                    continue;
+                }
+
+                const lineClean = cleanText(lineText);
+                if (lineClean === targetClean) {
+                    return absoluteIdx; // Perfect match
+                }
+
+                // Fallback to substring match if cleanText changes slightly
+                if (lineClean.includes(targetClean) || targetClean.includes(lineClean)) {
+                    const score = Math.min(lineClean.length, targetClean.length);
+                    if (score > bestMatchScore) {
+                        bestMatchScore = score;
+                        bestMatchIdx = absoluteIdx;
+                    }
+                }
+            }
+
+            return bestMatchIdx;
+        }
+
+        function attachEditEventsToSlide(slideIdx) {
+            const slideEl = document.getElementById(`slide-${slideIdx}`);
+            if (!slideEl) return;
+
+            // Select all editable elements in document order
+            const editableDOMs = slideEl.querySelectorAll('.slide-body h1, .slide-body h2, .slide-body h3, .slide-body p, .slide-body li');
+
+            editableDOMs.forEach(domEl => {
+                domEl.classList.add('hover:bg-slate-700/20', 'rounded', 'px-1.5', 'transition-colors', 'cursor-pointer');
+                domEl.title = "雙擊直接編輯此段文字";
+
+                domEl.addEventListener('dblclick', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    const lineIdx = findLineIdxByDOMElement(domEl, slideIdx);
+                    if (lineIdx >= 0) {
+                        startDirectEdit(domEl, lineIdx);
+                    } else {
+                        console.warn('Could not find corresponding markdown line for element:', domEl.innerText);
+                    }
+                });
+            });
+        }
+
+        function startDirectEdit(domEl, absoluteLineIdx) {
+            // Commit any active edit first
+            if (activeEditingEl && activeEditingEl !== domEl) {
+                commitDirectEdit(activeEditingEl, parseInt(activeEditingEl.dataset.absoluteLineIdx));
+            }
+
+            // Pause autoplay if it is running
+            if (isPlaying) {
+                togglePlay();
+            }
+
+            const editor = document.getElementById('editor');
+            const lines = editor.value.split('\n');
+            const originalLine = lines[absoluteLineIdx];
+
+            // Save state on DOM element
+            domEl.dataset.originalHtml = domEl.innerHTML;
+            domEl.contentEditable = 'true';
+            domEl.textContent = originalLine; // Display the EXACT full markdown line content (including prefixes like #, -, etc.)
+
+            // Add editing styles
+            domEl.classList.add('bg-slate-800/90', 'text-indigo-200', 'ring-2', 'ring-indigo-500', 'outline-none', 'p-1.5', 'rounded-lg', 'shadow-lg');
+            domEl.focus();
+
+            // Select all text
+            const range = document.createRange();
+            range.selectNodeContents(domEl);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+
+            activeEditingEl = domEl;
+
+            // Key listeners
+            const handleKeyDown = (e) => {
+                if (e.key === 'Enter') {
+                    if (!e.shiftKey) {
+                        e.preventDefault();
+                        domEl.removeEventListener('keydown', handleKeyDown);
+                        commitDirectEdit(domEl, absoluteLineIdx);
+                    }
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    domEl.removeEventListener('keydown', handleKeyDown);
+                    cancelDirectEdit(domEl);
+                }
+            };
+            domEl.addEventListener('keydown', handleKeyDown);
+
+            // Blur listener
+            const handleBlur = () => {
+                domEl.removeEventListener('blur', handleBlur);
+                setTimeout(() => {
+                    if (activeEditingEl === domEl) {
+                        commitDirectEdit(domEl, absoluteLineIdx);
+                    }
+                }, 150);
+            };
+            domEl.addEventListener('blur', handleBlur);
+        }
+
+        function commitDirectEdit(domEl, absoluteLineIdx) {
+            if (domEl.contentEditable !== 'true') return;
+
+            const newText = domEl.textContent.trim();
+
+            const editor = document.getElementById('editor');
+            const lines = editor.value.split('\n');
+            lines[absoluteLineIdx] = newText;
+            editor.value = lines.join('\n');
+
+            // Reset element state
+            domEl.contentEditable = 'false';
+            domEl.classList.remove('bg-slate-800/90', 'text-indigo-200', 'ring-2', 'ring-indigo-500', 'outline-none', 'p-1.5', 'rounded-lg', 'shadow-lg');
+
+            if (activeEditingEl === domEl) {
+                activeEditingEl = null;
+            }
+
+            // Re-render slides and rebuild editor line index mapping
+            renderSlides();
+        }
+
+        function cancelDirectEdit(domEl) {
+            domEl.contentEditable = 'false';
+            domEl.innerHTML = domEl.dataset.originalHtml;
+            domEl.classList.remove('bg-slate-800/90', 'text-indigo-200', 'ring-2', 'ring-indigo-500', 'outline-none', 'p-1.5', 'rounded-lg', 'shadow-lg');
+
+            if (activeEditingEl === domEl) {
+                activeEditingEl = null;
+            }
+        }
+
+        let activeOutlineEditingEl = null;
+
+        function startOutlineNoteEdit(noteEl) {
+            if (activeOutlineEditingEl && activeOutlineEditingEl !== noteEl) {
+                commitOutlineNoteEdit(activeOutlineEditingEl);
+            }
+
+            if (isPlaying) {
+                togglePlay();
+            }
+
+            const slideIdx = parseInt(noteEl.dataset.slideIdx);
+            const slide = slides[slideIdx];
+            const originalNotes = slide.notes || '';
+
+            noteEl.dataset.originalNotes = originalNotes;
+            noteEl.contentEditable = 'true';
+            noteEl.textContent = originalNotes;
+
+            noteEl.classList.add('bg-slate-900', 'text-amber-200', 'ring-2', 'ring-amber-500/80', 'outline-none', 'p-3', 'rounded-xl', 'shadow-lg');
+            noteEl.focus();
+
+            // Select all text
+            const range = document.createRange();
+            range.selectNodeContents(noteEl);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+
+            activeOutlineEditingEl = noteEl;
+
+            const handleKeyDown = (e) => {
+                if (e.key === 'Enter') {
+                    if (!e.shiftKey) {
+                        e.preventDefault();
+                        noteEl.removeEventListener('keydown', handleKeyDown);
+                        commitOutlineNoteEdit(noteEl);
+                    }
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    noteEl.removeEventListener('keydown', handleKeyDown);
+                    cancelOutlineNoteEdit(noteEl);
+                }
+            };
+            noteEl.addEventListener('keydown', handleKeyDown);
+
+            const handleBlur = () => {
+                noteEl.removeEventListener('blur', handleBlur);
+                setTimeout(() => {
+                    if (activeOutlineEditingEl === noteEl) {
+                        commitOutlineNoteEdit(noteEl);
+                    }
+                }, 150);
+            };
+            noteEl.addEventListener('blur', handleBlur);
+        }
+
+        function commitOutlineNoteEdit(noteEl) {
+            if (noteEl.contentEditable !== 'true') return;
+
+            const slideIdx = parseInt(noteEl.dataset.slideIdx);
+            const newNotes = noteEl.innerText.trim();
+
+            noteEl.contentEditable = 'false';
+            noteEl.classList.remove('bg-slate-900', 'text-amber-200', 'ring-2', 'ring-amber-500/80', 'outline-none', 'p-3', 'rounded-xl', 'shadow-lg');
+
+            if (activeOutlineEditingEl === noteEl) {
+                activeOutlineEditingEl = null;
+            }
+
+            updateSlideNotes(slideIdx, newNotes);
+        }
+
+        function cancelOutlineNoteEdit(noteEl) {
+            noteEl.contentEditable = 'false';
+            noteEl.classList.remove('bg-slate-900', 'text-amber-200', 'ring-2', 'ring-amber-500/80', 'outline-none', 'p-3', 'rounded-xl', 'shadow-lg');
+
+            const originalNotes = noteEl.dataset.originalNotes;
+            if (originalNotes) {
+                noteEl.textContent = originalNotes;
+            } else {
+                noteEl.innerHTML = '<span class="text-slate-500 italic">無備忘紀錄，雙擊此處新增...</span>';
+            }
+
+            if (activeOutlineEditingEl === noteEl) {
+                activeOutlineEditingEl = null;
+            }
+        }
+
+        function updateSlideNotes(slideIdx, newNotes) {
+            const editor = document.getElementById('editor');
+            const lines = editor.value.split('\n');
+            const slide = slides[slideIdx];
+
+            const slideLines = lines.slice(slide.startLineIdx, slide.startLineIdx + slide.lineCount);
+
+            const noteRegexHTML = new RegExp('<' + '!--\\s*Note:\\s*([\\s\\S]*?)\\s*-' + '->', 'i');
+            const noteRegexStart = new RegExp('<' + '!--\\s*Note:', 'i');
+            const noteEndMarker = '-' + '->';
+
+            let inNoteBlock = false;
+            const filteredLines = [];
+
+            for (let i = 0; i < slideLines.length; i++) {
+                const line = slideLines[i];
+                const trimmed = line.trim();
+
+                const matchHTML = trimmed.match(noteRegexHTML);
+                const matchStart = trimmed.match(noteRegexStart);
+
+                if (matchHTML) {
+                    continue;
+                } else if (matchStart) {
+                    inNoteBlock = true;
+                    continue;
+                } else if (inNoteBlock) {
+                    if (trimmed.includes(noteEndMarker)) {
+                        inNoteBlock = false;
+                    }
+                    continue;
+                } else if (trimmed.match(/^Note:\s*(.*)/i)) {
+                    continue;
+                } else {
+                    filteredLines.push(line);
+                }
+            }
+
+            while (filteredLines.length > 0 && filteredLines[filteredLines.length - 1].trim() === '') {
+                filteredLines.pop();
+            }
+
+            if (newNotes.trim()) {
+                filteredLines.push('');
+                if (newNotes.includes('\n')) {
+                    filteredLines.push('<' + '!-- Note:');
+                    filteredLines.push(newNotes);
+                    filteredLines.push('--' + '>');
+                } else {
+                    filteredLines.push('<' + '!-- Note: ' + newNotes + ' --' + '>');
+                }
+            }
+
+            lines.splice(slide.startLineIdx, slide.lineCount, ...filteredLines);
+            editor.value = lines.join('\n');
+            renderSlides();
+        }
+
+        // Main Render Slides
+        function renderSlides() {
+            const markdown = document.getElementById('editor').value;
+            slides = parseSlidesFromMarkdown(markdown);
+
+            const container = document.getElementById('slides-container');
+            const selectSlide = document.getElementById('select-slide');
+            const outlineList = document.getElementById('outline-list');
+
+            container.innerHTML = '';
+            selectSlide.innerHTML = '';
+            outlineList.innerHTML = '';
+
+            if (slides.length === 0) {
+                container.innerHTML = '<div class="slide active slide-cover"><h1>無投影片內容</h1><p>請在左側輸入 Markdown 內容</p></div>';
+                return;
+            }
+
+            slides.forEach((slide, idx) => {
+                // Parse markdown to HTML
+                let parsedHTML = marked.parse(slide.displayContent);
+                slide.htmlContent = parsedHTML;
+
+                // Determine layout class
+                const layoutClass = slide.isCover ? 'slide-cover' : 'slide-content';
+
+                // Create slide element
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${layoutClass}`;
+                slideDiv.id = `slide-${idx}`;
+                slideDiv.innerHTML = `
+                    <div class="slide-border absolute inset-4 rounded-xl pointer-events-none z-0"></div>
+                    <div class="slide-body z-10 w-full">${parsedHTML}</div>
+                `;
+
+                container.appendChild(slideDiv);
+
+                // Add to drop-down selector
+                const opt = document.createElement('option');
+                opt.value = idx;
+                // Get slide title as label (first heading text)
+                const titleMatch = slide.displayContent.match(/^(?:#{1,3})\s+(.*)$/m);
+                const slideLabel = titleMatch ? titleMatch[1] : `投影片 ${idx + 1}`;
+                opt.innerText = `${idx + 1}. ${slideLabel.replace(/\*|_|`/g, '')}`;
+                selectSlide.appendChild(opt);
+
+                // Add to Outline View
+                const outlineDiv = document.createElement('div');
+                outlineDiv.className = 'glass-card border border-slate-800/80 rounded-2xl p-6 hover:border-indigo-500/40 transition duration-300';
+
+                const notesHtml = `
+                    <div class="mt-4 pt-3 border-t border-slate-800/60">
+                        <span class="text-xs font-bold text-amber-500 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-receipt"></i> 講者備忘錄 (雙擊編輯)：</span>
+                        <div class="outline-note-text bg-amber-500/5 border border-amber-500/15 hover:border-amber-500/35 rounded-xl p-3 text-xs text-amber-200/80 cursor-pointer transition select-text" data-slide-idx="${idx}" title="雙擊編輯講者備忘錄">
+                            ${slide.notes ? slide.notes : '<span class="text-slate-500 italic">無備忘紀錄，雙擊此處新增...</span>'}
+                        </div>
+                    </div>
+                `;
+
+                outlineDiv.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-3.5">
+                        <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded">投影片 ${idx + 1} / ${slides.length}</span>
+                        ${slide.isCover ? '<span class="text-[10px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 px-1.5 py-0.5 rounded">封面樣式</span>' : ''}
+                    </div>
+                    <div class="prose prose-invert max-w-none text-slate-300 text-sm mb-4">
+                        ${parsedHTML}
+                    </div>
+                    ${notesHtml}
+                `;
+                outlineList.appendChild(outlineDiv);
+
+                // Attach direct editing handlers for this slide
+                attachEditEventsToSlide(idx);
+            });
+
+            // Bind double click edit for outline notes
+            const outlineNotes = outlineList.querySelectorAll('.outline-note-text');
+            outlineNotes.forEach(noteEl => {
+                noteEl.addEventListener('dblclick', (e) => {
+                    e.stopPropagation();
+                    startOutlineNoteEdit(noteEl);
+                });
+            });
+
+            // Re-render math formulas via KaTeX
+            renderMathInElement(container, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: false
+            });
+
+            // Re-render math in outline
+            renderMathInElement(outlineList, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+
+            // Synchronize active slide state
+            if (currentSlideIdx >= slides.length) {
+                currentSlideIdx = slides.length - 1;
+            }
+            if (currentSlideIdx < 0) currentSlideIdx = 0;
+
+            showSlide(currentSlideIdx);
+        }
+
+        // Show specific slide index
+        function showSlide(index) {
+            const slideElements = document.querySelectorAll('.slide');
+            if (slideElements.length === 0) return;
+
+            // Remove classes
+            slideElements.forEach((el, idx) => {
+                el.classList.remove('active', 'prev');
+                if (idx < index) {
+                    el.classList.add('prev');
+                }
+            });
+
+            // Set active
+            const activeSlide = document.getElementById(`slide-${index}`);
+            if (activeSlide) {
+                activeSlide.classList.add('active');
+            }
+
+            currentSlideIdx = index;
+
+            // Update selectors/HUD counters
+            document.getElementById('select-slide').value = index;
+            document.getElementById('slide-counter-val').innerText = `${index + 1} / ${slides.length}`;
+            document.getElementById('fs-slide-counter').innerText = `${index + 1} / ${slides.length}`;
+
+            // Update slide progress line
+            const progressPct = ((index + 1) / slides.length) * 100;
+            document.getElementById('slide-progress-line').style.width = `${progressPct}%`;
+
+            // Update speaker notes content
+            const notesContent = document.getElementById('notes-content');
+            if (slides[index] && slides[index].notes) {
+                notesContent.innerText = slides[index].notes;
+                document.getElementById('btn-notes-toggle').classList.add('border-amber-500/50', 'bg-amber-500/10');
+            } else {
+                notesContent.innerText = '本頁無講者備忘錄';
+                document.getElementById('btn-notes-toggle').classList.remove('border-amber-500/50', 'bg-amber-500/10');
+            }
+
+            // Reset autoplay progress for this slide if playing
+            if (isPlaying) {
+                resetAutoplayCountdown();
+            }
+        }
+
+        // Next/Prev navigation
+        function nextSlide() {
+            if (currentSlideIdx < slides.length - 1) {
+                showSlide(currentSlideIdx + 1);
+            } else if (isPlaying) {
+                // Loop back to start if playing
+                showSlide(0);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIdx > 0) {
+                showSlide(currentSlideIdx - 1);
+            }
+        }
+
+        function jumpToSlide(index) {
+            showSlide(index);
+        }
+
+        // Autoplay play/pause
+        function togglePlay() {
+            const btn = document.getElementById('btn-play');
+            if (isPlaying) {
+                stopAutoplay();
+                btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                btn.classList.replace('bg-rose-600', 'bg-indigo-600');
+                btn.classList.replace('hover:bg-rose-500', 'hover:bg-indigo-500');
+            } else {
+                startAutoplay();
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                btn.classList.replace('bg-indigo-600', 'bg-rose-600');
+                btn.classList.replace('hover:bg-indigo-500', 'hover:bg-rose-500');
+            }
+        }
+
+        function startAutoplay() {
+            isPlaying = true;
+            resetAutoplayCountdown();
+
+            playTimer = setInterval(() => {
+                nextSlide();
+            }, playIntervalSec * 1000);
+        }
+
+        function stopAutoplay() {
+            isPlaying = false;
+            clearInterval(playTimer);
+            clearInterval(autoplayProgressTimer);
+            document.getElementById('autoplay-progress').style.width = '0%';
+        }
+
+        function resetAutoplayCountdown() {
+            clearInterval(autoplayProgressTimer);
+            autoplayProgressPercent = 0;
+            const progress = document.getElementById('autoplay-progress');
+
+            const stepMs = 100;
+            const totalSteps = (playIntervalSec * 1000) / stepMs;
+
+            autoplayProgressTimer = setInterval(() => {
+                autoplayProgressPercent += 100 / totalSteps;
+                if (autoplayProgressPercent >= 100) {
+                    autoplayProgressPercent = 100;
+                    clearInterval(autoplayProgressTimer);
+                }
+                progress.style.width = `${autoplayProgressPercent}%`;
+            }, stepMs);
+
+            // Reset outer timer interval
+            clearInterval(playTimer);
+            playTimer = setInterval(() => {
+                nextSlide();
+            }, playIntervalSec * 1000);
+        }
+
+        function updateInterval() {
+            const val = parseInt(document.getElementById('play-interval').value);
+            if (val >= 2 && val <= 60) {
+                playIntervalSec = val;
+                if (isPlaying) {
+                    resetAutoplayCountdown();
+                }
+            }
+        }
+
+        // Change Slide Transition Mode
+        function changeTransition(mode) {
+            const viewport = document.getElementById('slide-viewport');
+            // Remove previous transitions
+            viewport.classList.remove('transition-slide-h', 'transition-slide-v', 'transition-fade', 'transition-zoom');
+
+            // Add new one
+            viewport.classList.add(`transition-${mode}`);
+        }
+
+        // Change Aspect Ratio
+        function changeRatio(ratio) {
+            const viewport = document.getElementById('slide-viewport');
+            if (ratio === '4-3') {
+                viewport.classList.add('ratio-4-3');
+            } else {
+                viewport.classList.remove('ratio-4-3');
+            }
+        }
+
+        // Set Slide Theme
+        function setTheme(themeName, labelText) {
+            const viewport = document.getElementById('slide-viewport');
+            viewport.className = viewport.className.replace(/theme-\w+/g, '');
+            viewport.classList.add(`theme-${themeName}`);
+            document.getElementById('current-theme-label').innerText = labelText;
+        }
+
+        // Toggle Notes Drawer
+        function toggleNotesDrawer() {
+            const drawer = document.getElementById('notes-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        // Laser pointer implementation
+        function toggleLaserPointer() {
+            laserEnabled = !laserEnabled;
+            const btn = document.getElementById('btn-laser');
+            const fsBtn = document.getElementById('btn-fs-laser');
+            const pointer = document.getElementById('laser-pointer');
+            const viewport = document.getElementById('slide-viewport');
+
+            if (laserEnabled) {
+                btn.classList.add('bg-rose-500/20', 'border-rose-500/60', 'text-rose-100');
+                if (fsBtn) fsBtn.classList.add('text-rose-500');
+                pointer.style.display = 'block';
+                viewport.classList.add('laser-cursor');
+
+                viewport.addEventListener('mousemove', handleLaserMove);
+                viewport.addEventListener('mouseleave', handleLaserLeave);
+            } else {
+                btn.classList.remove('bg-rose-500/20', 'border-rose-500/60', 'text-rose-100');
+                if (fsBtn) fsBtn.classList.remove('text-rose-500');
+                pointer.style.display = 'none';
+                viewport.classList.remove('laser-cursor');
+
+                viewport.removeEventListener('mousemove', handleLaserMove);
+                viewport.removeEventListener('mouseleave', handleLaserLeave);
+            }
+        }
+
+        function handleLaserMove(e) {
+            const pointer = document.getElementById('laser-pointer');
+            const rect = document.getElementById('slide-viewport').getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            pointer.style.left = `${x}px`;
+            pointer.style.top = `${y}px`;
+        }
+
+        function handleLaserLeave() {
+            document.getElementById('laser-pointer').style.display = 'none';
+        }
+
+        // Fullscreen Controls
+        function requestFullscreen() {
+            const viewport = document.getElementById('slide-viewport');
+            if (viewport.requestFullscreen) {
+                viewport.requestFullscreen();
+            } else if (viewport.webkitRequestFullscreen) { /* Safari */
+                viewport.webkitRequestFullscreen();
+            } else if (viewport.msRequestFullscreen) { /* IE11 */
+                viewport.msRequestFullscreen();
+            }
+        }
+
+        function exitFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        // Handle browser fullscreen change
+        document.addEventListener('fullscreenchange', () => {
+            const hud = document.getElementById('fullscreen-hud');
+            if (document.fullscreenElement) {
+                hud.classList.remove('opacity-0', 'pointer-events-none');
+                hud.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                hud.classList.add('opacity-0', 'pointer-events-none');
+                hud.classList.remove('opacity-100', 'pointer-events-auto');
+                // Ensure default cursor returns if laser wasn't enabled
+                if (!laserEnabled) {
+                    document.getElementById('slide-viewport').style.cursor = 'default';
+                }
+            }
+        });
+
+        // Switch Workspace view modes (Dual / Present / Outline)
+        function switchViewMode(mode) {
+            const editorPanel = document.getElementById('editor-container');
+            const previewPanel = document.getElementById('preview-container');
+            const outlinePanel = document.getElementById('outline-container');
+
+            const btnDual = document.getElementById('view-dual');
+            const btnPresent = document.getElementById('view-present');
+            const btnOutline = document.getElementById('view-outline');
+
+            // Reset buttons
+            [btnDual, btnPresent, btnOutline].forEach(btn => {
+                btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 text-slate-400 hover:text-white";
+            });
+
+            if (mode === 'dual') {
+                editorPanel.classList.remove('hidden');
+                previewPanel.classList.remove('hidden');
+                outlinePanel.classList.add('hidden');
+                btnDual.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 bg-indigo-600 text-white shadow";
+            } else if (mode === 'present') {
+                editorPanel.classList.add('hidden');
+                previewPanel.classList.remove('hidden');
+                outlinePanel.classList.add('hidden');
+                btnPresent.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 bg-indigo-600 text-white shadow";
+            } else if (mode === 'outline') {
+                editorPanel.classList.add('hidden');
+                previewPanel.classList.add('hidden');
+                outlinePanel.classList.remove('hidden');
+                btnOutline.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 bg-indigo-600 text-white shadow";
+            }
+        }
+
+        // Insert functions for Editor
+        function insertSlideBreak() {
+            const editor = document.getElementById('editor');
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const text = editor.value;
+            editor.value = text.substring(0, start) + "\n\n---\n\n## 投影片標題\n- 項目一\n- 項目二" + text.substring(end);
+            editor.focus();
+            renderSlides();
+        }
+
+        function insertMath() {
+            const editor = document.getElementById('editor');
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const text = editor.value;
+            editor.value = text.substring(0, start) + "$$ \\text{公式} $$" + text.substring(end);
+            editor.focus();
+            renderSlides();
+        }
+
+        function insertNote() {
+            const editor = document.getElementById('editor');
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const text = editor.value;
+            editor.value = text.substring(0, start) + "\n\n<!-- Note: 講者提示備忘內容 -->" + text.substring(end);
+            editor.focus();
+            renderSlides();
+        }
+
+        // Export/Download modified markdown
+        function exportMarkdown() {
+            const text = document.getElementById('editor').value;
+            const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = '簡報大綱_匯出.md';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        // Import files
+        function importFile(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (evt) {
+                document.getElementById('editor').value = evt.target.result;
+                renderSlides();
+            };
+            reader.readAsText(file);
+        }
+
+        // Event listener for editor inputs
+        let renderTimeout;
+        document.getElementById('editor').addEventListener('input', () => {
+            clearTimeout(renderTimeout);
+            renderTimeout = setTimeout(renderSlides, 300);
+        });
+
+        // Key listeners for presentations
+        document.addEventListener('keydown', (e) => {
+            // Only trigger if not typing in text area, input, or an editable slide element
+            if (document.activeElement.tagName === 'TEXTAREA' ||
+                document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.isContentEditable) {
+                return;
+            }
+
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'f' || e.key === 'F') {
+                requestFullscreen();
+            } else if (e.key === 'Escape') {
+                exitFullscreen();
+            }
+        });
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            renderSlides();
+        });
+    </script>
+</body>
+
+</html>
