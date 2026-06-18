@@ -197,10 +197,10 @@ def apply_slide_theme(prs, slide, is_spiritual=False):
     fill.solid()
     if is_spiritual:
         fill.fore_color.rgb = RGBColor(253, 252, 249) # Off-white
-        border_color = RGBColor(197, 168, 128) # Gold border
+        border_color = RGBColor(14, 165, 233) # Sky-blue border
     else:
         fill.fore_color.rgb = RGBColor(11, 15, 25) # Dark Navy
-        border_color = RGBColor(129, 140, 248) # Indigo border
+        border_color = RGBColor(14, 165, 233) # Sky-blue border
     
     # Rounded slide border shape (representing .slide-border from original style)
     border_margin = Inches(0.1)
@@ -223,10 +223,7 @@ def add_title_underline(slide, is_spiritual=False):
         Inches(0.8), Inches(1.5), Inches(11.733), Pt(1.5)
     )
     line.fill.solid()
-    if is_spiritual:
-        line.fill.fore_color.rgb = RGBColor(197, 168, 128) # Gold line
-    else:
-        line.fill.fore_color.rgb = RGBColor(129, 140, 248) # Indigo line
+    line.fill.fore_color.rgb = RGBColor(14, 165, 233) # Sky-blue line
     line.line.fill.background()
 
 def add_background_decorations(prs, slide, is_spiritual=False):
@@ -396,7 +393,7 @@ def draw_sally_integration_diagram(prs, slide):
     box_left = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(1.2), Inches(1.8), Inches(4.5), Inches(1.8))
     box_left.fill.solid()
     box_left.fill.fore_color.rgb = RGBColor(30, 27, 75)
-    box_left.line.color.rgb = RGBColor(129, 140, 248)
+    box_left.line.color.rgb = RGBColor(14, 165, 233) # Sky-blue Left Box Line
     box_left.line.width = Pt(2)
     if box_left.adjustments:
          box_left.adjustments[0] = 0.05
@@ -431,13 +428,13 @@ def draw_sally_integration_diagram(prs, slide):
     run_p.font.name = 'Microsoft JhengHei'
     run_p.font.bold = True
     run_p.font.size = Pt(36)
-    run_p.font.color.rgb = RGBColor(168, 85, 247)
+    run_p.font.color.rgb = RGBColor(14, 165, 233) # Sky-blue Plus Sign
     
     # 3. Right Box
     box_right = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.6), Inches(1.8), Inches(4.5), Inches(1.8))
     box_right.fill.solid()
     box_right.fill.fore_color.rgb = RGBColor(59, 7, 100)
-    box_right.line.color.rgb = RGBColor(168, 85, 247)
+    box_right.line.color.rgb = RGBColor(14, 165, 233) # Sky-blue Right Box Line
     box_right.line.width = Pt(2)
     if box_right.adjustments:
          box_right.adjustments[0] = 0.05
@@ -465,14 +462,14 @@ def draw_sally_integration_diagram(prs, slide):
     # 4. Down Arrow
     arrow = slide.shapes.add_shape(MSO_SHAPE.DOWN_ARROW, Inches(5.95), Inches(3.9), Inches(0.4), Inches(0.5))
     arrow.fill.solid()
-    arrow.fill.fore_color.rgb = RGBColor(129, 140, 248)
+    arrow.fill.fore_color.rgb = RGBColor(14, 165, 233) # Sky-blue Arrow
     arrow.line.fill.background()
     
     # 5. Bottom Result Box
     box_bottom = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(2.166), Inches(4.7), Inches(8.0), Inches(1.8))
     box_bottom.fill.solid()
     box_bottom.fill.fore_color.rgb = RGBColor(15, 23, 42)
-    box_bottom.line.color.rgb = RGBColor(244, 114, 182)
+    box_bottom.line.color.rgb = RGBColor(14, 165, 233) # Sky-blue Bottom Box Line
     box_bottom.line.width = Pt(2.5)
     if box_bottom.adjustments:
          box_bottom.adjustments[0] = 0.05
@@ -487,7 +484,7 @@ def draw_sally_integration_diagram(prs, slide):
     run_b1.font.name = 'Microsoft JhengHei'
     run_b1.font.bold = True
     run_b1.font.size = Pt(20)
-    run_b1.font.color.rgb = RGBColor(244, 114, 182)
+    run_b1.font.color.rgb = RGBColor(14, 165, 233) # Sky-blue Text Color
     
     p_b2 = tf_b.add_paragraph()
     p_b2.alignment = PP_ALIGN.CENTER
@@ -523,19 +520,87 @@ def convert_html_to_pptx(html_path, pptx_path):
     # Set theme colors & fonts
     if is_spiritual:
         text_color_header = RGBColor(184, 151, 90) # Gold
-        text_color_subtitle = RGBColor(197, 168, 128) # Soft Gold
+        text_color_subtitle = RGBColor(14, 165, 233) # Sky-blue Soft Accent
         text_color_body = RGBColor(60, 60, 60) # Dark Gray
-        text_color_highlight = RGBColor(140, 109, 62) # Dark Gold bold
+        text_color_highlight = RGBColor(3, 105, 161) # Sky-blue Dark bold
         font_name = 'M PLUS Rounded 1c'
     else:
         text_color_header = RGBColor(192, 132, 252) # Light Purple / Violet
-        text_color_subtitle = RGBColor(129, 140, 248) # Indigo
+        text_color_subtitle = RGBColor(14, 165, 233) # Sky-blue Accent
         text_color_body = RGBColor(241, 245, 249) # Off-white
-        text_color_highlight = RGBColor(244, 114, 182) # Pink highlight
+        text_color_highlight = RGBColor(56, 189, 248) # Sky-blue Light highlight
         font_name = 'Microsoft JhengHei'
 
+    parsed_slides = []
     for idx, slide_raw in enumerate(slides_raw):
         title, body_elements, notes = parse_slide_content(slide_raw)
+        
+        is_cover = False
+        if idx == 0:
+            is_cover = True
+        elif not any(el['type'] in ['bullet', 'numbered'] for el in body_elements) and len(body_elements) <= 2:
+            is_cover = True
+            
+        parsed_slides.append({
+            'title': title,
+            'body_elements': body_elements,
+            'notes': notes,
+            'is_cover': is_cover,
+            'raw': slide_raw
+        })
+
+    # Apply slide splitting logic
+    final_slides = []
+    for slide_data in parsed_slides:
+        if slide_data['is_cover'] or not slide_data['body_elements']:
+            final_slides.append(slide_data)
+            continue
+            
+        body_elements = slide_data['body_elements']
+        chunks = []
+        current_chunk = []
+        current_lines = 0
+        
+        for el in body_elements:
+            text = el['text']
+            clean_text = text.replace('**', '')
+            char_limit = 43 if el['level'] > 0 else 38
+            el_lines = max(1, (len(clean_text) + char_limit - 1) // char_limit)
+            
+            if current_lines + el_lines > 10 and current_chunk:
+                chunks.append(current_chunk)
+                current_chunk = [el]
+                current_lines = el_lines
+            else:
+                current_chunk.append(el)
+                current_lines += el_lines
+                
+        if current_chunk:
+            chunks.append(current_chunk)
+            
+        total_pages = len(chunks)
+        if total_pages <= 1:
+            final_slides.append(slide_data)
+            continue
+            
+        for idx, chunk in enumerate(chunks):
+            page_num = idx + 1
+            original_title = slide_data['title']
+            new_title = f"{original_title} ({page_num}/{total_pages})" if original_title else f"({page_num}/{total_pages})"
+            
+            final_slides.append({
+                'title': new_title,
+                'body_elements': chunk,
+                'notes': slide_data['notes'],
+                'is_cover': slide_data['is_cover'],
+                'raw': slide_data['raw']
+            })
+
+    for idx, slide_data in enumerate(final_slides):
+        title = slide_data['title']
+        body_elements = slide_data['body_elements']
+        notes = slide_data['notes']
+        is_cover = slide_data['is_cover']
         
         slide = prs.slides.add_slide(blank_layout)
         apply_slide_theme(prs, slide, is_spiritual)
@@ -546,20 +611,13 @@ def convert_html_to_pptx(html_path, pptx_path):
             slide.notes_slide.notes_text_frame.text = notes
             
         # Draw custom diagrams if title matches
-        is_tech_giants = (title == "全球科技巨頭到底在爭奪什麼？") or ("全球科技巨頭到底在爭奪什麼" in slide_raw)
+        is_tech_giants = (title == "全球科技巨頭到底在爭奪什麼？") or ("全球科技巨頭到底在爭奪什麼" in slide_data['raw'])
         if is_tech_giants:
             draw_hub_and_spoke_diagram(prs, slide)
             continue
         elif title == "整合型定位：專長 + 身心靈 = 質變方程式":
             draw_sally_integration_diagram(prs, slide)
             continue
-            
-        # Determine if it's a cover slide
-        is_cover = False
-        if idx == 0:
-            is_cover = True
-        elif not any(el['type'] in ['bullet', 'numbered'] for el in body_elements) and len(body_elements) <= 2:
-            is_cover = True
             
         if is_cover:
             # Centered layout for cover slides

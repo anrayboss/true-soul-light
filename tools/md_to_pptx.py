@@ -105,7 +105,7 @@ def create_presentation(slides_data, output_path):
             Inches(0.4), Inches(0.4), Inches(12.533), Inches(6.7)
         )
         border.fill.background() # Hollow fill
-        border.line.color.rgb = RGBColor(49, 46, 129) # Soft dark indigo border line
+        border.line.color.rgb = RGBColor(3, 105, 161) # Soft dark sky-blue border line
         border.line.width = Pt(1.5)
         
         # Add speaker notes if any
@@ -132,7 +132,7 @@ def create_presentation(slides_data, output_path):
                 Inches(4.5), Inches(3.6), Inches(4.333), Inches(0.03)
             )
             divider.fill.solid()
-            divider.fill.fore_color.rgb = RGBColor(244, 114, 182) # Fuchsia Accent Divider Line
+            divider.fill.fore_color.rgb = RGBColor(14, 165, 233) # Sky-blue Accent Divider Line
             divider.line.fill.background()
             
             if slide_data['subtitle']:
@@ -140,7 +140,7 @@ def create_presentation(slides_data, output_path):
                 p2.text = slide_data['subtitle']
                 p2.font.name = 'Microsoft JhengHei'
                 p2.font.size = Pt(22)
-                p2.font.color.rgb = RGBColor(129, 140, 248) # Indigo Accent Subtitle
+                p2.font.color.rgb = RGBColor(14, 165, 233) # Sky-blue Accent Subtitle
                 p2.space_before = Pt(40) # Push below divider
                 p2.alignment = PP_ALIGN.CENTER
                 
@@ -156,7 +156,7 @@ def create_presentation(slides_data, output_path):
                 p.font.name = 'Microsoft JhengHei'
                 p.font.size = Pt(32)
                 p.font.bold = True
-                p.font.color.rgb = RGBColor(129, 140, 248) # Indigo Title (#818CF8)
+                p.font.color.rgb = RGBColor(14, 165, 233) # Sky-blue Title (#0EA5E9)
                 
                 # Horizontal line under title
                 line = slide.shapes.add_shape(
@@ -191,7 +191,7 @@ def create_presentation(slides_data, output_path):
                         run_bullet.font.name = 'Microsoft JhengHei'
                         run_bullet.font.size = Pt(20)
                         run_bullet.font.bold = True
-                        run_bullet.font.color.rgb = RGBColor(168, 85, 247) # Purple Bullet (#A855F7)
+                        run_bullet.font.color.rgb = RGBColor(14, 165, 233) # Sky-blue Bullet (#0EA5E9)
                     else:
                         p.space_after = Pt(8)
                         p.left_indent = Inches(0.5)
@@ -202,7 +202,7 @@ def create_presentation(slides_data, output_path):
                         run_bullet.font.name = 'Microsoft JhengHei'
                         run_bullet.font.size = Pt(16)
                         run_bullet.font.bold = True
-                        run_bullet.font.color.rgb = RGBColor(129, 140, 248) # Indigo Bullet (#818CF8)
+                        run_bullet.font.color.rgb = RGBColor(125, 211, 252) # Sky-blue Bullet (#7DD3FC)
                     
                     text_content = item['text']
                     if item['type'] == 'num_list':
@@ -215,7 +215,7 @@ def create_presentation(slides_data, output_path):
                             run = p.add_run()
                             run.text = part[2:-2]
                             run.font.bold = True
-                            run.font.color.rgb = RGBColor(244, 114, 182) # Fuchsia Accent for bold text (#F472B6)
+                            run.font.color.rgb = RGBColor(56, 189, 248) # Sky-blue Accent for bold text (#38BDF8)
                         else:
                             run = p.add_run()
                             run.text = part
@@ -227,6 +227,56 @@ def create_presentation(slides_data, output_path):
                     
     prs.save(output_path)
     print(f"Presentation saved successfully to: {output_path}")
+
+def split_slides(slides_data):
+    new_slides = []
+    for slide in slides_data:
+        if slide['is_cover'] or not slide['items']:
+            new_slides.append(slide)
+            continue
+        
+        items = slide['items']
+        chunks = []
+        current_chunk = []
+        current_lines = 0
+        
+        for item in items:
+            text = item['text']
+            clean_text = text.replace('**', '')
+            char_limit = 43 if item['level'] > 0 else 38
+            item_lines = max(1, (len(clean_text) + char_limit - 1) // char_limit)
+            
+            if current_lines + item_lines > 10 and current_chunk:
+                chunks.append(current_chunk)
+                current_chunk = [item]
+                current_lines = item_lines
+            else:
+                current_chunk.append(item)
+                current_lines += item_lines
+                
+        if current_chunk:
+            chunks.append(current_chunk)
+            
+        total_pages = len(chunks)
+        if total_pages <= 1:
+            new_slides.append(slide)
+            continue
+            
+        for idx, chunk in enumerate(chunks):
+            page_num = idx + 1
+            original_title = slide['title']
+            new_title = f"{original_title} ({page_num}/{total_pages})" if original_title else f"({page_num}/{total_pages})"
+            
+            new_slides.append({
+                'title': new_title,
+                'subtitle': slide['subtitle'],
+                'is_cover': slide['is_cover'],
+                'items': chunk,
+                'notes': slide['notes']
+            })
+            
+    return new_slides
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
@@ -241,4 +291,5 @@ if __name__ == "__main__":
         
     slides_data = parse_markdown_to_slides(input_file)
     if slides_data:
+        slides_data = split_slides(slides_data)
         create_presentation(slides_data, output_file)
