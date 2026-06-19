@@ -246,7 +246,7 @@ def split_slides(slides_data):
             char_limit = 43 if item['level'] > 0 else 38
             item_lines = max(1, (len(clean_text) + char_limit - 1) // char_limit)
             
-            if current_lines + item_lines > 10 and current_chunk:
+            if current_lines + item_lines > 8 and current_chunk:
                 chunks.append(current_chunk)
                 current_chunk = [item]
                 current_lines = item_lines

@@ -567,7 +567,7 @@ def convert_html_to_pptx(html_path, pptx_path):
             char_limit = 43 if el['level'] > 0 else 38
             el_lines = max(1, (len(clean_text) + char_limit - 1) // char_limit)
             
-            if current_lines + el_lines > 10 and current_chunk:
+            if current_lines + el_lines > 8 and current_chunk:
                 chunks.append(current_chunk)
                 current_chunk = [el]
                 current_lines = el_lines
