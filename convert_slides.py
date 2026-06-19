@@ -679,7 +679,7 @@ def convert_html_to_pptx(html_path, pptx_path):
                 p.level = min(el['level'], 4)
                 
                 # Determine font sizing, prefix and styling
-                font_size = Pt(20 - 2 * p.level)
+                font_size = Pt(28 - 2 * p.level)
                 
                 if el['type'] == 'header':
                     p.space_before = Pt(14)

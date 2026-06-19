@@ -189,7 +189,7 @@ def create_presentation(slides_data, output_path):
                         run_bullet = p.add_run()
                         run_bullet.text = "✦  "
                         run_bullet.font.name = 'Microsoft JhengHei'
-                        run_bullet.font.size = Pt(20)
+                        run_bullet.font.size = Pt(28)
                         run_bullet.font.bold = True
                         run_bullet.font.color.rgb = RGBColor(14, 165, 233) # Sky-blue Bullet (#0EA5E9)
                     else:
@@ -200,7 +200,7 @@ def create_presentation(slides_data, output_path):
                         run_bullet = p.add_run()
                         run_bullet.text = "•  "
                         run_bullet.font.name = 'Microsoft JhengHei'
-                        run_bullet.font.size = Pt(16)
+                        run_bullet.font.size = Pt(25)
                         run_bullet.font.bold = True
                         run_bullet.font.color.rgb = RGBColor(125, 211, 252) # Sky-blue Bullet (#7DD3FC)
                     
@@ -223,7 +223,7 @@ def create_presentation(slides_data, output_path):
                             run.font.color.rgb = RGBColor(226, 232, 240) # Slate-200 Light Gray regular text
                             
                     p.font.name = 'Microsoft JhengHei'
-                    p.font.size = Pt(20 - item['level'] * 3)
+                    p.font.size = Pt(28 - item['level'] * 3)
                     
     prs.save(output_path)
     print(f"Presentation saved successfully to: {output_path}")
