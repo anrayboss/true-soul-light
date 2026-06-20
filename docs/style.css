@@ -278,7 +278,8 @@ body.dark-mode .red-badge {
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    z-index: 10015; /* 介於 mobile-header 10010 與 sidebar 10020 之間 */
+    z-index: 10015;
+    /* 介於 mobile-header 10010 與 sidebar 10020 之間 */
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
@@ -1567,27 +1568,34 @@ body.dark-mode .taiwan-map-img {
         display: flex;
     }
 
-    .menu-toggle-btn {
-        order: -1; /* 漢堡按鈕移到左側 */
-    }
-
     .mobile-header .logo {
-        font-size: 1.1rem; /* 限制手機版中文字大小，防止溢出，原本為 1.3rem */
+        font-size: 1.1rem;
+        /* 限制手機版中文字大小，防止溢出，原本為 1.3rem */
     }
 
     .mobile-header .logo .gold-text {
-        font-size: 1.2rem; /* 限制手機版草寫英文字大小，防止溢出，原本為 1.6rem */
-        margin-top: 4px;   /* 往下微調，防止草寫字型向上偏出橫幅範圍 */
+        font-size: 1.2rem;
+        /* 限制手機版草寫英文字大小，防止溢出，原本為 1.6rem */
+        margin-top: 4px;
+        /* 往下微調，防止草寫字型向上偏出橫幅範圍 */
         display: inline-block;
     }
 
+    /* 刪除 .menu-toggle-btn 的 order: -1，讓按鈕回右側 */
+
+    /* 將側欄改為從右側滑入 */
     .sidebar {
-        transform: translateX(-100%);
+        left: auto;
+        right: 0;
+        transform: translateX(100%);
+        border-right: none;
+        border-left: 1px solid var(--color-border);
     }
 
     .sidebar.show {
         transform: translateX(0);
     }
+
 
     .main-content {
         margin-left: 0;
