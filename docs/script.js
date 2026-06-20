@@ -10,31 +10,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.main-content .section');
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
 
     let growthChartInstance = null;
     let chartRevealed = false;
 
     // ==========================================
-    // 1. Mobile Sidebar Menu Toggle
+    // 1. Mobile Sidebar Menu Toggle & Overlay
     // ==========================================
     if (menuToggleBtn && sidebar) {
+        const closeSidebar = () => {
+            sidebar.classList.remove('show');
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.remove('show');
+            }
+            const icon = menuToggleBtn.querySelector('i');
+            if (icon) icon.className = 'fa-solid fa-bars';
+        };
+
         menuToggleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            sidebar.classList.toggle('show');
+            const isShowing = sidebar.classList.toggle('show');
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.toggle('show', isShowing);
+            }
             // Toggle hamburger icon
             const icon = menuToggleBtn.querySelector('i');
-            if (sidebar.classList.contains('show')) {
-                icon.className = 'fa-solid fa-xmark';
-            } else {
-                icon.className = 'fa-solid fa-bars';
+            if (icon) {
+                icon.className = isShowing ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             }
         });
+
+        // Close sidebar when clicking overlay
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', (e) => {
+                closeSidebar();
+            });
+        }
 
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
             if (window.innerWidth <= 768 && sidebar.classList.contains('show') && !sidebar.contains(e.target) && e.target !== menuToggleBtn) {
-                sidebar.classList.remove('show');
-                menuToggleBtn.querySelector('i').className = 'fa-solid fa-bars';
+                closeSidebar();
             }
         });
 
@@ -42,8 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('show');
-                    menuToggleBtn.querySelector('i').className = 'fa-solid fa-bars';
+                    closeSidebar();
                 }
             });
         });

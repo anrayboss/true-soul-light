@@ -267,6 +267,29 @@ body.dark-mode .red-badge {
 }
 
 /* ==========================================
+   Mobile Sidebar Overlay
+   ========================================== */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10015; /* 介於 mobile-header 10010 與 sidebar 10020 之間 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================
    Mobile Navigation Header Bar
    ========================================== */
 .mobile-header {
@@ -1542,6 +1565,16 @@ body.dark-mode .taiwan-map-img {
 @media (max-width: 768px) {
     .mobile-header {
         display: flex;
+    }
+
+    .mobile-header .logo {
+        font-size: 1.1rem; /* 限制手機版中文字大小，防止溢出，原本為 1.3rem */
+    }
+
+    .mobile-header .logo .gold-text {
+        font-size: 1.2rem; /* 限制手機版草寫英文字大小，防止溢出，原本為 1.6rem */
+        margin-top: 4px;   /* 往下微調，防止草寫字型向上偏出橫幅範圍 */
+        display: inline-block;
     }
 
     .sidebar {
