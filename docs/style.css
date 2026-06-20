@@ -1553,6 +1553,12 @@ body.dark-mode .taiwan-map-img {
         padding-top: calc(var(--header-height) + 20px);
     }
 
+    .card {
+        padding: 15px;
+        /* 將手機版卡片內距縮小到 15px */
+    }
+
+
     .hero-content h1 {
         font-size: 2rem;
     }
