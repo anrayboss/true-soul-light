@@ -5,45 +5,51 @@
    ========================================== */
 :root {
     /* Color Palette - Light Mode (Default) */
-    --color-primary: #9C1F26;       /* Deep Ruby Red */
+    --color-primary: #9C1F26;
+    /* Deep Ruby Red */
     --color-primary-hover: #7E151A;
     --color-primary-light: #FCE8E9;
-    --color-secondary: #E3B462;     /* Gold Accent */
+    --color-secondary: #E3B462;
+    /* Gold Accent */
     --color-secondary-hover: #C59847;
     --color-secondary-light: #FAF2E3;
-    
-    --color-background: #FDFDFD;    /* Alabaster White */
+
+    --color-background: #FDFDFD;
+    /* Alabaster White */
     --color-surface: #FFFFFF;
     --color-surface-card: #FFFFFF;
-    --color-text-main: #2A2A2A;     /* Muted Charcoal for better reading */
+    --color-text-main: #2A2A2A;
+    /* Muted Charcoal for better reading */
     --color-text-muted: #666666;
     --color-text-light: #888888;
-    
+
     --color-border: #EBEBEB;
     --color-gold-border: rgba(212, 175, 55, 0.25);
     --color-shadow: rgba(0, 0, 0, 0.05);
     --color-shadow-hover: rgba(156, 31, 38, 0.08);
-    
+
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(235, 235, 235, 0.5);
     --glass-shadow: rgba(0, 0, 0, 0.03);
-    
+
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, #ECC880 0%, #D4AF37 50%, #B89025 100%);
     --gradient-red: linear-gradient(135deg, #C93B43 0%, #9C1F26 100%);
     --gradient-hero: linear-gradient(180deg, #FCE8E9 0%, #FDFDFD 100%);
-    
+
     /* Typography */
     --font-heading: 'Lora', serif;
     --font-body: 'Inter', sans-serif;
-    
+    --font-logo-zh: 'Klee One', 'Noto Serif TC', sans-serif;
+    --font-logo-en: 'Ephesis', cursive;
+
     /* Transitions & Borders */
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
     --transition-fast: 150ms ease;
     --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /* Dimensions */
     --sidebar-width: 280px;
     --header-height: 60px;
@@ -51,29 +57,32 @@
 
 /* Dark Mode Variables Override */
 body.dark-mode {
-    --color-primary: #D4AF37;       /* Gold becomes primary in dark mode */
+    --color-primary: #D4AF37;
+    /* Gold becomes primary in dark mode */
     --color-primary-hover: #ECC880;
     --color-primary-light: #2A210B;
-    --color-secondary: #9C1F26;     /* Red becomes secondary */
+    --color-secondary: #9C1F26;
+    /* Red becomes secondary */
     --color-secondary-hover: #7E151A;
     --color-secondary-light: #250B0D;
-    
-    --color-background: #0E0507;    /* Extremely dark warm wine/charcoal */
+
+    --color-background: #0E0507;
+    /* Extremely dark warm wine/charcoal */
     --color-surface: #180C0E;
     --color-surface-card: rgba(30, 16, 18, 0.6);
     --color-text-main: #EAEAEA;
     --color-text-muted: #B3A0A3;
     --color-text-light: #8E7A7D;
-    
+
     --color-border: #2E1719;
     --color-gold-border: rgba(212, 175, 55, 0.35);
     --color-shadow: rgba(0, 0, 0, 0.3);
     --color-shadow-hover: rgba(212, 175, 55, 0.15);
-    
+
     --glass-bg: rgba(24, 12, 14, 0.65);
     --glass-border: rgba(212, 175, 55, 0.15);
     --glass-shadow: rgba(0, 0, 0, 0.4);
-    
+
     /* Gradients */
     --gradient-hero: linear-gradient(180deg, #1C0A0D 0%, #0E0507 100%);
 }
@@ -91,7 +100,7 @@ body.dark-mode {
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 body {
@@ -103,7 +112,12 @@ body {
     transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 600;
     line-height: 1.3;
@@ -145,6 +159,7 @@ ul {
 .font-red {
     color: #9C1F26 !important;
 }
+
 body.dark-mode .font-red {
     color: #FF5A60 !important;
 }
@@ -162,6 +177,7 @@ body.dark-mode .font-red {
     -webkit-text-fill-color: transparent;
     font-weight: 800;
 }
+
 body.dark-mode .gradient-text {
     background: linear-gradient(135deg, #D4AF37 0%, #FF5A60 100%);
     -webkit-background-clip: text;
@@ -192,6 +208,7 @@ body.dark-mode .gradient-text {
     color: var(--color-secondary-hover);
     border: 1px solid var(--color-gold-border);
 }
+
 body.dark-mode .gold-badge {
     background: rgba(212, 175, 55, 0.15);
     color: #E3B462;
@@ -202,6 +219,7 @@ body.dark-mode .gold-badge {
     color: #9C1F26;
     border: 1px solid rgba(156, 31, 38, 0.2);
 }
+
 body.dark-mode .red-badge {
     background: rgba(255, 90, 96, 0.15);
     color: #FF5A60;
@@ -264,13 +282,24 @@ body.dark-mode .red-badge {
     justify-content: space-between;
     align-items: center;
     z-index: 900;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .mobile-header .logo {
-    font-family: var(--font-heading);
+    font-family: var(--font-logo-zh);
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-header .logo .gold-text {
+    font-family: var(--font-logo-en);
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: none;
+    vertical-align: middle;
 }
 
 .menu-toggle-btn {
@@ -311,6 +340,7 @@ body.dark-mode .red-badge {
 }
 
 .sidebar-logo h2 {
+    font-family: var(--font-logo-zh);
     font-size: 1.6rem;
     letter-spacing: 0.15em;
     color: var(--color-primary);
@@ -318,10 +348,13 @@ body.dark-mode .red-badge {
 }
 
 .sidebar-logo .subtitle {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    color: var(--color-text-light);
+    font-family: var(--font-logo-en);
+    font-size: 1.5rem;
+    letter-spacing: normal;
+    font-weight: 400;
+    color: var(--color-secondary);
+    margin-top: 4px;
+    text-transform: none;
 }
 
 .sidebar-nav {
@@ -365,6 +398,7 @@ body.dark-mode .red-badge {
     color: #FFFFFF !important;
     box-shadow: 0 4px 12px rgba(156, 31, 38, 0.15);
 }
+
 body.dark-mode .nav-link.active {
     background: var(--gradient-gold);
     color: #0E0507 !important;
@@ -470,12 +504,13 @@ body.dark-mode .nav-link.active {
     left: -50px;
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, rgba(156, 31, 38, 0.08) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle, rgba(156, 31, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
     z-index: -1;
     pointer-events: none;
 }
+
 body.dark-mode .hero-bg-gradient {
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .hero-content h1 {
@@ -548,6 +583,7 @@ body.dark-mode .hero-bg-gradient {
     color: #FFFFFF;
     font-size: 1.4rem;
 }
+
 body.dark-mode .project-icon-wrapper {
     color: #0E0507;
 }
@@ -657,6 +693,7 @@ body.dark-mode .project-icon-wrapper {
     background-color: rgba(156, 31, 38, 0.02);
     border: 1px solid rgba(156, 31, 38, 0.15);
 }
+
 body.dark-mode .forbidden-card {
     background-color: rgba(255, 90, 96, 0.02);
     border: 1px solid rgba(255, 90, 96, 0.15);
@@ -669,6 +706,7 @@ body.dark-mode .forbidden-card {
     color: #9C1F26;
     margin-bottom: 15px;
 }
+
 body.dark-mode .forbidden-header {
     color: #FF5A60;
 }
@@ -711,6 +749,7 @@ body.dark-mode .forbidden-header {
     font-weight: 700;
     flex-shrink: 0;
 }
+
 body.dark-mode .forbidden-num {
     background-color: #FF5A60;
     color: #0E0507;
@@ -747,6 +786,7 @@ body.dark-mode .forbidden-num {
     font-size: 0.75rem;
     border-bottom-left-radius: var(--radius-md);
 }
+
 body.dark-mode .store-badge {
     color: #0E0507;
 }
@@ -754,6 +794,7 @@ body.dark-mode .store-badge {
 .highlight-store {
     border: 1px solid var(--color-primary);
 }
+
 body.dark-mode .highlight-store {
     border-color: var(--color-primary);
 }
@@ -828,6 +869,7 @@ body.dark-mode .highlight-store {
     align-items: center;
     gap: 15px;
 }
+
 body.dark-mode .feature-tag {
     background-color: rgba(212, 175, 55, 0.1);
     color: var(--color-primary);
@@ -929,8 +971,11 @@ body.dark-mode .feature-tag {
 }
 
 .list-item i {
-    width: 20px;
+    width: 24px;
     color: var(--color-primary);
+    margin-right: 12px;
+    display: inline-block;
+    text-align: center;
 }
 
 .list-item .percent {
@@ -946,6 +991,7 @@ body.dark-mode .feature-tag {
     padding: 30px;
     border-radius: var(--radius-md);
 }
+
 body.dark-mode .matrix-highlight-info {
     background-color: rgba(212, 175, 55, 0.08);
     border-color: rgba(212, 175, 55, 0.15);
@@ -960,6 +1006,7 @@ body.dark-mode .matrix-highlight-info {
     font-size: 0.95rem;
     margin-bottom: 15px;
 }
+
 body.dark-mode .highlight-badge {
     color: #D4AF37;
 }
@@ -1187,6 +1234,249 @@ body.dark-mode .highlight-badge {
 }
 
 /* ==========================================
+   Store Layout with Taiwan Map
+   ========================================== */
+.stores-container {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    gap: 40px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.store-map-wrapper {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px var(--color-shadow);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    /* 縮小一點點以保持優雅比例 */
+}
+
+.taiwan-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-sm);
+    transition: filter var(--transition-normal);
+}
+
+body.dark-mode .taiwan-map-img {
+    filter: invert(0.9) brightness(0.8) contrast(1.2) sepia(0.2) hue-rotate(320deg);
+}
+
+/* Map pins styling */
+.map-pin {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+/* 台北星星據點 */
+.star-pin {
+    color: var(--color-secondary);
+    font-size: 1.4rem;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.8));
+    transition: transform var(--transition-fast);
+}
+
+.star-pin:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* 縣市金色小圓圈據點 */
+.dot-pin {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-secondary);
+    background-color: transparent;
+    box-shadow: 0 0 3px var(--color-secondary);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.dot-pin:hover {
+    transform: translate(-50%, -50%) scale(1.4);
+    background-color: var(--color-secondary);
+}
+
+/* Pin tooltips */
+.pin-tooltip {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-gold-border);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: var(--color-text-main);
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20;
+    line-height: 1.4;
+}
+
+.pin-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--color-surface-card) transparent transparent transparent;
+}
+
+.map-pin:hover .pin-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* Coordinates relative to Taiwan map image dimensions */
+.pin-keelung {
+    top: 9%;
+    left: 74%;
+}
+
+.pin-taipei {
+    top: 12%;
+    left: 69%;
+}
+
+.pin-newtaipei {
+    top: 14%;
+    left: 71%;
+}
+
+.pin-taoyuan {
+    top: 17%;
+    left: 62%;
+}
+
+.pin-hsinchucity {
+    top: 20%;
+    left: 55%;
+}
+
+.pin-hsinchucounty {
+    top: 22%;
+    left: 59%;
+}
+
+.pin-miaoli {
+    top: 27%;
+    left: 50%;
+}
+
+.pin-taichung {
+    top: 34%;
+    left: 47%;
+}
+
+.pin-changhua {
+    top: 39%;
+    left: 42%;
+}
+
+.pin-nantou {
+    top: 43%;
+    left: 54%;
+}
+
+.pin-yunlin {
+    top: 46%;
+    left: 39%;
+}
+
+.pin-chiayicity {
+    top: 50%;
+    left: 42%;
+}
+
+.pin-chiayicounty {
+    top: 52%;
+    left: 39%;
+}
+
+.pin-tainan {
+    top: 59%;
+    left: 35%;
+}
+
+.pin-kaohsiung {
+    top: 67%;
+    left: 34%;
+}
+
+.pin-pingtung {
+    top: 78%;
+    left: 41%;
+}
+
+.pin-yilan {
+    top: 23%;
+    left: 72%;
+}
+
+.pin-hualien {
+    top: 45%;
+    left: 64%;
+}
+
+.pin-taitung {
+    top: 70%;
+    left: 54%;
+}
+
+.pin-penghu {
+    top: 52%;
+    left: 21%;
+}
+
+.pin-kinmen {
+    top: 44%;
+    left: 5%;
+}
+
+.pin-lienchiang {
+    top: 15%;
+    left: 30%;
+}
+
+.city-distribution {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+.city-distribution span {
+    font-weight: 600;
+    color: var(--color-text-main);
+    white-space: nowrap;
+}
+
+/* ==========================================
    Animations
    ========================================== */
 @keyframes fadeIn {
@@ -1194,6 +1484,7 @@ body.dark-mode .highlight-badge {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1209,28 +1500,33 @@ body.dark-mode .highlight-badge {
     .main-content {
         padding: 40px 40px;
     }
-    
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .track-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
-    .store-layout-grid {
+
+    .stores-container {
         grid-template-columns: 1fr;
     }
-    
+
+    .store-map-wrapper {
+        position: static;
+        margin-bottom: 30px;
+    }
+
     .chart-flex {
         grid-template-columns: 1fr;
     }
-    
+
     .projection-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1242,55 +1538,56 @@ body.dark-mode .highlight-badge {
     .mobile-header {
         display: flex;
     }
-    
+
     .sidebar {
         transform: translateX(-100%);
     }
-    
+
     .sidebar.show {
         transform: translateX(0);
     }
-    
+
     .main-content {
         margin-left: 0;
         padding: 30px 20px;
         padding-top: calc(var(--header-height) + 20px);
     }
-    
+
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-stats {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .stat-value {
         font-size: 1.8rem;
     }
-    
+
     .project-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .mockup-display-card {
         grid-template-columns: 1fr;
         padding: 25px;
         gap: 30px;
     }
-    
+
     .forbidden-list {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .matrix-list-grid {
         grid-template-columns: 1fr;
     }
-    
-    .data-table th, .data-table td {
+
+    .data-table th,
+    .data-table td {
         padding: 12px 14px;
     }
 }
@@ -1309,4 +1606,3 @@ body.dark-mode .highlight-badge {
     opacity: 1;
     transform: translateY(0);
 }
-

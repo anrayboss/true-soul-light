@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: textColor,
                             font: {
                                 family: 'Inter',
-                                size: 12,
+                                size: 18,
                                 weight: '500'
                             }
                         }
@@ -251,7 +251,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         ticks: {
                             color: textColor,
                             font: {
-                                family: 'Inter'
+                                family: 'Inter',
+                                size: 16
                             }
                         }
                     },
@@ -262,7 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         title: {
                             display: true,
                             text: '營業額 (百萬元)',
-                            color: textColor
+                            color: textColor,
+                            font: {
+                                family: 'Inter',
+                                size: 18,
+                                weight: '600'
+                            }
                         },
                         grid: {
                             color: gridColor
@@ -270,7 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         ticks: {
                             color: textColor,
                             font: {
-                                family: 'Inter'
+                                family: 'Inter',
+                                size: 16
                             }
                         }
                     },
@@ -281,7 +288,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         title: {
                             display: true,
                             text: '純淨利 (百萬元)',
-                            color: textColor
+                            color: textColor,
+                            font: {
+                                family: 'Inter',
+                                size: 18,
+                                weight: '600'
+                            }
                         },
                         grid: {
                             drawOnChartArea: false, // only want the grid lines for one axis
@@ -289,7 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         ticks: {
                             color: textColor,
                             font: {
-                                family: 'Inter'
+                                family: 'Inter',
+                                size: 16
                             }
                         }
                     }
@@ -340,4 +353,36 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         setTheme(false);
     }
+
+    // ==========================================
+    // 6. Taiwan Map Interactive Highlights
+    // ==========================================
+    const mapPins = document.querySelectorAll('.map-pin');
+    const storeCards = {
+        'taipei': document.getElementById('card-taipei'),
+        'franchise': document.getElementById('card-franchise'),
+        'village': document.getElementById('card-franchise')
+    };
+
+    mapPins.forEach(pin => {
+        pin.addEventListener('mouseenter', () => {
+            const storeType = pin.getAttribute('data-store');
+            const targetCard = storeCards[storeType];
+            if (targetCard) {
+                targetCard.style.transform = 'translateY(-5px) scale(1.01)';
+                targetCard.style.boxShadow = '0 12px 30px var(--color-shadow-hover)';
+                targetCard.style.borderColor = 'var(--color-secondary)';
+            }
+        });
+
+        pin.addEventListener('mouseleave', () => {
+            const storeType = pin.getAttribute('data-store');
+            const targetCard = storeCards[storeType];
+            if (targetCard) {
+                targetCard.style.transform = '';
+                targetCard.style.boxShadow = '';
+                targetCard.style.borderColor = '';
+            }
+        });
+    });
 });
