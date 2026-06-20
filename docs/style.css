@@ -1567,6 +1567,10 @@ body.dark-mode .taiwan-map-img {
         display: flex;
     }
 
+    .menu-toggle-btn {
+        order: -1; /* 漢堡按鈕移到左側 */
+    }
+
     .mobile-header .logo {
         font-size: 1.1rem; /* 限制手機版中文字大小，防止溢出，原本為 1.3rem */
     }
