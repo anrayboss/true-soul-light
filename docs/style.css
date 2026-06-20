@@ -1549,7 +1549,7 @@ body.dark-mode .taiwan-map-img {
 
     .main-content {
         margin-left: 0;
-        padding: 30px 20px;
+        padding: 30px 15px;
         padding-top: calc(var(--header-height) + 20px);
     }
 
