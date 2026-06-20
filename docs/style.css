@@ -1596,6 +1596,46 @@ body.dark-mode .taiwan-map-img {
     .data-table td {
         padding: 12px 14px;
     }
+
+    /* 財務拆帳 Tabs 手機版 2x2 圓角按鈕 */
+    .tabs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 25px;
+        overflow-x: visible;
+    }
+
+    .tab-btn {
+        justify-content: center;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 12px 8px;
+        font-size: 0.85rem;
+        background-color: var(--color-surface);
+        box-shadow: 0 2px 6px var(--color-shadow);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .tab-btn:hover {
+        background-color: var(--color-primary-light);
+    }
+
+    .tab-btn.active {
+        background-color: var(--color-primary);
+        color: #FFFFFF !important;
+        border-color: var(--color-primary);
+        box-shadow: 0 4px 12px rgba(156, 31, 38, 0.15);
+    }
+
+    body.dark-mode .tab-btn.active {
+        background-color: var(--color-primary);
+        color: #0E0507 !important;
+        border-color: var(--color-primary);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
 }
 
 /* ==========================================
