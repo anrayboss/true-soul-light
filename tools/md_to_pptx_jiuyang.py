@@ -7,6 +7,34 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
 
+PORTRAIT_MAP = {
+    "馬斯洛": "maslow.png",
+    "稻盛和夫": "inamori.png",
+    "邁克爾": "porter.png",
+    "孫子": "sun_tzu.png",
+    "特勞特": "trout.png",
+    "鬼谷子": "guiguzi.png",
+    "康納曼": "kahneman.png",
+    "孔子": "confucius.png",
+    "西奧迪尼": "cialdini.png",
+    "博格": "berger.png",
+    "奧格威": "ogilvy.png",
+    "管仲": "guan_zhong.png",
+    "福特": "ford.png",
+    "王永慶": "wang.png",
+    "瓦特斯": "wattles.png",
+    "陶朱公": "fan_li.png",
+    "范蠡": "fan_li.png",
+    "馬斯克": "musk.png",
+    "張忠謀": "chang.png"
+}
+
+def get_portrait_filename(name):
+    for key, val in PORTRAIT_MAP.items():
+        if key in name:
+            return val
+    return None
+
 def parse_jiuyang_markdown(filepath):
     """
     Parses the specialized jiuyang markdown file into logical slides.
@@ -252,7 +280,9 @@ def parse_single_slide(block_text):
         has_dual_quotes = True
         for mit in master_items:
             raw_text = mit['text'].replace('👑', '').strip()
-            name_match = re.match(r'^\s*\*\*(.*?)\*\*\s*[：:]\s*(.*)', raw_text)
+            name_match = re.match(r'^\s*\*\*(.*?)[：:]\s*\*\*\s*(.*)', raw_text)
+            if not name_match:
+                name_match = re.match(r'^\s*\*\*(.*?)\*\*\s*[：:]\s*(.*)', raw_text)
             if name_match:
                 quotes_data.append({
                     'name': name_match.group(1).strip(),
@@ -312,6 +342,14 @@ def parse_single_slide(block_text):
                 {'name': right_name, 'quote': right_text}
             ]
             
+    # Special補全 for Slide 13
+    if ("Slide 13" in title or "客從哪來" in title) and len(quotes_data) == 1:
+        quotes_data.insert(0, {
+            'name': '大衛·奧格威（廣告教父）',
+            'quote': '“如果不能帶來銷售，再有創意也是扯淡。客人不是白痴，她就像你老婆一樣聰明。”'
+        })
+        has_dual_quotes = True
+            
     return {
         'title': title,
         'subtitle': subtitle,
@@ -355,29 +393,29 @@ def split_slides(slides_data):
                     if not is_quote_part:
                         non_quote_content.append(item)
             
-            if len(non_quote_content) > 0:
-                # Slide Part 1: Standard layout (Core concept + list items)
+            if len(non_quote_content) > 0 or case_study_item:
+                part1_items = list(non_quote_content)
+                if case_study_item:
+                    part1_items.append(case_study_item)
+                    
+                # Slide Part 1: Standard layout (Core concept + list items + case study at bottom)
                 slide_part1 = {
                     'title': f"{slide['title']} (1/2)" if slide['title'] else "(1/2)",
                     'subtitle': slide['subtitle'],
                     'is_cover': False,
-                    'items': non_quote_content,
+                    'items': part1_items,
                     'table_data': None,
                     'has_dual_quotes': False,
                     'quotes_data': [],
                     'notes': slide['notes']
                 }
                 
-                # Slide Part 2: Dual quotes layout (Left/Right cards + bottom case study Callout)
-                part2_items = []
-                if case_study_item:
-                    part2_items.append(case_study_item)
-                    
+                # Slide Part 2: Dual quotes layout (Left/Right cards only, no bottom case study)
                 slide_part2 = {
                     'title': f"{slide['title']} (2/2)" if slide['title'] else "(2/2)",
                     'subtitle': '',
                     'is_cover': False,
-                    'items': part2_items,
+                    'items': [],
                     'table_data': None,
                     'has_dual_quotes': True,
                     'quotes_data': slide['quotes_data'],
@@ -540,6 +578,35 @@ def draw_callout_box(slide, text, top_inch, height_inch, bg_rgb, border_rgb, tex
     p.font.name = 'Microsoft JhengHei'
     p.font.size = Pt(16)
 
+def add_serif_text_run(paragraph, text):
+    """
+    Splits text by bold and ASCII/non-ASCII segments to apply Georgia (English) and DFKai-SB (Chinese) fonts.
+    """
+    parts = re.split(r'(\*\*.*?\*\*)', text)
+    for part in parts:
+        is_bold = part.startswith('**') and part.endswith('**')
+        clean_part = part[2:-2] if is_bold else part
+        
+        sub_parts = re.split(r'([\x00-\x7F]+)', clean_part)
+        for sp in sub_parts:
+            if not sp:
+                continue
+            run = paragraph.add_run()
+            run.text = sp
+            run.font.bold = is_bold
+            
+            is_ascii = all(ord(c) < 128 for c in sp)
+            if is_ascii:
+                run.font.name = 'Georgia'
+                run.font.size = Pt(20)
+                run.font.italic = True
+                run.font.color.rgb = RGBColor(71, 85, 105)
+            else:
+                run.font.name = 'DFKai-SB'
+                run.font.size = Pt(20)
+                run.font.italic = False
+                run.font.color.rgb = RGBColor(51, 65, 85)
+
 def create_presentation(slides_data, output_path):
     prs = Presentation()
     prs.slide_width = Inches(13.333)
@@ -632,7 +699,7 @@ def create_presentation(slides_data, output_path):
                 line.fill.fore_color.rgb = RGBColor(226, 232, 240) # Slate-200
                 line.line.fill.background()
                 
-            # Render Dual Columns (Light Cards)
+            # Render Dual Columns (Symmetrical Portrait + Text below)
             case_study_text = ""
             for item in slide_data.get('items', []):
                 t = item['text']
@@ -640,70 +707,101 @@ def create_presentation(slides_data, output_path):
                     case_study_text = t
                     break
                     
-            card_height = Inches(3.8) if case_study_text else Inches(4.8)
-            
-            # Left Card
-            left_card = slide.shapes.add_shape(
-                MSO_SHAPE.ROUNDED_RECTANGLE,
-                Inches(0.8), Inches(1.85), Inches(5.6), card_height
-            )
-            left_card.fill.solid()
-            left_card.fill.fore_color.rgb = RGBColor(240, 249, 255) # Sky-50
-            left_card.line.color.rgb = RGBColor(186, 230, 253) # Sky-200
-            left_card.line.width = Pt(1.5)
-            
-            tf_left = left_card.text_frame
-            tf_left.word_wrap = True
-            tf_left.margin_left = Inches(0.25)
-            tf_left.margin_right = Inches(0.25)
-            tf_left.margin_top = Inches(0.3)
-            tf_left.margin_bottom = Inches(0.3)
-            
+            portrait_dir = r"d:\Git\true-soul-light\tools\portraits"
             quotes = slide_data['quotes_data']
             
-            p_left = tf_left.paragraphs[0]
-            p_left.text = quotes[0]['name']
-            p_left.font.name = 'Microsoft JhengHei'
-            p_left.font.size = Pt(20)
-            p_left.font.bold = True
-            p_left.font.color.rgb = RGBColor(3, 105, 161) # Sky-700
-            p_left.space_after = Pt(12)
+            # 1. Left Side (Western Master)
+            left_name = quotes[0]['name']
+            left_portrait_file = get_portrait_filename(left_name)
+            left_portrait_path = os.path.join(portrait_dir, left_portrait_file) if left_portrait_file else None
+            
+            # Left Portrait - Align Left (3.139" x 3.139")
+            if left_portrait_path and os.path.exists(left_portrait_path):
+                slide.shapes.add_picture(left_portrait_path, Inches(1.73), Inches(1.8), Inches(3.139), Inches(3.139))
+            else:
+                shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(1.73), Inches(1.8), Inches(3.139), Inches(3.139))
+                shape.fill.solid()
+                shape.fill.fore_color.rgb = RGBColor(240, 249, 255)
+                shape.line.color.rgb = RGBColor(186, 230, 253)
+                shape.line.width = Pt(1.0)
+                tf = shape.text_frame
+                tf.word_wrap = True
+                p = tf.paragraphs[0]
+                p.text = left_name[:2]
+                p.font.name = 'DFKai-SB'
+                p.font.size = Pt(24)
+                p.font.bold = True
+                p.font.color.rgb = RGBColor(3, 105, 161)
+                p.alignment = PP_ALIGN.CENTER
+                
+            # Left Text Box - Align Left
+            txBox_left = slide.shapes.add_textbox(Inches(0.8), Inches(5.0), Inches(5.25), Inches(2.1))
+            tf_left = txBox_left.text_frame
+            tf_left.word_wrap = True
+            tf_left.margin_left = 0
+            tf_left.margin_right = 0
+            tf_left.margin_top = 0
+            tf_left.margin_bottom = 0
+            
+            p_left_name = tf_left.paragraphs[0]
+            p_left_name.text = left_name
+            p_left_name.font.name = 'DFKai-SB'
+            p_left_name.font.size = Pt(20)
+            p_left_name.font.bold = True
+            p_left_name.font.color.rgb = RGBColor(3, 105, 161) # Sky-700
+            p_left_name.space_after = Pt(10)
+            p_left_name.alignment = PP_ALIGN.CENTER
             
             p_left_body = tf_left.add_paragraph()
-            add_bold_text_run(p_left_body, quotes[0]['quote'], RGBColor(71, 85, 105), RGBColor(3, 105, 161))
-            p_left_body.font.name = 'Microsoft JhengHei'
-            p_left_body.font.size = Pt(15)
+            p_left_body.alignment = PP_ALIGN.CENTER
+            add_serif_text_run(p_left_body, quotes[0]['quote'])
             
-            # Right Card
-            right_card = slide.shapes.add_shape(
-                MSO_SHAPE.ROUNDED_RECTANGLE,
-                Inches(6.8), Inches(1.85), Inches(5.7), card_height
-            )
-            right_card.fill.solid()
-            right_card.fill.fore_color.rgb = RGBColor(248, 250, 252) # Slate-50
-            right_card.line.color.rgb = RGBColor(226, 232, 240) # Slate-200
-            right_card.line.width = Pt(1.5)
+            # 2. Right Side (Eastern Master)
+            right_name = quotes[1]['name'] if len(quotes) > 1 else "東方聖人"
+            right_portrait_file = get_portrait_filename(right_name)
+            right_portrait_path = os.path.join(portrait_dir, right_portrait_file) if right_portrait_file else None
             
-            tf_right = right_card.text_frame
+            # Right Portrait - Align Right (3.139" x 3.139")
+            if right_portrait_path and os.path.exists(right_portrait_path):
+                slide.shapes.add_picture(right_portrait_path, Inches(8.689), Inches(1.8), Inches(3.139), Inches(3.139))
+            else:
+                shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(8.689), Inches(1.8), Inches(3.139), Inches(3.139))
+                shape.fill.solid()
+                shape.fill.fore_color.rgb = RGBColor(248, 250, 252)
+                shape.line.color.rgb = RGBColor(226, 232, 240)
+                shape.line.width = Pt(1.0)
+                tf = shape.text_frame
+                tf.word_wrap = True
+                p = tf.paragraphs[0]
+                p.text = right_name[:2]
+                p.font.name = 'DFKai-SB'
+                p.font.size = Pt(24)
+                p.font.bold = True
+                p.font.color.rgb = RGBColor(71, 85, 105)
+                p.alignment = PP_ALIGN.CENTER
+                
+            # Right Text Box - Align Right
+            txBox_right = slide.shapes.add_textbox(Inches(7.28), Inches(5.0), Inches(5.25), Inches(2.1))
+            tf_right = txBox_right.text_frame
             tf_right.word_wrap = True
-            tf_right.margin_left = Inches(0.25)
-            tf_right.margin_right = Inches(0.25)
-            tf_right.margin_top = Inches(0.3)
-            tf_right.margin_bottom = Inches(0.3)
+            tf_right.margin_left = 0
+            tf_right.margin_right = 0
+            tf_right.margin_top = 0
+            tf_right.margin_bottom = 0
             
-            p_right = tf_right.paragraphs[0]
-            p_right.text = quotes[1]['name'] if len(quotes) > 1 else "東方聖人"
-            p_right.font.name = 'Microsoft JhengHei'
-            p_right.font.size = Pt(20)
-            p_right.font.bold = True
-            p_right.font.color.rgb = RGBColor(71, 85, 105) # Slate-600
-            p_right.space_after = Pt(12)
+            p_right_name = tf_right.paragraphs[0]
+            p_right_name.text = right_name
+            p_right_name.font.name = 'DFKai-SB'
+            p_right_name.font.size = Pt(20)
+            p_right_name.font.bold = True
+            p_right_name.font.color.rgb = RGBColor(71, 85, 105) # Slate-600
+            p_right_name.space_after = Pt(10)
+            p_right_name.alignment = PP_ALIGN.CENTER
             
             p_right_body = tf_right.add_paragraph()
+            p_right_body.alignment = PP_ALIGN.CENTER
             r_quote = quotes[1]['quote'] if len(quotes) > 1 else ""
-            add_bold_text_run(p_right_body, r_quote, RGBColor(71, 85, 105), RGBColor(71, 85, 105))
-            p_right_body.font.name = 'Microsoft JhengHei'
-            p_right_body.font.size = Pt(15)
+            add_serif_text_run(p_right_body, r_quote)
             
             # Render bottom case study callout if present
             if case_study_text:
@@ -830,7 +928,7 @@ def create_presentation(slides_data, output_path):
                 
             items = slide_data['items']
             
-            # Find and separate Callout Boxes:
+            # Find and separate:
             # 1. 觀念核心
             core_concept_text = ""
             # 2. 實戰案例對撞
@@ -849,76 +947,91 @@ def create_presentation(slides_data, output_path):
             top_offset = Inches(1.65)
             content_height = Inches(5.0)
             
+            contentBox = slide.shapes.add_textbox(Inches(0.8), top_offset, Inches(11.73), content_height)
+            tf = contentBox.text_frame
+            tf.word_wrap = True
+            
+            first_paragraph = True
+            
+            # Render Core Concept at the top if present
             if core_concept_text:
-                # Draw top callout box
-                draw_callout_box(
-                    slide, 
-                    core_concept_text, 
-                    top_offset, 
-                    Inches(0.85),
-                    RGBColor(240, 249, 255), # Sky-50 bg
-                    RGBColor(186, 230, 253), # Sky-200 border
-                    RGBColor(2, 132, 199)    # Sky-700 text accent
-                )
-                top_offset += Inches(1.0)
-                content_height -= Inches(1.0)
+                p = tf.paragraphs[0]
+                first_paragraph = False
+                p.space_before = Pt(0)
+                p.space_after = Pt(14)
                 
+                run_prefix = p.add_run()
+                run_prefix.text = "觀念核心： "
+                run_prefix.font.name = 'Microsoft JhengHei'
+                run_prefix.font.size = Pt(20)
+                run_prefix.font.bold = True
+                run_prefix.font.color.rgb = RGBColor(2, 132, 199) # Sky-700
+                
+                clean_concept = re.sub(r'^觀念核心[：:]\s*', '', core_concept_text)
+                add_bold_text_run(p, clean_concept, RGBColor(51, 65, 85), RGBColor(2, 132, 199))
+                p.font.name = 'Microsoft JhengHei'
+                p.font.size = Pt(20)
+                
+            # Render bullet items
+            for item in core_items:
+                if first_paragraph:
+                    p = tf.paragraphs[0]
+                    first_paragraph = False
+                else:
+                    p = tf.add_paragraph()
+                    
+                if item['level'] == 0:
+                    p.space_before = Pt(8)
+                    p.space_after = Pt(12)
+                    
+                    run_bullet = p.add_run()
+                    run_bullet.text = "✦  "
+                    run_bullet.font.name = 'Microsoft JhengHei'
+                    run_bullet.font.size = Pt(22)
+                    run_bullet.font.bold = True
+                    run_bullet.font.color.rgb = RGBColor(14, 165, 233) # Sky-500
+                else:
+                    p.space_before = Pt(4)
+                    p.space_after = Pt(8)
+                    p.left_indent = Inches(0.5)
+                    
+                    run_bullet = p.add_run()
+                    run_bullet.text = "•  "
+                    run_bullet.font.name = 'Microsoft JhengHei'
+                    run_bullet.font.size = Pt(18)
+                    run_bullet.font.bold = True
+                    run_bullet.font.color.rgb = RGBColor(125, 211, 252) # Sky-300
+                    
+                text_content = item['text']
+                if item['type'] == 'num_list':
+                    text_content = f"{item['num']}. {text_content}"
+                    
+                add_bold_text_run(p, text_content, RGBColor(51, 65, 85), RGBColor(3, 105, 161))
+                p.font.name = 'Microsoft JhengHei'
+                p.font.size = Pt(22 - item['level'] * 4)
+                
+            # Render Case Study at the bottom if present
             if case_study_text:
-                # Draw bottom callout box
-                draw_callout_box(
-                    slide, 
-                    case_study_text, 
-                    Inches(6.0), 
-                    Inches(0.9),
-                    RGBColor(255, 251, 235), # Amber-50 bg
-                    RGBColor(253, 230, 138), # Amber-200 border
-                    RGBColor(180, 83, 9)     # Amber-700 text accent
-                )
-                content_height -= Inches(1.0)
+                if first_paragraph:
+                    p = tf.paragraphs[0]
+                    first_paragraph = False
+                else:
+                    p = tf.add_paragraph()
+                    
+                p.space_before = Pt(20)
+                p.space_after = Pt(0)
                 
-            # Render remaining items in list format
-            if core_items:
-                contentBox = slide.shapes.add_textbox(Inches(0.8), top_offset, Inches(11.73), content_height)
-                tf = contentBox.text_frame
-                tf.word_wrap = True
+                run_prefix = p.add_run()
+                run_prefix.text = "實戰案例： "
+                run_prefix.font.name = 'Microsoft JhengHei'
+                run_prefix.font.size = Pt(20)
+                run_prefix.font.bold = True
+                run_prefix.font.color.rgb = RGBColor(180, 83, 9) # Amber-700
                 
-                first_item = True
-                for item in core_items:
-                    if first_item:
-                        p = tf.paragraphs[0]
-                        first_item = False
-                    else:
-                        p = tf.add_paragraph()
-                        
-                    if item['level'] == 0:
-                        p.space_before = Pt(8)
-                        p.space_after = Pt(12)
-                        
-                        run_bullet = p.add_run()
-                        run_bullet.text = "✦  "
-                        run_bullet.font.name = 'Microsoft JhengHei'
-                        run_bullet.font.size = Pt(28)
-                        run_bullet.font.bold = True
-                        run_bullet.font.color.rgb = RGBColor(14, 165, 233) # Sky-500
-                    else:
-                        p.space_before = Pt(4)
-                        p.space_after = Pt(8)
-                        p.left_indent = Inches(0.5)
-                        
-                        run_bullet = p.add_run()
-                        run_bullet.text = "•  "
-                        run_bullet.font.name = 'Microsoft JhengHei'
-                        run_bullet.font.size = Pt(25)
-                        run_bullet.font.bold = True
-                        run_bullet.font.color.rgb = RGBColor(125, 211, 252) # Sky-300
-                        
-                    text_content = item['text']
-                    if item['type'] == 'num_list':
-                        text_content = f"{item['num']}. {text_content}"
-                        
-                    add_bold_text_run(p, text_content, RGBColor(51, 65, 85), RGBColor(3, 105, 161))
-                    p.font.name = 'Microsoft JhengHei'
-                    p.font.size = Pt(28 - item['level'] * 3)
+                clean_case = re.sub(r'^實戰案例對撞[：:]\s*|^實戰案例[：:]\s*', '', case_study_text)
+                add_bold_text_run(p, clean_case, RGBColor(51, 65, 85), RGBColor(180, 83, 9))
+                p.font.name = 'Microsoft JhengHei'
+                p.font.size = Pt(20)
 
     prs.save(output_path)
     print(f"Presentation saved successfully to: {output_path}")

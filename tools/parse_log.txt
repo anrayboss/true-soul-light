@@ -1,0 +1,75 @@
+Slide 1: 前言：行銷與變現分享
+  has_dual_quotes: False
+Slide 2: 行銷界九陽神功：3 ╳ 3 大健康產業終極商業矩陣
+  has_dual_quotes: False
+Slide 3: 📊 九陽神功 3 ╳ 3 終極矩陣總覽
+  has_dual_quotes: False
+Slide 4:  行銷界九陽神功
+  has_dual_quotes: False
+Slide 5: 行銷的定義（美國行銷協會 AMA 最新版）
+  has_dual_quotes: False
+Slide 6: 神功總覽（終極極簡九宮格）
+  has_dual_quotes: False
+Slide 7: 西方科學依據（為什麼是 3 ╳ 3？）
+  has_dual_quotes: False
+Slide 8: 東方哲學（九宮格與道、法、術、器）
+  has_dual_quotes: False
+Slide 9: 產品 1 —— 離苦得樂（Why）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 馬斯洛（西方心理學泰斗） -> portrait: maslow.png
+    Name: 稻盛和夫（日本經營之聖） -> portrait: inamori.png
+Slide 10: 產品 2 —— 獨特優勢（How）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 邁克爾·波特（全球競爭策略之父） -> portrait: porter.png
+    Name: 孫子（東方兵學鼻祖） -> portrait: sun_tzu.png
+Slide 11: 獨特優勢之東西方大師佐證（How）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 邁克爾·波特（Michael Porter） -> portrait: porter.png
+    Name: 孫子（Sun Tzu） -> portrait: sun_tzu.png
+Slide 12: 產品 2 案例 —— 全家便利商店的百億逆襲
+  has_dual_quotes: False
+Slide 13: 產品 3 —— 心智定位（What）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 傑克·特勞特（全球定位之父） -> portrait: trout.png
+    Name: 鬼谷子（東方謀略鼻祖） -> portrait: guiguzi.png
+Slide 14: 推廣 4 —— 建立信任（Why）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 丹尼爾·康納曼（諾貝爾經濟學獎得主） -> portrait: kahneman.png
+    Name: 孔子（儒家至聖先師） -> portrait: confucius.png
+Slide 15: 推廣 5 —— 創造互動（How）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 羅伯特·西奧迪尼（全球影響力科學大師） -> portrait: cialdini.png
+    Name: 喬納·博格（《瘋潮行銷》大師） -> portrait: berger.png
+Slide 16: 推廣 6 —— 客從哪來（What）
+  has_dual_quotes: False
+Slide 17: 模式 7 —— 心靈自由（Why）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 亨利·福特（全球汽車工業之父） -> portrait: ford.png
+    Name: 王永慶（台灣經營之神） -> portrait: wang.png
+Slide 18: 🧠 腦科學加持——為什麼「離苦得樂」與「付出價值」是天道？
+  has_dual_quotes: False
+Slide 19: 模式 8 —— 物超所值（How）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 華萊士·瓦特斯（《失落的致富經典》作者） -> portrait: wattles.png
+    Name: 陶朱公（范蠡，東方商祖） -> portrait: fan_li.png
+Slide 20: 模式 9 —— 自動流程（What）
+  has_dual_quotes: True
+  quotes_data: 2 items
+    Name: 埃隆·馬斯克（全球科技冒險巨擘） -> portrait: musk.png
+    Name: 張忠謀（全球半導體教父） -> portrait: chang.png
+Slide 21: 實戰正課大綱：一鍵裝配商業王國
+  has_dual_quotes: False
+Slide 22: 用科技做後台，幫你做掉所有行政苦工；
+把省下來的寶貴時間，拿來對你的五星顧客，
+做全台灣最優雅、最無可取代的【人性服務】！
+  has_dual_quotes: False
+Slide 23:  安裝你的「宇宙收款機」
+  has_dual_quotes: False
