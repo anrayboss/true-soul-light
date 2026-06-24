@@ -103,11 +103,16 @@ def parse_single_slide(block_text):
     
     # Find the slide title (first line starting with # or ##)
     title_line_idx = -1
+    slide_num = None
     for i, line in enumerate(lines):
         stripped = line.strip()
         if stripped.startswith('#') or stripped.startswith('##'):
             title_line_idx = i
             raw_title = stripped.lstrip('#').strip()
+            # Extract slide number
+            match_num = re.search(r'Slide\s*(\d+)', raw_title, re.IGNORECASE)
+            if match_num:
+                slide_num = int(match_num.group(1))
             # Remove 🎞️ Slide X： prefix
             title = re.sub(r'^(?:🎞️\s*)?Slide\s*\d+\s*[：:]\s*', '', raw_title)
             title = title.strip()
@@ -304,7 +309,7 @@ def parse_single_slide(block_text):
         is_right = False
         
         for it in items:
-            t = it['text']
+            t = item_text = it['text']
             if '左半部分' in t or '左半邊' in t:
                 is_left = True
                 is_right = False
@@ -358,7 +363,8 @@ def parse_single_slide(block_text):
         'table_data': table_data,
         'has_dual_quotes': has_dual_quotes,
         'quotes_data': quotes_data,
-        'notes': notes
+        'notes': notes,
+        'slide_num': slide_num
     }
 
 def split_slides(slides_data):
@@ -407,7 +413,8 @@ def split_slides(slides_data):
                     'table_data': None,
                     'has_dual_quotes': False,
                     'quotes_data': [],
-                    'notes': slide['notes']
+                    'notes': slide['notes'],
+                    'slide_num': slide.get('slide_num')
                 }
                 
                 # Slide Part 2: Dual quotes layout (Left/Right cards only, no bottom case study)
@@ -419,7 +426,8 @@ def split_slides(slides_data):
                     'table_data': None,
                     'has_dual_quotes': True,
                     'quotes_data': slide['quotes_data'],
-                    'notes': slide['notes']
+                    'notes': slide['notes'],
+                    'slide_num': slide.get('slide_num')
                 }
                 
                 new_slides.append(slide_part1)
@@ -490,7 +498,8 @@ def split_slides(slides_data):
                 'table_data': slide['table_data'],
                 'has_dual_quotes': slide['has_dual_quotes'],
                 'quotes_data': slide['quotes_data'],
-                'notes': slide['notes']
+                'notes': slide['notes'],
+                'slide_num': slide.get('slide_num')
             })
             
     return new_slides
@@ -529,7 +538,8 @@ def split_table_slides(slides_data):
                 'table_data': {'headers': headers, 'rows': chunk},
                 'has_dual_quotes': slide['has_dual_quotes'],
                 'quotes_data': slide['quotes_data'],
-                'notes': slide['notes']
+                'notes': slide['notes'],
+                'slide_num': slide.get('slide_num')
             })
             
     return new_slides
@@ -607,6 +617,40 @@ def add_serif_text_run(paragraph, text):
                 run.font.italic = False
                 run.font.color.rgb = RGBColor(51, 65, 85)
 
+SUBJECTS = ["離苦得樂", "獨特優勢", "心智定位", "建立信任", "創造互動", "客從哪來", "心靈自由", "物超所值", "自動流程"]
+
+def add_progress_indicator(slide, slide_title):
+    current_idx = -1
+    for idx, sub in enumerate(SUBJECTS):
+        if sub in slide_title:
+            current_idx = idx
+            break
+    if "雙聖人" in slide_title:
+        current_idx = 1 # 獨特優勢
+        
+    if current_idx == -1:
+        return
+        
+    txBox = slide.shapes.add_textbox(Inches(12.121), Inches(2.594), Inches(1.173), Inches(2.393))
+    tf = txBox.text_frame
+    tf.word_wrap = True
+    tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+    
+    for idx, sub in enumerate(SUBJECTS):
+        p = tf.paragraphs[0] if idx == 0 else tf.add_paragraph()
+        p.alignment = PP_ALIGN.RIGHT  # 靠右對齊
+        p.text = f"{idx+1}. {sub}"
+        p.font.name = 'Microsoft JhengHei'
+        
+        if idx == current_idx:
+            p.font.size = Pt(12)
+            p.font.bold = True
+            p.font.color.rgb = RGBColor(2, 132, 199) # Sky-700
+        else:
+            p.font.size = Pt(10)
+            p.font.bold = True  # 粗體灰色
+            p.font.color.rgb = RGBColor(148, 163, 184) # Slate-400
+
 def create_presentation(slides_data, output_path):
     prs = Presentation()
     prs.slide_width = Inches(13.333)
@@ -616,21 +660,13 @@ def create_presentation(slides_data, output_path):
     
     for slide_data in slides_data:
         slide = prs.slides.add_slide(blank_layout)
+        is_target_slide = slide_data.get('slide_num') in [6, 7, 8, 10, 11, 12, 13, 14, 16, 17]
         
         # Apply premium light background (#FCFCFC)
         background = slide.background
         fill = background.fill
         fill.solid()
         fill.fore_color.rgb = RGBColor(252, 252, 252)
-        
-        # Draw slide border
-        border = slide.shapes.add_shape(
-            MSO_SHAPE.RECTANGLE, 
-            Inches(0.4), Inches(0.4), Inches(12.533), Inches(6.7)
-        )
-        border.fill.background()
-        border.line.color.rgb = RGBColor(226, 232, 240) # Slate-200
-        border.line.width = Pt(1.0)
         
         # Add speaker notes
         if slide_data['notes']:
@@ -699,7 +735,7 @@ def create_presentation(slides_data, output_path):
                 line.fill.fore_color.rgb = RGBColor(226, 232, 240) # Slate-200
                 line.line.fill.background()
                 
-            # Render Dual Columns (Symmetrical Portrait + Text below)
+            # Render Dual Columns
             case_study_text = ""
             for item in slide_data.get('items', []):
                 t = item['text']
@@ -715,106 +751,172 @@ def create_presentation(slides_data, output_path):
             left_portrait_file = get_portrait_filename(left_name)
             left_portrait_path = os.path.join(portrait_dir, left_portrait_file) if left_portrait_file else None
             
-            # Left Portrait - Align Left (3.139" x 3.139")
-            if left_portrait_path and os.path.exists(left_portrait_path):
-                slide.shapes.add_picture(left_portrait_path, Inches(1.73), Inches(1.8), Inches(3.139), Inches(3.139))
-            else:
-                shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(1.73), Inches(1.8), Inches(3.139), Inches(3.139))
-                shape.fill.solid()
-                shape.fill.fore_color.rgb = RGBColor(240, 249, 255)
-                shape.line.color.rgb = RGBColor(186, 230, 253)
-                shape.line.width = Pt(1.0)
-                tf = shape.text_frame
-                tf.word_wrap = True
-                p = tf.paragraphs[0]
-                p.text = left_name[:2]
-                p.font.name = 'DFKai-SB'
-                p.font.size = Pt(24)
-                p.font.bold = True
-                p.font.color.rgb = RGBColor(3, 105, 161)
-                p.alignment = PP_ALIGN.CENTER
-                
-            # Left Text Box - Align Left
-            txBox_left = slide.shapes.add_textbox(Inches(0.8), Inches(5.0), Inches(5.25), Inches(2.1))
-            tf_left = txBox_left.text_frame
-            tf_left.word_wrap = True
-            tf_left.margin_left = 0
-            tf_left.margin_right = 0
-            tf_left.margin_top = 0
-            tf_left.margin_bottom = 0
-            
-            p_left_name = tf_left.paragraphs[0]
-            p_left_name.text = left_name
-            p_left_name.font.name = 'DFKai-SB'
-            p_left_name.font.size = Pt(20)
-            p_left_name.font.bold = True
-            p_left_name.font.color.rgb = RGBColor(3, 105, 161) # Sky-700
-            p_left_name.space_after = Pt(10)
-            p_left_name.alignment = PP_ALIGN.CENTER
-            
-            p_left_body = tf_left.add_paragraph()
-            p_left_body.alignment = PP_ALIGN.CENTER
-            add_serif_text_run(p_left_body, quotes[0]['quote'])
-            
             # 2. Right Side (Eastern Master)
             right_name = quotes[1]['name'] if len(quotes) > 1 else "東方聖人"
             right_portrait_file = get_portrait_filename(right_name)
             right_portrait_path = os.path.join(portrait_dir, right_portrait_file) if right_portrait_file else None
-            
-            # Right Portrait - Align Right (3.139" x 3.139")
-            if right_portrait_path and os.path.exists(right_portrait_path):
-                slide.shapes.add_picture(right_portrait_path, Inches(8.689), Inches(1.8), Inches(3.139), Inches(3.139))
-            else:
-                shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(8.689), Inches(1.8), Inches(3.139), Inches(3.139))
-                shape.fill.solid()
-                shape.fill.fore_color.rgb = RGBColor(248, 250, 252)
-                shape.line.color.rgb = RGBColor(226, 232, 240)
-                shape.line.width = Pt(1.0)
-                tf = shape.text_frame
-                tf.word_wrap = True
-                p = tf.paragraphs[0]
-                p.text = right_name[:2]
-                p.font.name = 'DFKai-SB'
-                p.font.size = Pt(24)
-                p.font.bold = True
-                p.font.color.rgb = RGBColor(71, 85, 105)
-                p.alignment = PP_ALIGN.CENTER
+
+            if is_target_slide:
+                # NEW DUAL PORTRAIT LAYOUT
+                # Left Portrait - Sized and positioned at edge
+                if left_portrait_path and os.path.exists(left_portrait_path):
+                    slide.shapes.add_picture(left_portrait_path, Inches(-0.327), Inches(1.400), Inches(5.794), Inches(5.794))
+                else:
+                    shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(0.5), Inches(1.8), Inches(4.5), Inches(4.5))
+                    shape.fill.solid()
+                    shape.fill.fore_color.rgb = RGBColor(240, 249, 255)
+                    shape.line.color.rgb = RGBColor(186, 230, 253)
+                    tf = shape.text_frame
+                    p = tf.paragraphs[0]
+                    p.text = left_name[:2]
+                    p.font.name = 'DFKai-SB'
+                    p.font.size = Pt(36)
+                    p.alignment = PP_ALIGN.CENTER
                 
-            # Right Text Box - Align Right
-            txBox_right = slide.shapes.add_textbox(Inches(7.28), Inches(5.0), Inches(5.25), Inches(2.1))
-            tf_right = txBox_right.text_frame
-            tf_right.word_wrap = True
-            tf_right.margin_left = 0
-            tf_right.margin_right = 0
-            tf_right.margin_top = 0
-            tf_right.margin_bottom = 0
-            
-            p_right_name = tf_right.paragraphs[0]
-            p_right_name.text = right_name
-            p_right_name.font.name = 'DFKai-SB'
-            p_right_name.font.size = Pt(20)
-            p_right_name.font.bold = True
-            p_right_name.font.color.rgb = RGBColor(71, 85, 105) # Slate-600
-            p_right_name.space_after = Pt(10)
-            p_right_name.alignment = PP_ALIGN.CENTER
-            
-            p_right_body = tf_right.add_paragraph()
-            p_right_body.alignment = PP_ALIGN.CENTER
-            r_quote = quotes[1]['quote'] if len(quotes) > 1 else ""
-            add_serif_text_run(p_right_body, r_quote)
-            
-            # Render bottom case study callout if present
-            if case_study_text:
-                draw_callout_box(
-                    slide, 
-                    case_study_text, 
-                    Inches(5.85), 
-                    Inches(0.95),
-                    RGBColor(255, 251, 235), # Amber-50 bg
-                    RGBColor(253, 230, 138), # Amber-200 border
-                    RGBColor(180, 83, 9)     # Amber-700 text accent
-                )
-            
+                # Right Portrait - Sized and positioned at edge
+                if right_portrait_path and os.path.exists(right_portrait_path):
+                    slide.shapes.add_picture(right_portrait_path, Inches(8.142), Inches(1.378), Inches(5.794), Inches(5.794))
+                else:
+                    shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(8.333), Inches(1.8), Inches(4.5), Inches(4.5))
+                    shape.fill.solid()
+                    shape.fill.fore_color.rgb = RGBColor(248, 250, 252)
+                    shape.line.color.rgb = RGBColor(226, 232, 240)
+                    tf = shape.text_frame
+                    p = tf.paragraphs[0]
+                    p.text = right_name[:2]
+                    p.font.name = 'DFKai-SB'
+                    p.font.size = Pt(36)
+                    p.alignment = PP_ALIGN.CENTER
+
+                # Left Text Box (Western Master) - Align Left, Top Position
+                txBox_left = slide.shapes.add_textbox(Inches(4.241), Inches(1.830), Inches(5.250), Inches(2.020))
+                tf_left = txBox_left.text_frame
+                tf_left.word_wrap = True
+                tf_left.margin_left = tf_left.margin_right = tf_left.margin_top = tf_left.margin_bottom = 0
+                
+                p_left_name = tf_left.paragraphs[0]
+                p_left_name.text = left_name
+                p_left_name.font.name = 'DFKai-SB'
+                p_left_name.font.size = Pt(20)
+                p_left_name.font.bold = True
+                p_left_name.font.color.rgb = RGBColor(3, 105, 161) # Sky-700
+                p_left_name.space_after = Pt(10)
+                p_left_name.alignment = PP_ALIGN.LEFT
+                
+                p_left_body = tf_left.add_paragraph()
+                p_left_body.alignment = PP_ALIGN.LEFT
+                add_serif_text_run(p_left_body, quotes[0]['quote'])
+
+                # Right Text Box (Eastern Master) - Align Right, Bottom Position
+                txBox_right = slide.shapes.add_textbox(Inches(4.241), Inches(5.012), Inches(5.250), Inches(2.160))
+                tf_right = txBox_right.text_frame
+                tf_right.word_wrap = True
+                tf_right.margin_left = tf_right.margin_right = tf_right.margin_top = tf_right.margin_bottom = 0
+                
+                p_right_name = tf_right.paragraphs[0]
+                p_right_name.text = right_name
+                p_right_name.font.name = 'DFKai-SB'
+                p_right_name.font.size = Pt(20)
+                p_right_name.font.bold = True
+                p_right_name.font.color.rgb = RGBColor(71, 85, 105) # Slate-600
+                p_right_name.space_after = Pt(10)
+                p_right_name.alignment = PP_ALIGN.RIGHT
+                
+                p_right_body = tf_right.add_paragraph()
+                p_right_body.alignment = PP_ALIGN.RIGHT
+                r_quote = quotes[1]['quote'] if len(quotes) > 1 else ""
+                add_serif_text_run(p_right_body, r_quote)
+            else:
+                # ORIGINAL DUAL PORTRAIT LAYOUT
+                # Left Portrait - Align Left (3.139" x 3.139")
+                if left_portrait_path and os.path.exists(left_portrait_path):
+                    slide.shapes.add_picture(left_portrait_path, Inches(1.73), Inches(1.8), Inches(3.139), Inches(3.139))
+                else:
+                    shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(1.73), Inches(1.8), Inches(3.139), Inches(3.139))
+                    shape.fill.solid()
+                    shape.fill.fore_color.rgb = RGBColor(240, 249, 255)
+                    shape.line.color.rgb = RGBColor(186, 230, 253)
+                    shape.line.width = Pt(1.0)
+                    tf = shape.text_frame
+                    tf.word_wrap = True
+                    p = tf.paragraphs[0]
+                    p.text = left_name[:2]
+                    p.font.name = 'DFKai-SB'
+                    p.font.size = Pt(24)
+                    p.font.bold = True
+                    p.font.color.rgb = RGBColor(3, 105, 161)
+                    p.alignment = PP_ALIGN.CENTER
+                    
+                # Left Text Box - Align Left
+                txBox_left = slide.shapes.add_textbox(Inches(0.8), Inches(5.0), Inches(5.25), Inches(2.1))
+                tf_left = txBox_left.text_frame
+                tf_left.word_wrap = True
+                tf_left.margin_left = tf_left.margin_right = tf_left.margin_top = tf_left.margin_bottom = 0
+                
+                p_left_name = tf_left.paragraphs[0]
+                p_left_name.text = left_name
+                p_left_name.font.name = 'DFKai-SB'
+                p_left_name.font.size = Pt(20)
+                p_left_name.font.bold = True
+                p_left_name.font.color.rgb = RGBColor(3, 105, 161) # Sky-700
+                p_left_name.space_after = Pt(10)
+                p_left_name.alignment = PP_ALIGN.CENTER
+                
+                p_left_body = tf_left.add_paragraph()
+                p_left_body.alignment = PP_ALIGN.CENTER
+                add_serif_text_run(p_left_body, quotes[0]['quote'])
+                
+                # Right Portrait - Align Right (3.139" x 3.139")
+                if right_portrait_path and os.path.exists(right_portrait_path):
+                    slide.shapes.add_picture(right_portrait_path, Inches(8.689), Inches(1.8), Inches(3.139), Inches(3.139))
+                else:
+                    shape = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(8.689), Inches(1.8), Inches(3.139), Inches(3.139))
+                    shape.fill.solid()
+                    shape.fill.fore_color.rgb = RGBColor(248, 250, 252)
+                    shape.line.color.rgb = RGBColor(226, 232, 240)
+                    shape.line.width = Pt(1.0)
+                    tf = shape.text_frame
+                    tf.word_wrap = True
+                    p = tf.paragraphs[0]
+                    p.text = right_name[:2]
+                    p.font.name = 'DFKai-SB'
+                    p.font.size = Pt(24)
+                    p.font.bold = True
+                    p.font.color.rgb = RGBColor(71, 85, 105)
+                    p.alignment = PP_ALIGN.CENTER
+                    
+                # Right Text Box - Align Right
+                txBox_right = slide.shapes.add_textbox(Inches(7.28), Inches(5.0), Inches(5.25), Inches(2.1))
+                tf_right = txBox_right.text_frame
+                tf_right.word_wrap = True
+                tf_right.margin_left = tf_right.margin_right = tf_right.margin_top = tf_right.margin_bottom = 0
+                
+                p_right_name = tf_right.paragraphs[0]
+                p_right_name.text = right_name
+                p_right_name.font.name = 'DFKai-SB'
+                p_right_name.font.size = Pt(20)
+                p_right_name.font.bold = True
+                p_right_name.font.color.rgb = RGBColor(71, 85, 105) # Slate-600
+                p_right_name.space_after = Pt(10)
+                p_right_name.alignment = PP_ALIGN.CENTER
+                
+                p_right_body = tf_right.add_paragraph()
+                p_right_body.alignment = PP_ALIGN.CENTER
+                r_quote = quotes[1]['quote'] if len(quotes) > 1 else ""
+                add_serif_text_run(p_right_body, r_quote)
+                
+                # Render bottom case study callout if present
+                if case_study_text:
+                    draw_callout_box(
+                        slide, 
+                        case_study_text, 
+                        Inches(5.85), 
+                        Inches(0.95),
+                        RGBColor(255, 251, 235), # Amber-50 bg
+                        RGBColor(253, 230, 138), # Amber-200 border
+                        RGBColor(180, 83, 9)     # Amber-700 text accent
+                    )
+                    
         elif slide_data['table_data']:
             # Render Table Slide
             if slide_data['title']:
@@ -898,7 +1000,12 @@ def create_presentation(slides_data, output_path):
                     
         else:
             # Standard Content Slide
-            if slide_data['title']:
+            # Only draw title if it's not a target slide first-page
+            show_title = True
+            if is_target_slide and not slide_data.get('has_dual_quotes'):
+                show_title = False
+
+            if show_title and slide_data['title']:
                 accent_bar = slide.shapes.add_shape(
                     MSO_SHAPE.RECTANGLE,
                     Inches(0.8), Inches(0.65), Inches(0.08), Inches(0.6)
@@ -944,10 +1051,47 @@ def create_presentation(slides_data, output_path):
                 else:
                     core_items.append(item)
                     
-            top_offset = Inches(1.65)
-            content_height = Inches(5.0)
+            top_offset = Inches(2.161)
+            content_height = Inches(3.297)
             
-            contentBox = slide.shapes.add_textbox(Inches(0.8), top_offset, Inches(11.73), content_height)
+            # Draw background big quotes for design accent
+            quote_left_box = slide.shapes.add_textbox(Inches(1.3), Inches(1.6), Inches(1.0), Inches(1.2))
+            tf_ql = quote_left_box.text_frame
+            tf_ql.word_wrap = True
+            tf_ql.margin_left = tf_ql.margin_right = tf_ql.margin_top = tf_ql.margin_bottom = 0
+            p_ql = tf_ql.paragraphs[0]
+            p_ql.text = "“"
+            p_ql.font.name = 'Georgia'
+            p_ql.font.size = Pt(120)
+            if is_target_slide and not slide_data.get('has_dual_quotes'):
+                p_ql.font.color.rgb = RGBColor(0, 0, 0) # Black quote as requested
+            else:
+                p_ql.font.color.rgb = RGBColor(241, 245, 249) # Very light Slate-100
+            
+            quote_right_box = slide.shapes.add_textbox(Inches(10.7), Inches(4.4), Inches(1.0), Inches(1.2))
+            tf_qr = quote_right_box.text_frame
+            tf_qr.word_wrap = True
+            tf_qr.margin_left = tf_qr.margin_right = tf_qr.margin_top = tf_qr.margin_bottom = 0
+            p_qr = tf_qr.paragraphs[0]
+            p_qr.text = "”"
+            p_qr.font.name = 'Georgia'
+            p_qr.font.size = Pt(120)
+            if is_target_slide and not slide_data.get('has_dual_quotes'):
+                p_qr.font.color.rgb = RGBColor(0, 0, 0) # Black quote as requested
+            else:
+                p_qr.font.color.rgb = RGBColor(241, 245, 249) # Very light Slate-100
+            
+            # Draw vertical guide line if core concept is present (unless it is a target slide first page)
+            if core_concept_text and not (is_target_slide and not slide_data.get('has_dual_quotes')):
+                blockquote_line = slide.shapes.add_shape(
+                    MSO_SHAPE.RECTANGLE,
+                    Inches(1.85), Inches(2.1), Inches(0.03), Inches(0.85)
+                )
+                blockquote_line.fill.solid()
+                blockquote_line.fill.fore_color.rgb = RGBColor(14, 165, 233) # Sky-500
+                blockquote_line.line.fill.background()
+            
+            contentBox = slide.shapes.add_textbox(Inches(2.242), top_offset, Inches(8.670), content_height)
             tf = contentBox.text_frame
             tf.word_wrap = True
             
@@ -960,15 +1104,18 @@ def create_presentation(slides_data, output_path):
                 p.space_before = Pt(0)
                 p.space_after = Pt(14)
                 
-                run_prefix = p.add_run()
-                run_prefix.text = "觀念核心： "
-                run_prefix.font.name = 'Microsoft JhengHei'
-                run_prefix.font.size = Pt(20)
-                run_prefix.font.bold = True
-                run_prefix.font.color.rgb = RGBColor(2, 132, 199) # Sky-700
-                
                 clean_concept = re.sub(r'^觀念核心[：:]\s*', '', core_concept_text)
-                add_bold_text_run(p, clean_concept, RGBColor(51, 65, 85), RGBColor(2, 132, 199))
+                if is_target_slide and not slide_data.get('has_dual_quotes'):
+                    # Target slide: render only the concept text without "觀念核心: " prefix
+                    add_bold_text_run(p, clean_concept, RGBColor(51, 65, 85), RGBColor(2, 132, 199))
+                else:
+                    run_prefix = p.add_run()
+                    run_prefix.text = "觀念核心： "
+                    run_prefix.font.name = 'Microsoft JhengHei'
+                    run_prefix.font.size = Pt(20)
+                    run_prefix.font.bold = True
+                    run_prefix.font.color.rgb = RGBColor(2, 132, 199) # Sky-700
+                    add_bold_text_run(p, clean_concept, RGBColor(51, 65, 85), RGBColor(2, 132, 199))
                 p.font.name = 'Microsoft JhengHei'
                 p.font.size = Pt(20)
                 
@@ -1010,28 +1157,29 @@ def create_presentation(slides_data, output_path):
                 p.font.name = 'Microsoft JhengHei'
                 p.font.size = Pt(22 - item['level'] * 4)
                 
-            # Render Case Study at the bottom if present
+            # Render Case Study at the bottom if present (outside of contentBox)
             if case_study_text:
-                if first_paragraph:
-                    p = tf.paragraphs[0]
-                    first_paragraph = False
-                else:
-                    p = tf.add_paragraph()
-                    
-                p.space_before = Pt(20)
-                p.space_after = Pt(0)
+                caseBox = slide.shapes.add_textbox(Inches(1.697), Inches(6.313), Inches(9.940), Inches(0.572))
+                tf_case = caseBox.text_frame
+                tf_case.word_wrap = True
+                tf_case.margin_left = tf_case.margin_right = tf_case.margin_top = tf_case.margin_bottom = 0
+                p_case = tf_case.paragraphs[0]
+                p_case.alignment = PP_ALIGN.CENTER
                 
-                run_prefix = p.add_run()
+                run_prefix = p_case.add_run()
                 run_prefix.text = "實戰案例： "
                 run_prefix.font.name = 'Microsoft JhengHei'
-                run_prefix.font.size = Pt(20)
+                run_prefix.font.size = Pt(24)
                 run_prefix.font.bold = True
-                run_prefix.font.color.rgb = RGBColor(180, 83, 9) # Amber-700
+                run_prefix.font.color.rgb = RGBColor(2, 132, 199) # Sky-700
                 
                 clean_case = re.sub(r'^實戰案例對撞[：:]\s*|^實戰案例[：:]\s*', '', case_study_text)
-                add_bold_text_run(p, clean_case, RGBColor(51, 65, 85), RGBColor(180, 83, 9))
-                p.font.name = 'Microsoft JhengHei'
-                p.font.size = Pt(20)
+                add_bold_text_run(p_case, clean_case, RGBColor(51, 65, 85), RGBColor(2, 132, 199))
+                p_case.font.name = 'Microsoft JhengHei'
+                p_case.font.size = Pt(24)
+                
+            # Add dynamic progress indicator on the right
+            add_progress_indicator(slide, slide_data['title'])
 
     prs.save(output_path)
     print(f"Presentation saved successfully to: {output_path}")
