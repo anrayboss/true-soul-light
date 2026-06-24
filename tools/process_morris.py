@@ -1,8 +1,8 @@
 from PIL import Image
 import os
 
-src = r"C:\Users\anray\.gemini\antigravity-ide\brain\c842dec3-a88a-4def-aad7-8403fe8550d1\morris_chang_looking_left_1782277710792.png"
-dst = r"d:\Git\true-soul-light\tools\portraits\chang.png"
+src = r"C:\Users\anray\.gemini\antigravity-ide\brain\c842dec3-a88a-4def-aad7-8403fe8550d1\michael_porter_looking_right_1782305543769.png"
+dst = r"d:\Git\true-soul-light\tools\portraits\porter.png"
 
 if not os.path.exists(src):
     print(f"Source file not found: {src}")
@@ -26,4 +26,4 @@ for x in range(w):
 
 os.makedirs(os.path.dirname(dst), exist_ok=True)
 img.save(dst, "PNG")
-print("Successfully processed and saved Morris Chang portrait with transparency!")
+print("Successfully processed and saved Michael Porter portrait looking right with transparency!")
