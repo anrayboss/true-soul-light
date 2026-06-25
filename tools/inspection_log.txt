@@ -1,0 +1,560 @@
+Starting PPTX inspection...
+
+=========================================
+Inspecting: 圖表重製 (最終輸出用檔案/圖表重製.pptx)
+Total slides: 12
+
+--- Slide 1 ---
+  Shape: 'Google Shape;665;p86', Type: PLACEHOLDER (14), Pos: L=0.58", T=0.40", W=12.29", H=0.74" | Texts: 業力法則
+  Shape: 'Oval 666', Type: AUTO_SHAPE (1), Pos: L=3.14", T=3.61", W=0.90", H=0.90" | Texts: 我
+  Shape: 'Oval 667', Type: AUTO_SHAPE (1), Pos: L=3.14", T=1.51", W=0.90", H=0.90" | Texts: 世界
+  Shape: 'Down Arrow 668', Type: AUTO_SHAPE (1), Pos: L=3.44", T=4.79", W=0.20", H=0.67" | Texts: 
+  Shape: 'Up Arrow 669', Type: AUTO_SHAPE (1), Pos: L=3.64", T=4.79", W=0.20", H=0.67" | Texts: 
+  Shape: 'TextBox 670', Type: TEXT_BOX (17), Pos: L=3.18", T=2.69", W=0.20", H=0.74" | Texts: 促成成功
+  Shape: 'TextBox 671', Type: TEXT_BOX (17), Pos: L=3.82", T=2.66", W=0.20", H=0.70" | Texts: 帶來成功
+  Shape: 'Oval 672', Type: AUTO_SHAPE (1), Pos: L=1.17", T=3.61", W=0.90", H=0.90" | Texts: 同事
+  Shape: 'Right Arrow 673', Type: AUTO_SHAPE (1), Pos: L=4.27", T=3.83", W=0.67", H=0.20" | Texts: 
+  Shape: 'Left Arrow 674', Type: AUTO_SHAPE (1), Pos: L=4.27", T=4.03", W=0.67", H=0.20" | Texts: 
+  Shape: 'TextBox 675', Type: TEXT_BOX (17), Pos: L=2.26", T=3.61", W=0.70", H=0.20" | Texts: 促成成功
+  Shape: 'TextBox 676', Type: TEXT_BOX (17), Pos: L=2.26", T=4.26", W=0.70", H=0.20" | Texts: 帶來成功
+  Shape: 'Oval 677', Type: AUTO_SHAPE (1), Pos: L=3.14", T=5.67", W=0.90", H=0.90" | Texts: 供應商
+  Shape: 'Up Arrow 678', Type: AUTO_SHAPE (1), Pos: L=3.43", T=2.66", W=0.20", H=0.67" | Texts: 
+  Shape: 'Down Arrow 679', Type: AUTO_SHAPE (1), Pos: L=3.63", T=2.66", W=0.20", H=0.67" | Texts: 
+  Shape: 'Oval 682', Type: AUTO_SHAPE (1), Pos: L=5.21", T=3.58", W=0.90", H=0.90" | Texts: 顧客
+  Shape: 'Left Arrow 683', Type: AUTO_SHAPE (1), Pos: L=2.27", T=3.83", W=0.67", H=0.20" | Texts: 
+  Shape: 'Right Arrow 684', Type: AUTO_SHAPE (1), Pos: L=2.27", T=4.03", W=0.67", H=0.20" | Texts: 
+  Shape: 'TextBox 685', Type: TEXT_BOX (17), Pos: L=4.26", T=3.61", W=0.70", H=0.20" | Texts: 促成成功
+  Shape: 'TextBox 686', Type: TEXT_BOX (17), Pos: L=4.26", T=4.26", W=0.70", H=0.20" | Texts: 帶來成功
+  Shape: 'Oval 688', Type: AUTO_SHAPE (1), Pos: L=6.58", T=0.82", W=6.49", H=6.49" | Texts: 
+  Shape: 'TextBox 670', Type: TEXT_BOX (17), Pos: L=3.20", T=4.83", W=0.20", H=0.74" | Texts: 促成成功
+  Shape: 'TextBox 671', Type: TEXT_BOX (17), Pos: L=3.84", T=4.79", W=0.20", H=0.70" | Texts: 帶來成功
+  Shape: 'Oval 666', Type: AUTO_SHAPE (1), Pos: L=9.35", T=3.61", W=0.90", H=0.90" | Texts: 我
+  Shape: 'Oval 667', Type: AUTO_SHAPE (1), Pos: L=9.35", T=1.51", W=0.90", H=0.90" | Texts: 世界
+  Shape: 'Down Arrow 668', Type: AUTO_SHAPE (1), Pos: L=9.65", T=4.79", W=0.20", H=0.67" | Texts: 
+  Shape: 'Up Arrow 669', Type: AUTO_SHAPE (1), Pos: L=9.85", T=4.79", W=0.20", H=0.67" | Texts: 
+  Shape: 'TextBox 670', Type: TEXT_BOX (17), Pos: L=9.40", T=2.69", W=0.20", H=0.74" | Texts: 促成成功
+  Shape: 'TextBox 671', Type: TEXT_BOX (17), Pos: L=10.03", T=2.66", W=0.20", H=0.70" | Texts: 帶來成功
+  Shape: 'Oval 672', Type: AUTO_SHAPE (1), Pos: L=7.38", T=3.61", W=0.90", H=0.90" | Texts: 同事
+  Shape: 'Right Arrow 673', Type: AUTO_SHAPE (1), Pos: L=10.48", T=3.83", W=0.67", H=0.20" | Texts: 
+  Shape: 'Left Arrow 674', Type: AUTO_SHAPE (1), Pos: L=10.48", T=4.03", W=0.67", H=0.20" | Texts: 
+  Shape: 'TextBox 675', Type: TEXT_BOX (17), Pos: L=8.47", T=3.61", W=0.70", H=0.20" | Texts: 促成成功
+  Shape: 'TextBox 676', Type: TEXT_BOX (17), Pos: L=8.47", T=4.26", W=0.70", H=0.20" | Texts: 帶來成功
+  Shape: 'Oval 677', Type: AUTO_SHAPE (1), Pos: L=9.35", T=5.67", W=0.90", H=0.90" | Texts: 供應商
+  Shape: 'Up Arrow 678', Type: AUTO_SHAPE (1), Pos: L=9.64", T=2.66", W=0.20", H=0.67" | Texts: 
+  Shape: 'Down Arrow 679', Type: AUTO_SHAPE (1), Pos: L=9.84", T=2.66", W=0.20", H=0.67" | Texts: 
+  Shape: 'Oval 682', Type: AUTO_SHAPE (1), Pos: L=11.42", T=3.58", W=0.90", H=0.90" | Texts: 顧客
+  Shape: 'Left Arrow 683', Type: AUTO_SHAPE (1), Pos: L=8.48", T=3.83", W=0.67", H=0.20" | Texts: 
+  Shape: 'Right Arrow 684', Type: AUTO_SHAPE (1), Pos: L=8.48", T=4.03", W=0.67", H=0.20" | Texts: 
+  Shape: 'TextBox 685', Type: TEXT_BOX (17), Pos: L=10.47", T=3.61", W=0.70", H=0.20" | Texts: 促成成功
+  Shape: 'TextBox 686', Type: TEXT_BOX (17), Pos: L=10.47", T=4.26", W=0.70", H=0.20" | Texts: 帶來成功
+  Shape: 'TextBox 670', Type: TEXT_BOX (17), Pos: L=9.41", T=4.83", W=0.20", H=0.74" | Texts: 促成成功
+  Shape: 'TextBox 671', Type: TEXT_BOX (17), Pos: L=10.05", T=4.79", W=0.20", H=0.70" | Texts: 帶來成功
+  Shape: 'TextBox 687', Type: TEXT_BOX (17), Pos: L=10.96", T=2.55", W=0.57", H=0.24" | Texts: 大我
+
+--- Slide 2 ---
+  Shape: 'Google Shape;683;p91', Type: PLACEHOLDER (14), Pos: L=0.58", T=0.40", W=12.29", H=0.74" | Texts: 行銷三大要素
+  Shape: 'Rounded Rectangle 683', Type: AUTO_SHAPE (1), Pos: L=5.88", T=1.45", W=1.50", H=0.45" | Texts: 三大要素
+  Shape: 'Connector 684', Type: LINE (9), Pos: L=4.63", T=2.75", W=2.00", H=3.30"
+  Shape: 'Connector 685', Type: LINE (9), Pos: L=4.63", T=6.04", W=4.00", H=0.00"
+  Shape: 'Connector 686', Type: LINE (9), Pos: L=6.63", T=2.75", W=2.00", H=3.30"
+  Shape: 'Oval 687', Type: AUTO_SHAPE (1), Pos: L=6.03", T=2.15", W=1.20", H=1.20" | Texts: 產品
+  Shape: 'Oval 688', Type: AUTO_SHAPE (1), Pos: L=4.03", T=5.45", W=1.20", H=1.20" | Texts: 系統
+  Shape: 'Oval 689', Type: AUTO_SHAPE (1), Pos: L=8.03", T=5.45", W=1.20", H=1.20" | Texts: 流量
+
+--- Slide 3 ---
+  Shape: '群組 24', Type: GROUP (6), Pos: L=1.55", T=0.38", W=10.10", H=6.73"
+  Shape: 'Isosceles Triangle 720', Type: AUTO_SHAPE (1), Pos: L=5.97", T=0.39", W=1.26", H=1.11" | Texts: 
+  Shape: 'Trapezoid 721', Type: AUTO_SHAPE (1), Pos: L=5.31", T=1.51", W=2.57", H=1.13" | Texts: 
+  Shape: 'TextBox 722', Type: TEXT_BOX (17), Pos: L=6.10", T=2.64", W=1.00", H=0.40" | Texts: 自我實現需求
+  Shape: 'Trapezoid 723', Type: AUTO_SHAPE (1), Pos: L=4.66", T=2.64", W=3.89", H=1.12" | Texts: 
+  Shape: 'TextBox 724', Type: TEXT_BOX (17), Pos: L=5.80", T=2.77", W=1.60", H=0.20" | Texts: 尊重的需求
+  Shape: 'Trapezoid 725', Type: AUTO_SHAPE (1), Pos: L=4.02", T=3.76", W=5.18", H=1.12" | Texts: 
+  Shape: 'TextBox 726', Type: TEXT_BOX (17), Pos: L=5.50", T=4.06", W=2.20", H=0.20" | Texts: 愛與歸屬的需求
+  Shape: 'Trapezoid 727', Type: AUTO_SHAPE (1), Pos: L=3.37", T=4.88", W=6.46", H=1.11" | Texts: 
+  Shape: 'TextBox 728', Type: TEXT_BOX (17), Pos: L=5.20", T=5.22", W=2.80", H=0.20" | Texts: 安全的需求
+  Shape: 'Trapezoid 729', Type: AUTO_SHAPE (1), Pos: L=2.73", T=5.99", W=7.75", H=1.12" | Texts: 
+  Shape: 'TextBox 730', Type: TEXT_BOX (17), Pos: L=4.90", T=6.26", W=3.40", H=0.20" | Texts: 生理的需求
+  Shape: 'TextBox 731', Type: TEXT_BOX (17), Pos: L=6.00", T=2.03", W=1.20", H=0.40" | Texts: 找到自我的完成 / 與實現個人潛能
+  Shape: 'TextBox 732', Type: TEXT_BOX (17), Pos: L=5.50", T=3.04", W=2.20", H=0.61" | Texts: 有能力感、得到讚許、承認1.受人尊重：希求別人的重視2.自我尊重：希求個人有價值
+  Shape: 'TextBox 733', Type: TEXT_BOX (17), Pos: L=5.30", T=4.34", W=2.60", H=0.20" | Texts: 與他人親近、被接受、歸屬感
+  Shape: 'TextBox 734', Type: TEXT_BOX (17), Pos: L=5.30", T=5.54", W=2.60", H=0.20" | Texts: 感覺安全、有保障、免於危險
+  Shape: 'TextBox 735', Type: TEXT_BOX (17), Pos: L=5.30", T=6.59", W=2.60", H=0.20" | Texts: 飢、渴、睡眠、性慾
+  Shape: 'Up Arrow 736', Type: AUTO_SHAPE (1), Pos: L=1.14", T=0.81", W=0.55", H=5.18" | Texts: 
+  Shape: 'TextBox 737', Type: TEXT_BOX (17), Pos: L=1.21", T=2.96", W=0.40", H=0.85" | Texts: 認 / 知 / 需 / 求
+  Shape: 'Rectangle 738', Type: AUTO_SHAPE (1), Pos: L=7.50", T=-84.97", W=1.60", H=0.01" | Texts: 
+  Shape: 'Up-Down Arrow 739', Type: AUTO_SHAPE (1), Pos: L=11.03", T=0.30", W=0.26", H=2.30" | Texts: 
+  Shape: 'Rounded Rectangle 740', Type: AUTO_SHAPE (1), Pos: L=11.71", T=1.25", W=0.99", H=0.40" | Texts: 衍生需求
+  Shape: 'Up-Down Arrow 741', Type: AUTO_SHAPE (1), Pos: L=11.03", T=2.62", W=0.26", H=4.48" | Texts: 
+  Shape: 'Rounded Rectangle 742', Type: AUTO_SHAPE (1), Pos: L=11.60", T=4.61", W=1.22", H=0.50" | Texts: 基本需求（匱乏需求）
+  Shape: '等腰三角形 1', Type: AUTO_SHAPE (1), Pos: L=2.72", T=0.41", W=7.76", H=6.69" | Texts: 
+  Shape: 'TextBox 724', Type: TEXT_BOX (17), Pos: L=5.80", T=1.76", W=1.60", H=0.20" | Texts: 自我實現需求
+  Shape: 'TextBox 724', Type: TEXT_BOX (17), Pos: L=5.81", T=1.21", W=1.60", H=0.20" | Texts: Metaneeds
+  Shape: '直線接點 28', Type: LINE (9), Pos: L=7.90", T=2.63", W=3.02", H=0.00"
+
+--- Slide 4 ---
+  Shape: 'Oval 1', Type: AUTO_SHAPE (1), Pos: L=4.66", T=0.30", W=4.02", H=4.02" | Texts: 
+  Shape: 'Oval 2', Type: AUTO_SHAPE (1), Pos: L=3.22", T=1.81", W=4.02", H=4.02" | Texts: 
+  Shape: 'Oval 3', Type: AUTO_SHAPE (1), Pos: L=6.09", T=1.81", W=4.02", H=4.02" | Texts: 
+  Shape: 'Oval 4', Type: AUTO_SHAPE (1), Pos: L=4.66", T=3.18", W=4.02", H=4.02" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=5.17", T=1.06", W=3.00", H=0.40" | Texts: 你享受的事Things you love
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=3.17", T=3.48", W=2.00", H=0.40" | Texts: 你擅長的事Things you're good at
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=8.17", T=3.48", W=2.00", H=0.40" | Texts: 世界需要的事What the world needs
+  Shape: 'TextBox 8', Type: TEXT_BOX (17), Pos: L=5.17", T=6.08", W=3.00", H=0.40" | Texts: 別人會付錢請你做的事Things you can be paid for
+  Shape: 'TextBox 9', Type: TEXT_BOX (17), Pos: L=5.09", T=2.56", W=0.70", H=0.20" | Texts: 熱情
+  Shape: 'TextBox 10', Type: TEXT_BOX (17), Pos: L=7.47", T=2.52", W=0.70", H=0.20" | Texts: 使命
+  Shape: 'TextBox 11', Type: TEXT_BOX (17), Pos: L=5.09", T=4.87", W=0.70", H=0.20" | Texts: 專業
+  Shape: 'TextBox 12', Type: TEXT_BOX (17), Pos: L=7.47", T=4.88", W=0.70", H=0.20" | Texts: 職志
+  Shape: 'Oval 13', Type: AUTO_SHAPE (1), Pos: L=6.22", T=3.30", W=0.90", H=0.90" | Texts: Ikigai意義
+  Shape: 'TextBox 14', Type: TEXT_BOX (17), Pos: L=0.80", T=1.78", W=2.20", H=0.40" | Texts: 生活滿足但感到不被重用
+  Shape: 'TextBox 16', Type: TEXT_BOX (17), Pos: L=10.76", T=1.78", W=2.20", H=0.40" | Texts: 滿足+被需要感但經濟不富裕
+  Shape: 'TextBox 18', Type: TEXT_BOX (17), Pos: L=0.80", T=6.08", W=2.20", H=0.20" | Texts: 舒適但感到空虛
+  Shape: 'TextBox 20', Type: TEXT_BOX (17), Pos: L=10.76", T=5.88", W=2.20", H=0.40" | Texts: 有成就感但偶爾會迷惘
+  Shape: '手繪多邊形: 圖案 34', Type: FREEFORM (5), Pos: L=2.59", T=1.90", W=3.11", H=1.97" | Texts: 
+  Shape: '手繪多邊形: 圖案 35', Type: FREEFORM (5), Pos: L=2.57", T=4.68", W=4.08", H=1.52" | Texts: 
+  Shape: '手繪多邊形: 圖案 37', Type: FREEFORM (5), Pos: L=6.69", T=1.55", W=4.55", H=1.30" | Texts: 
+  Shape: '手繪多邊形: 圖案 38', Type: FREEFORM (5), Pos: L=7.52", T=3.79", W=3.89", H=2.17" | Texts: 
+
+--- Slide 5 ---
+  Shape: 'Google Shape;289;g3f251152d7f_0_112', Type: AUTO_SHAPE (1), Pos: L=2.52", T=1.26", W=4.15", H=2.65" | Texts: 
+  Shape: 'Google Shape;290;g3f251152d7f_0_112', Type: AUTO_SHAPE (1), Pos: L=6.68", T=3.89", W=4.15", H=2.65" | Texts: 
+  Shape: 'Google Shape;291;g3f251152d7f_0_112', Type: AUTO_SHAPE (1), Pos: L=6.67", T=1.26", W=4.15", H=2.65" | Texts: 
+  Shape: 'Google Shape;292;g3f251152d7f_0_112', Type: AUTO_SHAPE (1), Pos: L=2.52", T=3.89", W=4.15", H=2.65" | Texts: 
+  Shape: 'Google Shape;293;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=0.82", T=0.28", W=11.90", H=0.73" | Texts: 市場利基四象限：用需求 × 競爭找「黃金縫隙」
+  Shape: 'Google Shape;294;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=3.76", T=2.08", W=1.67", H=0.62" | Texts: 黃金縫隙
+  Shape: 'Google Shape;295;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=7.52", T=4.67", W=2.49", H=0.62" | Texts: 黑洞（避開）
+  Shape: 'Google Shape;296;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=3.42", T=4.67", W=2.36", H=0.62" | Texts: 觀察 / 測試區
+  Shape: 'Google Shape;297;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=7.91", T=2.08", W=1.67", H=0.62" | Texts: 紅海
+  Shape: 'Google Shape;298;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=2.83", T=2.86", W=3.52", H=0.88" | Texts: 有需求，但還沒被做好=最賺錢的位置 / 用專業差異切入→做高信任 × 高單價=價格權力
+  Shape: 'Google Shape;299;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=6.98", T=2.86", W=3.52", H=0.88" | Texts: 市場很大，一進去就被淹沒 / 解法：極度細分 or 重新定位 / 紅海不是不能做，是要「切一刀」
+  Shape: 'Google Shape;300;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=2.84", T=5.30", W=3.52", H=0.88" | Texts: 現在沒市場，不代表未來沒有 / 任務：教育市場+測試內容
+  Shape: 'Google Shape;301;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=7.00", T=5.30", W=3.52", H=0.88" | Texts: 沒差異 × 沒需求 = 流量黑洞 / 做再多內容都不會變現 / 沒有差異的技能，最後都變成價格戰
+  Shape: 'Google Shape;302;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=3.42", T=1.50", W=2.23", H=0.46" | Texts: 高需求 × 低競爭
+  Shape: 'Google Shape;303;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=6.82", T=1.50", W=3.83", H=0.46" | Texts: 高需求 × 高競爭（可做但要切細)
+  Shape: 'Google Shape;304;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=3.48", T=4.17", W=2.23", H=0.46" | Texts: 低需求 × 低競爭
+  Shape: 'Google Shape;305;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=7.64", T=4.17", W=2.23", H=0.46" | Texts: 低需求 × 低競爭
+  Shape: 'Google Shape;306;g3f251152d7f_0_112', Type: AUTO_SHAPE (1), Pos: L=2.65", T=6.74", W=8.17", H=0.29" | Texts: 
+  Shape: 'Google Shape;307;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=5.55", T=6.97", W=2.23", H=0.46" | Texts: 競爭者密度
+  Shape: 'Google Shape;308;g3f251152d7f_0_112', Type: AUTO_SHAPE (1), Pos: L=1.83", T=1.33", W=0.30", H=5.18" | Texts: 
+  Shape: 'Google Shape;309;g3f251152d7f_0_112', Type: TEXT_BOX (17), Pos: L=1.14", T=2.74", W=0.75", H=2.02" | Texts: 市 / 場 / 需 / 求 / 強 / 度
+
+--- Slide 6 ---
+  Shape: 'Google Shape;314;g3f251152d7f_0_137', Type: TEXT_BOX (17), Pos: L=0.80", T=0.40", W=11.70", H=0.22" | Texts: 定位策略思維
+  Shape: 'Google Shape;315;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.90", W=11.73", H=0.02" | Texts: 
+  Shape: 'Google Shape;316;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.50", W=4.50", H=4.50" | Texts: 別怪市場不好 / 是你站錯位置
+  Shape: 'Google Shape;317;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=5.73", T=1.50", W=6.80", H=0.70" | Texts: STEP 1   盤點你現在在哪一格
+  Shape: 'Google Shape;318;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=5.73", T=2.45", W=6.80", H=0.70" | Texts: STEP 2   如果在紅海 → 切細分
+  Shape: 'Google Shape;319;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=5.73", T=3.40", W=6.80", H=0.70" | Texts: STEP 3   如果在黑洞 → 重做定位
+  Shape: 'Google Shape;320;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=5.73", T=4.35", W=6.80", H=0.70" | Texts: STEP 4   如果在觀察區 → 做內容測試
+  Shape: 'Google Shape;321;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=5.73", T=5.30", W=6.80", H=0.70" | Texts: STEP 5   目標 → 移動到「黃金縫隙」
+  Shape: 'Google Shape;322;g3f251152d7f_0_137', Type: AUTO_SHAPE (1), Pos: L=0.80", T=6.50", W=11.73", H=0.02" | Texts: 
+  Shape: 'Google Shape;323;g3f251152d7f_0_137', Type: TEXT_BOX (17), Pos: L=0.80", T=6.65", W=6.20", H=0.29" | Texts: 定位策略思維                                                                                                                 Slide 1 / 2
+
+--- Slide 7 ---
+  Shape: 'Google Shape;328;g3f251152d7f_0_1', Type: AUTO_SHAPE (1), Pos: L=3.54", T=2.57", W=4.21", H=4.04" | Texts: 
+  Shape: 'Google Shape;329;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=0.58", T=0.40", W=12.29", H=0.74" | Texts: 找到定位的方法
+  Shape: 'Google Shape;330;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=1.48", T=5.11", W=1.30", H=0.59" | Texts: 大數據
+  Shape: 'Google Shape;331;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=6.44", T=1.47", W=1.47", H=0.59" | Texts: 個人觀感
+  Shape: 'Google Shape;332;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=8.45", T=4.94", W=1.47", H=0.59" | Texts: 他人觀感
+  Shape: 'Google Shape;333;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=9.71", T=0.63", W=0.92", H=1.34" | Texts: 自傳 / 興趣 / 專長
+  Shape: 'Google Shape;334;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=3.80", T=5.11", W=3.15", H=0.59" | Texts: 儀器 或客觀測試
+  Shape: 'Google Shape;335;g3f251152d7f_0_1', Type: PLACEHOLDER (14), Pos: L=11.23", T=5.65", W=0.92", H=0.59" | Texts: 諮詢
+  Shape: 'Google Shape;336;g3f251152d7f_0_1', Type: AUTO_SHAPE (1), Pos: L=5.09", T=0.52", W=4.32", H=4.29" | Texts: 
+  Shape: 'Google Shape;337;g3f251152d7f_0_1', Type: AUTO_SHAPE (1), Pos: L=6.63", T=2.54", W=4.39", H=4.11" | Texts: 
+  Shape: 'Google Shape;338;g3f251152d7f_0_1', Type: LINE (9), Pos: L=7.90", T=1.30", W=1.81", H=0.46"
+  Shape: 'Google Shape;339;g3f251152d7f_0_1', Type: LINE (9), Pos: L=2.78", T=5.41", W=1.03", H=0.00"
+  Shape: 'Google Shape;340;g3f251152d7f_0_1', Type: LINE (9), Pos: L=9.19", T=5.52", W=2.04", H=0.42"
+
+--- Slide 8 ---
+  Shape: 'Google Shape;345;g3f251152d7f_0_332', Type: TEXT_BOX (17), Pos: L=0.80", T=0.30", W=11.70", H=0.76" | Texts: 選題庫 × 新手定位賽道 / 用熱門主題找到內容方向，再從定位賽道建立長期輸出
+  Shape: 'Google Shape;346;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=0.50", T=1.30", W=6.00", H=5.40" | Texts: 
+  Shape: 'Google Shape;347;g3f251152d7f_0_332', Type: TEXT_BOX (17), Pos: L=0.70", T=1.40", W=5.60", H=0.40" | Texts: 🔥 熱門選題庫  九大內容主題，抓住觀眾眼球的切角
+  Shape: 'Google Shape;348;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=0.60", T=2.00", W=1.80", H=1.40" | Texts: 01 生活日常 / • 一週的快樂碎片• 收藏夏天的小美好• 獨居女子的夜間日常• 普通人拍出好vlog• 小套房的週末記錄• 每一天都獨一無二
+  Shape: 'Google Shape;349;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=2.50", T=2.00", W=1.80", H=1.40" | Texts: 02 家裝家居 / • 小家住出溫馨感• 角落收納空間翻倍• 家居好物升級幸福• 老屋改造前後對比• 擁有屬於自己的家• 出租宅佈置出質感
+  Shape: 'Google Shape;350;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=4.40", T=2.00", W=1.80", H=1.40" | Texts: 03 美食健康 / • 在家做的低卡甜點• 夜市酒店美食分享• Q彈米點心食譜• 上班族快速三餐• 減脂餐食推薦清單• 圍繞熱搜隱藏美食
+  Shape: 'Google Shape;351;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=0.60", T=3.55", W=1.80", H=1.40" | Texts: 04 寵物日常 / • 毛孩美容日記• 為什麼我家寵物這樣• 寵物雞是我的家人• 讓毛孩更健康快樂• 毛孩綠食料理分享• 新手養寵必備好物
+  Shape: 'Google Shape;352;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=2.50", T=3.55", W=1.80", H=1.40" | Texts: 05 旅遊遊玩 / • 這些地方去過幾個• 旅行，其實也是學習• 省錢又好玩的攻略• 旅行中的意外驚喜• 旅行教會我的那些事• 旅行必備物品清單
+  Shape: 'Google Shape;353;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=4.40", T=3.55", W=1.80", H=1.40" | Texts: 06 美妝護膚 / • 美妝靈感從哪來• 維持好膚質的方法• 值得試的護膚方法• 找到適合自己產品• 美妝好物必收藏• 通勤妝容十分鐘搞定
+  Shape: 'Google Shape;354;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=0.60", T=5.10", W=1.80", H=1.40" | Texts: 07 時尚穿搭 / • 我的衣櫃裡有什麼• 怎麼穿出自己風格• 找到適合自己穿搭• 一件單品多種造型• 這些單品一定要入手• 換季衣櫃整理術
+  Shape: 'Google Shape;355;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=2.50", T=5.10", W=1.80", H=1.40" | Texts: 08 職場打拼 / • 我的工作自由時光• 下班後我想怎麼放鬆• 在公司的職場觀察• 職場女性如何突破• 行業賺錢真實故事• 辦公室幸福感小技巧
+  Shape: 'Google Shape;356;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=4.40", T=5.10", W=1.80", H=1.40" | Texts: 09 母嬰親子 / • 育兒必備好物清單• 小家也有育兒樂趣• 新世代父母反向教育• 當媽以後也要愛自己• 媽媽覺醒成長日常• 親子互動的儀式感
+  Shape: 'Google Shape;357;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=6.80", T=1.30", W=6.00", H=5.40" | Texts: 
+  Shape: 'Google Shape;358;g3f251152d7f_0_332', Type: TEXT_BOX (17), Pos: L=7.00", T=1.40", W=5.60", H=0.40" | Texts: 🎯 新手定位賽道  找出你可以持續輸出的內容戰場
+  Shape: 'Google Shape;359;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=6.95", T=2.00", W=1.80", H=0.35" | Texts: ❶ 定位: 能「持續」輸出才是賽道
+  Shape: 'Google Shape;360;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=8.85", T=2.00", W=1.80", H=0.35" | Texts: ❷ 價值: 帳號為何存在？給觀眾什麼？
+  Shape: 'Google Shape;361;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=10.75", T=2.00", W=1.80", H=0.35" | Texts: ❸ 差異: 同題材你跟別人有何不同？
+  Shape: 'Google Shape;362;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=6.90", T=2.50", W=1.35", H=0.90" | Texts: 01 美妝 / • 護膚流程 • 妝容教學• 彩妝推薦 • 名人仿妝
+  Shape: 'Google Shape;363;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=8.35", T=2.50", W=1.35", H=0.90" | Texts: 02 Vlog / • 旅行 vlog • 生活 vlog• 美食 vlog • 職場 vlog
+  Shape: 'Google Shape;364;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=9.80", T=2.50", W=1.35", H=0.90" | Texts: 03 娛樂 / • 娛樂片段 • 舞蹈音樂• 明星觀察 • 娛樂資訊
+  Shape: 'Google Shape;365;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=11.25", T=2.50", W=1.35", H=0.90" | Texts: 04 職場 / • 職場溝通 • 面試經驗• 職場日常 • 技能教學
+  Shape: 'Google Shape;366;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=6.90", T=3.52", W=1.35", H=0.90" | Texts: 05 情感 / • 戀愛技巧 • 成長分享• 情感洞察 • 兩性關係
+  Shape: 'Google Shape;367;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=8.35", T=3.52", W=1.35", H=0.90" | Texts: 06 美食 / • 線下探店 • 料理教學• 美食分享 • 試吃評測
+  Shape: 'Google Shape;368;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=9.80", T=3.52", W=1.35", H=0.90" | Texts: 07 旅遊 / • 民宿推薦 • 行程規劃• 旅遊攻略 • 景點打卡
+  Shape: 'Google Shape;369;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=11.25", T=3.52", W=1.35", H=0.90" | Texts: 08 母嬰 / • 寶寶副食 • 母嬰好物• 育兒知識 • 早教教學
+  Shape: 'Google Shape;370;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=6.90", T=4.54", W=1.35", H=0.90" | Texts: 09 家居 / • 租屋改造 • 房間改造• 居家好物 • 裝修設計
+  Shape: 'Google Shape;371;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=8.35", T=4.54", W=1.35", H=0.90" | Texts: 10 穿搭 / • 時尚資訊 • 穿搭分享• 搭配教學 • 服裝評測
+  Shape: 'Google Shape;372;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=9.80", T=4.54", W=1.35", H=0.90" | Texts: 11 知識 / • 人文歷史 • 知識科普• 必讀書單 • 備考經驗
+  Shape: 'Google Shape;373;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=11.25", T=4.54", W=1.35", H=0.90" | Texts: 12 讀書 / • 習慣養成 • 讀書筆記• 書記分享 • 思維邏輯
+  Shape: 'Google Shape;374;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=6.90", T=5.56", W=1.35", H=0.90" | Texts: 13 寵物 / • 寵物飲食 • 萌寵日常• 養寵好物 • 養寵攻略
+  Shape: 'Google Shape;375;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=8.35", T=5.56", W=1.35", H=0.90" | Texts: 14 健身 / • 經驗分享 • 減脂打卡• 減脂食譜 • 健身乾貨
+  Shape: 'Google Shape;376;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=9.80", T=5.56", W=1.35", H=0.90" | Texts: 15 攝影 / • 設計案例 • 拍攝技巧• 寫真作品 • 器材教學
+  Shape: 'Google Shape;377;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=11.25", T=5.56", W=1.35", H=0.90" | Texts: 16 3C數位 / • 拆箱植草 • 產品評測• 新品開箱 • 使用指南
+  Shape: 'Google Shape;378;g3f251152d7f_0_332', Type: AUTO_SHAPE (1), Pos: L=0.80", T=6.80", W=11.73", H=0.02" | Texts: 
+  Shape: 'Google Shape;379;g3f251152d7f_0_332', Type: TEXT_BOX (17), Pos: L=0.80", T=6.92", W=6.31", H=0.29" | Texts: 選題庫 × 新手定位賽道                                                                                                   Slide 2 / 2
+
+--- Slide 9 ---
+  Shape: 'Google Shape;423;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=0.33", T=5.90", W=2.21", H=1.43"
+  Shape: 'Google Shape;427;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=0.33", T=4.08", W=2.21", H=1.43"
+  Shape: 'Google Shape;431;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=0.33", T=2.27", W=2.21", H=1.43"
+  Shape: 'Google Shape;435;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=3.42", T=1.25", W=2.01", H=6.08"
+  Shape: 'Google Shape;448;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=5.88", T=1.25", W=2.07", H=6.08"
+  Shape: 'Google Shape;461;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=8.40", T=1.25", W=2.02", H=6.08"
+  Shape: 'Google Shape;474;g3f251152d7f_0_623', Type: GROUP (6), Pos: L=10.87", T=1.25", W=1.98", H=6.08"
+  Shape: 'Google Shape;487;g3f251152d7f_0_623', Type: TEXT_BOX (17), Pos: L=3.15", T=0.26", W=10.00", H=0.68" | Texts: 社群操作技巧：軍師實戰策略
+  Shape: 'Google Shape;488;g3f251152d7f_0_623', Type: TEXT_BOX (17), Pos: L=0.17", T=0.26", W=2.52", H=0.68" | Texts: 社群策略
+  Shape: 'Google Shape;489;g3f251152d7f_0_623', Type: TEXT_BOX (17), Pos: L=2.54", T=0.26", W=2.52", H=0.68" | Texts: X
+
+--- Slide 10 ---
+  Shape: 'Google Shape;495;g3f251152d7f_0_694', Type: PICTURE (13), Pos: L=1.45", T=0.55", W=10.00", H=5.62"
+
+--- Slide 11 ---
+  Shape: 'Google Shape;538;g3f251152d7f_0_699', Type: PICTURE (13), Pos: L=0.17", T=0.17", W=12.74", H=7.17"
+
+--- Slide 12 ---
+  Shape: 'Google Shape;526;g3f251152d7f_2_5', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=2.02" | Texts: “
+  Shape: 'Google Shape;527;g3f251152d7f_2_5', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=2.02" | Texts: ”
+  Shape: 'Google Shape;528;g3f251152d7f_2_5', Type: TEXT_BOX (17), Pos: L=2.24", T=2.34", W=8.67", H=0.71" | Texts: 短影音 19 步
+  Shape: 'Google Shape;529;g3f251152d7f_2_5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.24" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Google Shape;530;g3f251152d7f_2_5', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Google Shape;531;g3f251152d7f_2_5', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Google Shape;532;g3f251152d7f_2_5', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.64" | Texts: 推廣 6 —— 客從哪來（What）
+
+=========================================
+Inspecting: 陳修平短影音保姆級教學 (最終輸出用檔案/陳修平短影音保姆級教學.pptx)
+Total slides: 8
+
+--- Slide 1 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.00", T=2.00", W=11.33", H=3.50" | Texts: 陳修平短影音保姆級教學大綱
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=4.50", T=3.60", W=4.33", H=0.03" | Texts: 
+
+--- Slide 2 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=6.50", T=2.20", W=0.33", H=0.04" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.00", T=2.60", W=11.33", H=2.50" | Texts: 📸 19 個核心拍攝與後製技巧
+
+--- Slide 3 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 一、 設備與相機參數設定
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.85", W=11.73", H=4.80" | Texts: ✦  1. 調亮螢幕：拍攝前如發現觀景螢幕偏暗，請先手動將螢幕亮度調亮，以利準確檢視畫面細節。 / ✦  2. 改設 60 幀：將左上角的參數設定（如 HD 30 幀）全部改為 60 幀（60 fps），拍出來的畫面更順暢、沒有延遲感。 / ✦  3. 自拍用前鏡頭：自己拍自己時可直接用前鏡頭，雖然畫質稍遜，但只要陽光等光線充足，畫面效果就不受影響。 / ✦  4. 拍人固定 1x 焦距：拍攝他人
+
+--- Slide 4 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 二、 運鏡與鏡頭移動
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.85", W=11.73", H=4.80" | Texts: ✦  5. 拍攝者自行移動：需要移動畫面時，請拍攝者自己移動，不要叫主角（被攝者）移動。 / ✦  6. 景物直接靠過去：拍風景或樹木時，直接往前走靠過去拍，不要用雙指在螢幕上拉近拉遠變焦。 / ✦  7. 廣角（0.5x）保持水平：使用 0.5 倍超廣角拍攝時必須保持手機水平。稍微傾斜會讓主角顯得極矮或極胖。 / ✦  8. 水平同步跟拍：主角在行進或移動時，拍攝者請維持與主角水平同步的速度跟著
+
+--- Slide 5 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 三、 構圖與視覺美化
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.85", W=11.73", H=4.80" | Texts: ✦  9. 開啟相機隔線：進入手機設定將相機的「格線/隔線」輔助功能打開，便於視覺定位。 / ✦  10. 主角置中與額頭對齊：構圖時將主角放在畫面正中間，並讓額頭對齊格線最上方的那條線，比例最為美觀。 / ✦  11. 避開穿頭殺（穿駝紗）：注意被攝者講話時，頭頂後方不要有柱子、樹木或其他雜物穿過，避免干擾聽眾的視覺專注度。
+
+--- Slide 6 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 四、 導演與被攝者引導（降壓技巧）
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.85", W=11.73", H=4.80" | Texts: ✦  12. 側邊 45 度角拍攝：幫別人拍攝時，不要直接擋在對方正前方（會給被攝者極大壓力且阻擋前進），應站在 45 度角斜前方拍攝。 / ✦  13. 對視引導法（鏡頭避讓）：將手機稍微移到側邊，讓被攝者看著拍攝者的眼睛說話。雖然他是在跟拍攝者對話，但在畫面上看起來就像是自然地對著鏡頭說話，能有效降低被攝者的鏡頭壓力。 / ✦  14. 句末停頓 1 秒：念稿或說話時，每講完一句話先停頓 1 
+
+--- Slide 7 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 五、 手持姿勢與環境收音
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.85", W=12.13", H=5.18" | Texts: ✦  15. 小指當底座支撐：手持手機時，用小手指墊在手機底部當作支架。有了支撐點，手持拍攝時間變長且不易手震。 / ✦  16. 手指避開鏡頭：現代手機鏡頭越來越多，握持時務必留意手指不要遮擋住任何一顆鏡頭。 / ✦  17. 背景避開大白牆：拍攝口播影片時，背景最好不要是單調的大白牆（視覺單調且無法說明所處情境），建議在戶外或畫面有延伸感的環境中拍攝。 / ✦  18. 外接麥克風必先測音：如
+
+--- Slide 8 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 六、 檔案管理與剪輯效率
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.85", W=11.73", H=4.80" | Texts: ✦  19. 一鏡到底不中斷：不論講錯、吃螺絲或頭髮亂了，都不要關掉相機重新開錄。維持一鏡到底錄成一個長檔案。雖然檔案可能很大（如 20 分鐘），但剪輯時只有一個軌道，比整理數十個零碎檔案更容易進行切片與後製。
+
+=========================================
+Inspecting: 行銷界九陽神功_排版美編完成 (最終輸出用檔案/行銷界九陽神功_完整講稿_排版美編完成.pptx)
+Total slides: 33
+
+--- Slide 1 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 前言：行銷與變現分享 (1/3)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=9.08", H=2.79" | Texts: ✦  大家好，我叫做仲豪。 / ✦  今天主要要跟大家分享：如何做身心健康產業的行銷與變現。 / ✦  內容主要有幾個重點與獨特之處： / ✦  一、有我 21 年行銷經驗，花了五百萬課程學費與花了至少1000 萬社會學費的內容整理
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 2 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 前言：行銷與變現分享 (2/3)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=2.88" | Texts: ✦  二、整理出最簡單易懂《行銷界的九陽神功》不必學這麼多也可以輕鬆做行銷 / ✦  三、不用拍這麼多片也可訂單爆量的方法，因為如果要像外面拍很多影片，要日更，真的是會讓人緊張 / ✦  四、外面你不會看到這整套方法，因為我過去都只傳給內部人員，而我這幾年來也確實達到成果
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 3 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 前言：行銷與變現分享 (3/3)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.82", H=3.62" | Texts: ✦  五、可以找到屬於你個人的行銷方式與建立 AI 資料庫 / ✦  六、很多內容是可以用很久的 因為我會從最基本的底層邏輯開始講。很多外面是學工具，學了三個月，一年就無法用。我這邊是學最基的道、法、術、器的順序 / ✦  然後，你會有以下這些疑慮，就是要不要花錢。今天我會講所有內容的濃縮包大概5%，最後的方案是買 3000、達成功課退 3000，總共 30 小時。所以你不需要擔心我要賣很貴的課程
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=5.32", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 4 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.00", T=2.64", W=11.33", H=1.58" | Texts: 行銷界九陽神功 / 3 ╳ 3 大健康產業終極商業矩陣
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=3.53", T=4.53", W=6.28", H=0.05" | Texts: 
+
+--- Slide 5 ---
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 📊 九陽神功 3 ╳ 3 終極矩陣總覽
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Table 5', Type: TABLE (19), Pos: L=0.80", T=1.85", W=11.73", H=4.77"
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+
+--- Slide 6 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.00", T=2.82", W=11.33", H=3.50" | Texts: 行銷界九陽神功 / 3 ╳ 3 大健康產業終極商業矩陣( 大健康與身心產業專屬 ╳ 終極變現底層思維)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=3.53", T=3.82", W=6.28", H=0.05" | Texts: 
+
+--- Slide 7 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 行銷的定義（美國行銷協會 AMA 最新版）
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=3.42" | Texts: 行銷是透過創造、溝通、傳遞和交換價值，使顧客、客戶、合作夥伴和整個社會能受益的活動、組織及過程。 / ✦  行銷不是操弄，行銷是價值的流通與利他。
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.71", T=5.20", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 8 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 神功總覽（終極極簡九宮格）
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=3.56" | Texts: ✦  矩陣內容： / •  一、 產品（創造價值）： 1. 離苦得樂 ➔ 2. 獨特優勢 ➔ 3. 心智定位 / •  二、 推廣（傳遞與溝通價值）： 4. 建立信任 ➔ 5. 創造互動 ➔ 6. 客從哪來 / •  三、 模式（價值交換）： 7. 心靈自由 ➔ 8. 物超所值 ➔ 9. 自動流程
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.71", T=5.45", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 9 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 西方科學依據（為什麼是 3 ╳ 3？）
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=3.61" | Texts: ✦  左卡： 大腦工作記憶限制（大腦主動加工的極限是 3 到 5 個組塊，3 ╳ 3 是黃金容量） / ✦  右卡： 認知安全感 (Cognitive Ease)（對稱的地圖能給大腦安全感，當覺得簡單，成交速度快十倍）
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.71", T=5.20", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 10 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 東方哲學（九宮格與道、法、術、器）
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=1.14", T=2.75", W=11.16", H=2.83" | Texts: ✦  道（Why）： 離苦得樂、建立信任、心靈自由（核心發心） / ✦  法（How）： 獨特優勢、創造互動、物超所值（策略法則） / ✦  術（What）： 心智定位、客從哪來、自動流程（落地戰術） / ✦  器（正課）： 實戰正課工具 ╳ 一鍵現場裝配（終極利器）
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=0.73", T=1.66", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=11.53", T=5.53", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 11 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.71", T=4.77", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.96", H=3.46" | Texts: 客人帶著痛與焦慮而來，他們買的不是你的產品長度，而是重獲幸福的解藥。 / ✦  三層需求： / •  🔹 生存需求（功能層）：解決身體的痛、生理的苦 / •  🔸 生活品質（情緒層）：提升日常的幸福感與情緒價值 / •  🔶 生命意義（認同層）：直達靈魂深處 of 自我實現與認同
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.81" | Texts: 實戰案例： 冥想軟體 Calm。它不賣功能，它只賣「今晚好眠」的痛苦救贖
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 產品 1 —— 離苦得樂（Why） (1/2)
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+
+--- Slide 12 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 產品 1 —— 離苦得樂（Why） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.33", T=1.40", W=5.79", H=5.79"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.14", T=1.38", W=5.79", H=5.79"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=4.24", T=1.83", W=5.25", H=1.49" | Texts: 馬斯洛（西方心理學泰斗） / "What a man can be, he must be." ➔ 人能成就什麼，他就必須去成就。這叫活著的意義。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.16", T=4.40", W=5.56", H=1.49" | Texts: 稻盛和夫（日本經營之聖） / "Free your soul from suffering by serving others with a pure heart." ➔ 用純粹的利他心去服務，靈魂就能擺脫痛苦、得到快樂。
+
+--- Slide 13 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=2.60" | Texts: 絕不拼低價流血，不隨緣。刻意拼裝一套別人無法輕易複製的技術與服務組合。 / ✦  12字奇兵心法： 你無我有 ➔ 你有我優 ➔ 你優我廉
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.40" | Texts: 實戰案例： lululemon ╳ 里仁有機
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 產品 2 —— 獨特優勢（How） (1/2)
+
+--- Slide 14 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 產品 2 —— 獨特優勢（How） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.14", T=1.38", W=5.79", H=5.79"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=3.78", T=1.87", W=5.25", H=1.49" | Texts: 邁克爾·波特（全球競爭策略之父） / "Competitive advantage is about being different." ➔ 贏的關鍵，就是跟別人不一樣，故意選一條不同的路。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.24", T=4.33", W=5.25", H=2.16" | Texts: 孫子（東方兵學鼻祖） / 「兵無常勢，水無常形，能因敵變化而取勝者，謂之神。」 ➔ 生意要像水一樣靈活，別人沒做的事情你拿來做，你就是神。
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.20", T=1.38", W=5.47", H=5.47"
+
+--- Slide 15 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.64" | Texts: 產品 2 案例 —— 全家便利商店的百億逆襲
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=4.47" | Texts: ✦  核心策略： 你無我有 ➔ 你有我優 ➔ 你優我廉 / ✦  實戰案例與根據： / •  🔹 你無我有： 率先推出「App隨買跨店取」與「Fami!ce 創意霜淇淋」，在對手反應過來前獨佔數位寄杯與冰品藍海。 / •  🔸 你有我優： 當對手跟進時，砸重金升級「Let's Café 100%單品咖啡」與「匠土司」，把大眾商品的品質做到極致差異化。 / •  🔶 你優我廉： 面對高檔下午茶餐廳的
+
+--- Slide 16 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.71", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=2.24", T=2.59", W=8.67", H=2.72" | Texts: 產品再好，定位模糊就是路人甲。你必須在客人的大腦格子裡，卡死唯一的代名詞。
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.40" | Texts: 實戰案例： 星巴克（第三空間）╳ 薰衣草森林（森林系放鬆）
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 產品 3 —— 心智定位（What） (1/2)
+
+--- Slide 17 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 產品 3 —— 心智定位（What） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.33", T=1.40", W=5.79", H=5.79"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.14", T=1.38", W=5.79", H=5.79"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=4.24", T=1.83", W=5.25", H=2.16" | Texts: 傑克·特勞特（全球定位之父） / "Positioning is not what you do to a product. Positioning is what you do to the mind of the prospect." ➔ 定位，不是改動產品，而是要在客人的腦袋裡，幫自己卡住一個位置。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.24", T=5.01", W=5.25", H=2.16" | Texts: 鬼谷子（東方謀略鼻祖） / 「聖人揣情摩意，度時量能。」 ➔ 厲害的人，會精準摸透客人的心思，給自己定好無可取代的位置。
+
+--- Slide 18 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=3.14", T=2.39", W=7.05", H=2.72" | Texts: 建立信任三細節：自證（自我肯定）➔ 見證（客戶口碑）➔ 實證（權威數據）。
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.81" | Texts: 實戰案例： 長庚生技。靠王永慶董事長的自身健康實踐，結合頂尖見證與科研數據建構防線
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 推廣 4 —— 建立信任（Why） (1/2)
+
+--- Slide 19 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 推廣 4 —— 建立信任（Why） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.33", T=1.40", W=5.79", H=5.79"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.14", T=1.38", W=5.79", H=5.79"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=4.24", T=1.83", W=5.25", H=1.82" | Texts: 丹尼爾·康納曼（諾貝爾經濟學獎得主） / "Familiarity breeds cognitive ease and a comforting feeling of safety." ➔ 大腦只要看到熟悉的、權威的東西，就會自動放下防備，覺得很安全。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.24", T=5.01", W=5.25", H=2.16" | Texts: 孔子（儒家至聖先師） / 「民無信不立。」 ➔ 做生意如果沒有信用與信任感，你連站都站不穩。
+
+--- Slide 20 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=3.40", T=2.75", W=6.36", H=1.81" | Texts: 私域能量梯子：有趣共振 ➔ 真誠連結 ➔感動分享。
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.81" | Texts: 實戰案例： 哇賽心理學。不講枯燥的論文學術，靠有趣好玩的心理學互動，與大眾真誠連結
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 推廣 5 —— 創造互動（How） (1/2)
+
+--- Slide 21 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 推廣 5 —— 創造互動（How） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.33", T=1.40", W=5.79", H=5.79"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.14", T=1.38", W=5.79", H=5.79"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=4.24", T=1.83", W=5.25", H=1.49" | Texts: 羅伯特·西奧迪尼（全球影響力科學大師） / "People prefer to say yes to those they know and like." ➔ 每個人都更喜歡對自己認識、而且喜歡的人說『好』。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.24", T=5.01", W=5.42", H=1.15" | Texts: 喬納·博格（《瘋潮行銷》大師） / "When we care, we share." ➔ 當我們在乎、靈魂受到觸動，大腦就會強烈渴望去分享。
+
+--- Slide 22 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=2.24", T=2.34", W=8.67", H=2.22" | Texts: 天網引流 ➔ 地網體驗 ➔ 人網口碑。 / ✦  東西方大師佐證： / •  👑 管仲（東方第一經濟學家/相國）： 「通流物資，客自引來。」 ➔ 把你的商業路徑理通順了，客商自己就會順著路引過來。
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.81" | Texts: 實戰案例： 台灣高鐵。天網做App預約與數位宣傳，地網做實體車站，人網口碑帶來極高回購率
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 推廣 6 —— 客從哪來（What）
+
+--- Slide 23 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=3.49", T=2.84", W=6.36", H=1.81" | Texts: 12 字財富循環：付出價值 ➔ 豐盛回流 ➔ 生生不息。
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.81" | Texts: 實戰案例： 佐登妮絲。從傳統美容升級為美學健康集團，不僅幫個案找回美麗，更成就了無數創業者的心靈自由
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 模式 7 —— 心靈自由（Why） (1/2)
+
+--- Slide 24 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 模式 7 —— 心靈自由（Why） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=0.16", T=1.40", W=4.84", H=5.45"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.62", T=1.91", W=5.23", H=4.92"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=3.78", T=1.83", W=5.36", H=1.49" | Texts: 亨利·福特（全球汽車工業之父） / "Nothing is hard if you divide it into small jobs." ➔ 只要你將複雜的任務切成小步驟，就沒有難做的事。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.41", T=5.01", W=5.36", H=1.49" | Texts: 王永慶（台灣經營之神） / 「刨根究底，簡單制度，徹頭徹尾去執行。」 ➔ 系統的核心是極致的複製，把複雜的事情弄成最簡單的制度去執行。
+
+--- Slide 25 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 🧠 腦科學加持——為什麼「離苦得樂」與「付出價值」是天道？
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.71", T=1.85", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=2.24", T=2.87", W=8.67", H=3.56" | Texts: ✦  核心概念： / •  鏡像神經元（Mirror Neurons）：大腦會複製他人的痛苦電訊號 / •  OXTR 催產素受體基因 ╳ AVPR1A 利他基因：幫助他人的生理本能 / •  Helper's High（利他高潮）：助人時多巴胺與內啡肽大量釋放
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=12.12", T=3.34", W=1.17", H=2.34" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=2.14", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=5.83", W=1.00", H=1.20" | Texts: ”
+
+--- Slide 26 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=2.33", T=3.18", W=8.67", H=0.71" | Texts: 五星顧客 ➔ 建立管道 ➔ 讓利倍增
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.40" | Texts: 實戰案例： Curves 女性健身 ╳ 馬修嚴選
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 模式 8 —— 物超所值（How） (1/2)
+
+--- Slide 27 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 模式 8 —— 物超所值（How） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.33", T=1.40", W=5.79", H=5.79"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.14", T=1.38", W=5.79", H=5.79"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=4.24", T=1.83", W=5.47", H=1.82" | Texts: 華萊士·瓦特斯（《失落的致富經典》作者） / "Give every person more in use value than you take from them in cash value." ➔ 你給別人的使用價值，必須遠遠大於你收回的現金價值。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.24", T=5.01", W=5.25", H=2.16" | Texts: 陶朱公（范蠡，東方商祖） / 「以義致利，利以義制。」 ➔ 追求利益必須符合道義，大方讓利給他人，才能獲得長遠的大利。
+
+--- Slide 28 ---
+  Shape: 'TextBox 1', Type: TEXT_BOX (17), Pos: L=1.30", T=1.60", W=1.00", H=1.20" | Texts: “
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=10.70", T=4.40", W=1.00", H=1.20" | Texts: ”
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=2.24", T=2.16", W=8.67", H=2.52" | Texts: 12 字系統法則：簡單方案 ➔ 科技系統 ➔ 複製模式。大師的肉身很尊貴，必須砍掉複雜的客製化，導入科技自動化，解放精力，批量複製團隊。
+  Shape: 'TextBox 4', Type: TEXT_BOX (17), Pos: L=1.70", T=6.31", W=9.94", H=0.40" | Texts: 實戰案例： 台灣高鐵 T-EX ╳ 星巴克 ╳ 麥當勞
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=12.12", T=2.59", W=1.17", H=2.29" | Texts: 1. 離苦得樂 / 2. 獨特優勢 / 3. 心智定位 / 4. 建立信任 / 5. 創造互動 / 6. 客從哪來 / 7. 心靈自由 / 8. 物超所值 / 9. 自動流程
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 模式 9 —— 自動流程（What） (1/2)
+
+--- Slide 29 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 模式 9 —— 自動流程（What） (2/2)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'Picture 4', Type: PICTURE (13), Pos: L=-0.33", T=1.40", W=5.79", H=5.79"
+  Shape: 'Picture 5', Type: PICTURE (13), Pos: L=8.28", T=1.65", W=5.49", H=5.24"
+  Shape: 'TextBox 6', Type: TEXT_BOX (17), Pos: L=4.24", T=1.83", W=5.25", H=1.49" | Texts: 伊隆·馬斯克（全球科技冒險巨擘） / "Automate everything that can be automated." ➔ 把所有重複、麻煩的步驟，通通交給系統自動化。
+  Shape: 'TextBox 7', Type: TEXT_BOX (17), Pos: L=4.24", T=5.01", W=5.25", H=2.16" | Texts: 張忠謀（全球半導體教父） / 「核心流程自動運轉，把重複的工作交給機器，人去創造價值。」
+
+--- Slide 30 ---
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 實戰正課大綱：一鍵裝配商業王國 (1/2)
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.65", W=11.73", H=4.06" | Texts: ✦  課程大綱： / •  說明會： 獨特優勢與報名優惠 / •  第一堂： 基礎理論與應用（底層邏輯，扎馬步） / •  第二堂： 如何找到獨特定位與使命（找到自己獨特優勢） / •  第三堂： 如何寫出自傳找到個人賣點 / •  第四堂： 透過第三方工具測驗（找到自己的定位） / •  第五堂： 流量與文案（文案公式與流量獲取方法）
+
+--- Slide 31 ---
+  Shape: 'Rectangle 2', Type: AUTO_SHAPE (1), Pos: L=0.80", T=0.65", W=0.08", H=0.60" | Texts: 
+  Shape: 'TextBox 3', Type: TEXT_BOX (17), Pos: L=1.05", T=0.60", W=11.48", H=0.80" | Texts: 實戰正課大綱：一鍵裝配商業王國 (2/2)
+  Shape: 'Rectangle 4', Type: AUTO_SHAPE (1), Pos: L=0.80", T=1.45", W=11.73", H=0.01" | Texts: 
+  Shape: 'TextBox 5', Type: TEXT_BOX (17), Pos: L=0.80", T=1.65", W=11.73", H=3.49" | Texts: ✦  課程大綱(續)： / •  第六堂： 商業模式與變現（變現模式） / •  第七堂： 如何選品與選人（好產品帶你上天堂） / •  第八堂： 如何做個人頁與粉絲頁 / •  第九堂： 如何做好轉換與運用工具跟進 / •  第十堂： 現場操作量測與畢業典禮
+
+--- Slide 32 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=0.70", T=2.12", W=11.93", H=3.25" | Texts: 用科技做後台，幫你省掉所有行政苦工；把寶貴時間拿來服務你的五星顧客。做全台灣最優雅、最無可取代的【人性服務】！ / 前台極致溫暖，後台極致自動。這，就是行銷界九陽神功。
+
+--- Slide 33 ---
+  Shape: 'Rectangle 1', Type: AUTO_SHAPE (1), Pos: L=0.40", T=0.40", W=12.53", H=6.70" | Texts: 
+  Shape: 'TextBox 2', Type: TEXT_BOX (17), Pos: L=1.00", T=2.82", W=11.33", H=3.50" | Texts: 安裝你的「宇宙收款機」 / 【 產品 x 推廣 ➔ 模式 】( 預約一對一現場診斷)
+  Shape: 'Rectangle 3', Type: AUTO_SHAPE (1), Pos: L=4.50", T=3.82", W=4.33", H=0.03" | Texts: 

@@ -194,7 +194,7 @@ def parse_single_slide(block_text):
         content_lines = remaining_content_lines
         
     is_cover = False
-    if title == "行銷界九陽神功" or "封面頁" in title or title == "行銷界九陽神功：3 ╳ 3 大健康產業終極商業矩陣" or "壓軸金句" in title or "結尾 CTA" in title or "CTA" in title:
+    if title == "行銷界九陽神功" or "封面頁" in title or title == "行銷界九陽神功：3 ╳ 3 大健康產業終極商業矩陣" or "壓軸金句" in title or "結尾 CTA" in title or "CTA" in title or "大健康產業" in title:
         is_cover = True
         
     items = []
@@ -660,7 +660,7 @@ def create_presentation(slides_data, output_path):
     
     for slide_data in slides_data:
         slide = prs.slides.add_slide(blank_layout)
-        is_target_slide = slide_data.get('slide_num') in [6, 7, 8, 10, 11, 12, 13, 14, 16, 17]
+        is_target_slide = slide_data.get('slide_num') in [6, 7, 8, 10, 11, 12, 13, 14, 16, 17] or slide_data.get('slide_num') in [101, 102, 103, 104, 105, 106]
         
         # Apply premium light background (#FCFCFC)
         background = slide.background
@@ -1000,12 +1000,7 @@ def create_presentation(slides_data, output_path):
                     
         else:
             # Standard Content Slide
-            # Only draw title if it's not a target slide first-page
-            show_title = True
-            if is_target_slide and not slide_data.get('has_dual_quotes'):
-                show_title = False
-
-            if show_title and slide_data['title']:
+            if slide_data['title']:
                 accent_bar = slide.shapes.add_shape(
                     MSO_SHAPE.RECTANGLE,
                     Inches(0.8), Inches(0.65), Inches(0.08), Inches(0.6)
@@ -1054,6 +1049,9 @@ def create_presentation(slides_data, output_path):
             top_offset = Inches(2.161)
             content_height = Inches(3.297)
             
+            # Determine if it's one of the 1-6 intro slides with illustrations
+            is_intro_illustration = slide_data.get('slide_num') in [101, 102, 103, 104, 105, 106]
+            
             # Draw background big quotes for design accent
             quote_left_box = slide.shapes.add_textbox(Inches(1.3), Inches(1.6), Inches(1.0), Inches(1.2))
             tf_ql = quote_left_box.text_frame
@@ -1068,7 +1066,9 @@ def create_presentation(slides_data, output_path):
             else:
                 p_ql.font.color.rgb = RGBColor(241, 245, 249) # Very light Slate-100
             
-            quote_right_box = slide.shapes.add_textbox(Inches(10.7), Inches(4.4), Inches(1.0), Inches(1.2))
+            # Position of quote right box depends on illustration
+            qr_left = Inches(8.4) if is_intro_illustration else Inches(10.7)
+            quote_right_box = slide.shapes.add_textbox(qr_left, Inches(4.4), Inches(1.0), Inches(1.2))
             tf_qr = quote_right_box.text_frame
             tf_qr.word_wrap = True
             tf_qr.margin_left = tf_qr.margin_right = tf_qr.margin_top = tf_qr.margin_bottom = 0
@@ -1091,9 +1091,23 @@ def create_presentation(slides_data, output_path):
                 blockquote_line.fill.fore_color.rgb = RGBColor(14, 165, 233) # Sky-500
                 blockquote_line.line.fill.background()
             
-            contentBox = slide.shapes.add_textbox(Inches(2.242), top_offset, Inches(8.670), content_height)
+            # Content Box position
+            cb_left = Inches(2.0) if is_intro_illustration else Inches(2.242)
+            cb_width = Inches(6.5) if is_intro_illustration else Inches(8.670)
+            contentBox = slide.shapes.add_textbox(cb_left, top_offset, cb_width, content_height)
             tf = contentBox.text_frame
             tf.word_wrap = True
+            
+            # Render illustration on the right side if intro_illustration
+            if is_intro_illustration:
+                num = slide_data.get('slide_num') - 100
+                ill_filename = f"intro_{num}.png"
+                portrait_dir = r"d:\Git\true-soul-light\tools\portraits"
+                ill_path = os.path.join(portrait_dir, ill_filename)
+                if os.path.exists(ill_path):
+                    slide.shapes.add_picture(ill_path, Inches(9.2), Inches(2.0), Inches(3.3), Inches(3.3))
+                else:
+                    print(f"Warning: Intro illustration path not found: {ill_path}")
             
             first_paragraph = True
             
@@ -1181,8 +1195,14 @@ def create_presentation(slides_data, output_path):
             # Add dynamic progress indicator on the right
             add_progress_indicator(slide, slide_data['title'])
 
-    prs.save(output_path)
-    print(f"Presentation saved successfully to: {output_path}")
+    try:
+        prs.save(output_path)
+        print(f"Presentation saved successfully to: {output_path}")
+    except PermissionError:
+        alt_path = output_path.replace(".pptx", "_v2.pptx")
+        print(f"Permission denied on {output_path} (possibly open in PowerPoint). Saving to alternative path: {alt_path}")
+        prs.save(alt_path)
+        print(f"Presentation saved successfully to: {alt_path}")
 
 
 if __name__ == "__main__":
